@@ -1,0 +1,8 @@
+# Kitti dataset
+http://www.cvlibs.net/datasets/kitti/
+
+# video for image processing with fourier transform:
+https://www.youtube.com/watch?v=oACegp4iGi0
+
+# good explanation for FT on images:
+https://plus.maths.org/content/fourier-transforms-images

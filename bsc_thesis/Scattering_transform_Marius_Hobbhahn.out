@@ -1,0 +1,13 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Theory}{}% 2
+\BOOKMARK [1][-]{section.2.1}{2D Image Processing}{chapter.2}% 3
+\BOOKMARK [1][-]{section.2.2}{Fourier Transformation}{chapter.2}% 4
+\BOOKMARK [2][-]{subsection.2.2.1}{One dimensional FT}{section.2.2}% 5
+\BOOKMARK [2][-]{subsection.2.2.2}{Two dimensional FT}{section.2.2}% 6
+\BOOKMARK [1][-]{section.2.3}{Scattering Transform}{chapter.2}% 7
+\BOOKMARK [2][-]{subsection.2.3.1}{Properties of the Scattering Transform}{section.2.3}% 8
+\BOOKMARK [1][-]{section.2.4}{Convolutional Neural Networks}{chapter.2}% 9
+\BOOKMARK [0][-]{chapter.3}{Experiments}{}% 10
+\BOOKMARK [1][-]{section.3.1}{Setup}{chapter.3}% 11
+\BOOKMARK [0][-]{chapter.4}{Results}{}% 12
+\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 13

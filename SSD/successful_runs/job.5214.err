@@ -1,0 +1,5 @@
+[33mWARNING: Ignoring user bind request: user bind control is disabled by system administrator
+[0m/home/hobbhahn/SSD/ssd.py:34: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  self.priors = Variable(self.priorbox.forward(), volatile=True)
+/home/hobbhahn/SSD/layers/modules/l2norm.py:17: UserWarning: nn.init.constant is now deprecated in favor of nn.init.constant_.
+  init.constant(self.weight,self.gamma)

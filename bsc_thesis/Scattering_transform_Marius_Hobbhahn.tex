@@ -1,0 +1,46 @@
+\documentclass[a4paper,cleardoubleempty,BCOR1cm]{scrbook}
+\input{header}
+
+\title{Fancy Title}
+\author{Marius Hobbhahn \thanks{e-mail: marius.hobbhahn@student.uni-tuebingen.de}}
+\date{\today}
+\begin{document}
+
+\input{teaser}
+
+\onehalfspacing % zeilen abstand 1.5
+
+\pagestyle{fancy}
+\fancyhf{}
+%\fancyhead[LE,RO]{\leftmark}   %current chapter and section on the outer side header
+%\fancyhead[RE,LO]{\thechapter}
+%\fancyfoot[CE,CO]{\rightmark}  %next chapter and section in the center bot
+\fancyfoot[LE,RO]{\thepage}  %page number on the outer bottom side
+
+\input{content/abstract}
+
+
+\tableofcontents
+
+%%%%% show current chapter on the top, current section and page number on the bottom %%%%
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\leftmark}   %current chapter and section on the outer side header
+\fancyhead[RE,LO]{\thechapter}
+\fancyfoot[CE,CO]{\rightmark}  %next chapter and section in the center bot
+\fancyfoot[LE,RO]{\thepage}  %page number on the outer bottom side
+
+\input{content/introduction}
+\input{content/theory}
+\input{content/experiments}
+\input{content/results}
+\input{content/conclusion}
+
+\appendix
+
+
+\bibliographystyle{alpha}
+\bibliography{bibliography}
+
+\end{document}
+

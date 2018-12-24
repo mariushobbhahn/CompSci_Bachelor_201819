@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cp -R $${HOME}/experiments/Datasets/cifarDataset.npy /scratch/$$SLURM_JOB_ID/cifarDataset.npy
+export PYTHONPATH=$${PYTHONPATH}:$${HOME}/Code/
+python3 $$1 --dataset_dir="/scratch/$$SLURM_JOB_ID/cifarDataset.npy" --train_time="${train_time}" --measuring_step_size="${measuring_step_size}" --momentum="${momentum}" --batchsize="${batchsize}" --experiment_name="${experiment_name}" --train_data_size="${train_data_size}" --random_seed="${random_seed}" --optimizer="${optimizer}" --loose_approximation_factor="${loose_approximation_factor}" --max_stepsize="${max_stepsize}" --decay="${decay}" --additional="${additional}"

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#SBATCH --job-name=${experiment_name}
+
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=5
+#SBATCH --mem-per-cpu=10G
+#SBATCH --gres=gpu:1080ti:1
+
+#SBATCH --partition=day
+#SBATCH --time=23:59:59
+# "minutes:seconds", "hours:minutes:seconds", "days-hours", "days-hours:minutes" and "days-hours:minutes:seconds"
+
+#SBATCH --error=${experiment_name}.err
+#SBATCH --output=${experiment_name}.out
+
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=marius.hobbhahn@student.uni-tuebingen.de
+
+
+srun -N1 -n1 -c $$SLURM_CPUS_PER_TASK --gres=gpu:1080ti:1 singularity exec --nv /home/ ${workpath}/${runfile} ${workpath}/${netfile}
+echo DONE!
