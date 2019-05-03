@@ -37,10 +37,14 @@ def str2bool(v):
 parser = argparse.ArgumentParser(
     description='Single Shot MultiBox Detector Evaluation')
 parser.add_argument('--trained_model',
-                    default='weights/ssd300x300_VOC_noR_10_125000.pth', type=str,
+                    default='weights/ssd_toy_data_300x300_random_batch_norm_12.8_125000.pth', type=str,
                     help='Trained state_dict file path to open')
-parser.add_argument('--dataset', default='VOC', choices=['VOC', 'kitti_voc', 'kitti_voc_small'],
-                    type=str, help='VOC, kitti_voc or kitti_voc_small')
+parser.add_argument('--dataset', default='toy_data', choices=['VOC', 'kitti_voc', 'kitti_voc_small', 'toy_data'],
+                    type=str, help='VOC, kitti_voc, toy_data or kitti_voc_small')
+parser.add_argument('--normalize', default=False, type=str2bool,
+                    help='normalize images before training')
+parser.add_argument('--subtract_mean', default=True, type=str2bool,
+                    help='subtract the color means before training')
 parser.add_argument('--scattering', default=False, type=str2bool,
                     help='Use scattering transform as first layers instead of normal CNN filters')
 #parser.add_argument('--dataset_root', default=kitti_ROOT,
@@ -55,8 +59,9 @@ parser.add_argument('--top_k', default=5, type=int,
                     help='Further restrict the number of predictions to parse')
 parser.add_argument('--cuda', default=True, type=str2bool,
                     help='Use cuda to train model')
-#parser.add_argument('--cleanup', default=True, type=str2bool,
-#                    help='Cleanup and remove results files following eval')
+parser.add_argument('--overwrite_existing', default=True, type=str2bool,
+                    help='overwrite existing eval .pkl files with annotations')
+parser.add_argument('--batch_norm', default=True, type=str2bool, help='add batch norm to all filters in vgg')
 
 
 
@@ -99,6 +104,18 @@ elif args.dataset == 'kitti_voc':
     set_type = 'val'
     labelmap = kitti_CLASSES
 
+elif args.dataset == 'toy_data':
+    dataset_root = toy_data_ROOT
+    annopath = os.path.join(dataset_root,  'Annotations', '%s.xml')
+    imgpath = os.path.join(dataset_root,  'JPEGImages', '%s.jpg')
+    imgsetpath = os.path.join(dataset_root, 'ImageSets',
+                          'Main', '{:s}.txt')
+    devkit_path = dataset_root
+    dataset_mean = (0,0,0)
+    set_type = 'test'
+    labelmap = toy_data_CLASSES
+
+
 elif args.dataset == 'kitti_voc_small':
     dataset_root = kitti_small_ROOT
     annopath = os.path.join(dataset_root,  'Annotations', '%s.xml')
@@ -107,7 +124,7 @@ elif args.dataset == 'kitti_voc_small':
                           'Main', '{:s}.txt')
     devkit_path = dataset_root
     dataset_mean = KITTI_MEANS
-    set_type = 'val'
+    set_type = 'train'
     labelmap = kitti_CLASSES
 
 print("loaded model: ", args.trained_model)
@@ -317,7 +334,7 @@ cachedir: Directory for caching the annotations
         lines = f.readlines()
     imagenames = [x.strip() for x in lines]
 
-    if not os.path.isfile(cachefile):
+    if not os.path.isfile(cachefile) or args.overwrite_existing:
         # load annots
         recs = {}
         for i, imagename in enumerate(imagenames):
@@ -333,9 +350,10 @@ cachedir: Directory for caching the annotations
         with open(cachefile, 'wb') as f:
             pickle.dump(recs, f)
     else:
-        # load
-        with open(cachefile, 'rb') as f:
-            recs = pickle.load(f)
+        raise Exception("this should not have happened!")
+#        # load
+#        with open(cachefile, 'rb') as f:
+#            recs = pickle.load(f)
 
     # extract gt objects for this class
     class_recs = {}
@@ -501,11 +519,26 @@ if __name__ == '__main__':
         cfg = voc
         dataset = VOCDetection(root = VOC_ROOT,
                                image_sets=[('2007', set_type)],
-                               transform=SSDAugmentation(size_x=cfg['dim_x'],
+                               transform = BaseTransform(size_x=cfg['dim_x'],
                                                          size_y=cfg['dim_y'],
-                                                         means=VOC_MEANS,
-                                                         normalize=False,
-                                                         eval=True))
+                                                         sub_mean=args.subtract_mean,
+                                                         mean=VOC_MEANS,
+                                                         normalize=args.normalize,
+                                                         norm_value=255),
+                               target_transform=VOCAnnotationTransform())
+
+    elif args.dataset == 'toy_data':
+        cfg = toy_data
+        dataset = toydataDetection(root = toy_data_ROOT,
+                               image_sets=[set_type],
+                               transform = BaseTransform(size_x=cfg['dim_x'],
+                                                         size_y=cfg['dim_y'],
+                                                         sub_mean=args.subtract_mean,
+                                                         mean=(0,0,0),
+                                                         normalize=args.normalize,
+                                                         norm_value=255),
+                               target_transform=toydataVOCAnnotationTransform())
+
 
     elif args.dataset == 'kitti_voc':
         if args.config == '300x300':
@@ -517,34 +550,36 @@ if __name__ == '__main__':
 
         dataset = kittiDetection(root = kitti_ROOT,
                                 image_sets=[set_type],
-                                transform = SSDAugmentation(size_x=cfg['dim_x'],
-                                                            size_y=cfg['dim_y'],
-                                                            means=KITTI_MEANS,
-                                                            normalize=False,
-                                                            eval=True))
+                                transform = BaseTransform(size_x=cfg['dim_x'],
+                                                          size_y=cfg['dim_y'],
+                                                          sub_mean=args.subtract_mean,
+                                                          mean=KITTI_MEANS,
+                                                          normalize=args.normalize,
+                                                          norm_value=255),
+                                target_transform=kittiVOCAnnotationTransform())
 
     elif args.dataset == 'kitti_voc_small':
         if args.config == '300x300':
-            cfg = kitti300x300
+            cfg = kitti300x300_small
         elif args.config == '1000x300':
-            cfg = kitti1000x300
+            cfg = kitti1000x300_small
         else:
             raise ValueError('The given configuration is not possible')
 
         dataset = kitti_small_Detection(root = kitti_small_ROOT,
                                         image_sets=[set_type],
-                                        transform = SSDAugmentation(size_x=cfg['dim_x'],
-                                                                    size_y=cfg['dim_y'],
-                                                                    means=KITTI_MEANS,
-                                                                    normalize=False,
-                                                                    eval=True))
+                                        transform = BaseTransform(size_x=cfg['dim_x'],
+                                                                  size_y=cfg['dim_y'],
+                                                                  sub_mean=args.subtract_mean,
+                                                                  mean=KITTI_MEANS,
+                                                                  normalize=args.normalize,
+                                                                  norm_value=255),
+                                        target_transform=kittiVOCAnnotationTransform())
 
     #print("ar during eval: ", cfg['aspect_ratios'])
     print("cfg: ", cfg)
-    if not args.scattering:
-        net = build_ssd('test', cfg['dim_x'], cfg['dim_y'], cfg['num_classes'], cfg)            # initialize SSD
-    else:
-        net = build_scattering_ssd('test', cfg['dim_x'], cfg['dim_y'], cfg['num_classes'], cfg)            # initialize SSD
+    net = build_ssd('test', cfg['dim_x'], cfg['dim_y'], cfg['num_classes'], cfg, args.batch_norm)            # initialize SSD
+
     net.load_state_dict(torch.load(args.trained_model))
     net.eval()
     print('Finished loading model!')
@@ -557,5 +592,5 @@ if __name__ == '__main__':
 
     # evaluation
     test_net(args.save_folder, net, args.cuda, dataset,
-             BaseTransform(net.size_x, net.size_y, dataset_mean), args.top_k, cfg['dim_y'],
+             BaseTransform(net.size_x, net.size_y, dataset_mean, normalize=args.normalize), args.top_k, cfg['dim_y'],
              thresh=args.confidence_threshold)

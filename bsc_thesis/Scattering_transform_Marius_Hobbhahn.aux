@@ -53,37 +53,59 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Two dimensional FT}{15}{subsection.2.2.2}}
 \newlabel{eq:forward_FT_2D}{{2.6}{15}{Two dimensional FT}{equation.2.2.6}{}}
 \newlabel{eq:inverse_FT_2D}{{2.7}{15}{Two dimensional FT}{equation.2.2.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}Scattering Transform}{15}{section.2.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Object detection}{15}{section.2.3}}
+\citation{LeCun1989BackpropagationAT}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces An example of a annotated image taken from the Kitti dataset. There are seven objects of four classes visible: cyclist, car, pedestrian and dontcare.\relax }}{16}{figure.caption.7}}
+\newlabel{fig:annot_example}{{2.3}{16}{An example of a annotated image taken from the Kitti dataset. There are seven objects of four classes visible: cyclist, car, pedestrian and dontcare.\relax }{figure.caption.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Convolutional Neural Networks}{16}{section.2.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces 3x3 convolution on 5x5 image. Resulting image is also 5x5 due to the padding of size 1 added on original image. \footnotemark \relax }}{17}{figure.caption.8}}
+\newlabel{fig:convolution}{{2.4}{17}{3x3 convolution on 5x5 image. Resulting image is also 5x5 due to the padding of size 1 added on original image. \protect \footnotemark \relax }{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}Scattering Transform}{17}{section.2.5}}
 \citation{scatteringTransform2012}
 \citation{scatteringTransform2012}
 \citation{scatteringTransform2012}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Complex morlet wavelet. a) Real part of $\psi $. b) Imaginary part of $\psi $. c) Fourier modulus $|\mathaccentV {hat}05E{\psi }|$. Image taken from \cite  {scatteringTransform2012}.\relax }}{16}{figure.caption.7}}
-\newlabel{fig:morlet2d}{{2.3}{16}{Complex morlet wavelet. a) Real part of $\psi $. b) Imaginary part of $\psi $. c) Fourier modulus $|\hat {\psi }|$. Image taken from \cite {scatteringTransform2012}.\relax }{figure.caption.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Properties of the Scattering Transform}{16}{subsection.2.3.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}Convolutional Neural Networks}{17}{section.2.4}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Experiments}{19}{chapter.3}}
+\newlabel{eq:morlet2d}{{2.8}{18}{Scattering Transform}{equation.2.5.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Complex morlet wavelet. a) Real part of $\psi $. b) Imaginary part of $\psi $. c) Fourier modulus $|\mathaccentV {hat}05E{\psi }|$. Image taken from \cite  {scatteringTransform2012}.\relax }}{18}{figure.caption.9}}
+\newlabel{fig:morlet2d}{{2.5}{18}{Complex morlet wavelet. a) Real part of $\psi $. b) Imaginary part of $\psi $. c) Fourier modulus $|\hat {\psi }|$. Image taken from \cite {scatteringTransform2012}.\relax }{figure.caption.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.1}Filter Bank}{18}{subsection.2.5.1}}
+\citation{scatteringTransform2012}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces Visualization of the filter bank. The $j=0,1,2$ describe the different downsample sizes. The $\theta =0,...,7$ describe the different angles. For these images $N,M=32, L=8, J=3$.\relax }}{19}{figure.caption.10}}
+\newlabel{fig:viz_filter_bank}{{2.6}{19}{Visualization of the filter bank. The $j=0,1,2$ describe the different downsample sizes. The $\theta =0,...,7$ describe the different angles. For these images $N,M=32, L=8, J=3$.\relax }{figure.caption.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.2}Scattering Paths}{19}{subsection.2.5.2}}
+\newlabel{subsec:scattering_path}{{2.5.2}{19}{Scattering Paths}{subsection.2.5.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.3}Scattering Networks}{20}{subsection.2.5.3}}
+\newlabel{eq:order1_num_filters}{{2.9}{20}{Scattering Networks}{equation.2.5.9}{}}
+\newlabel{eq:order2_num_filters}{{2.10}{20}{Scattering Networks}{equation.2.5.10}{}}
+\citation{scatteringTransform2012}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.7}{\ignorespaces Representation of a scattering network. Each black arrow is an output of scattering coefficients of the specified path. The $m=0,1,2,3$ indicates the layer in the network, i.e. the number of iterations of the scattering transform.\relax }}{21}{figure.caption.11}}
+\newlabel{fig:scattering_network}{{2.7}{21}{Representation of a scattering network. Each black arrow is an output of scattering coefficients of the specified path. The $m=0,1,2,3$ indicates the layer in the network, i.e. the number of iterations of the scattering transform.\relax }{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.4}Properties of the Scattering Transform}{21}{subsection.2.5.4}}
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Discussion of the properties}{22}{section*.12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.5}Hybrid Networks}{22}{subsection.2.5.5}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Experiments}{23}{chapter.3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\newlabel{chap:experiments}{{3}{19}{Experiments}{chapter.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Setup}{19}{section.3.1}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Results}{21}{chapter.4}}
+\newlabel{chap:experiments}{{3}{23}{Experiments}{chapter.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Setup}{23}{section.3.1}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Results}{25}{chapter.4}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\newlabel{chap:results}{{4}{21}{Results}{chapter.4}{}}
+\newlabel{chap:results}{{4}{25}{Results}{chapter.4}{}}
 \bibstyle{alpha}
 \bibdata{bibliography}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Conclusion}{23}{chapter.5}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Conclusion}{27}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\newlabel{sec:conclusion}{{5}{23}{Conclusion}{chapter.5}{}}
+\newlabel{sec:conclusion}{{5}{27}{Conclusion}{chapter.5}{}}
 \bibcite{3DScatteringTransformNeuro2017}{ACC{$^{+}$}17}
 \bibcite{scatteringTransform2012}{BM12}
+\bibcite{LeCun1989BackpropagationAT}{LBD{$^{+}$}89}
 \bibcite{ScalingTheScatteringTransform2017}{OBZ17}
 \bibcite{DeepRotoTranslation2014}{OM14}
 \bibcite{InvariantScatteringTextureDiscrimination2013}{SM13}

@@ -90,7 +90,7 @@ class kittiDetection(data.Dataset):
     """
 
     def __init__(self, root,
-                 image_sets=['val'],
+                 image_sets=['train'],
                  transform=None, target_transform=kittiVOCAnnotationTransform(),
                  dataset_name='kitti'):
         self.root = root

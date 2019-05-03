@@ -1,10 +1,3 @@
-"""Adapted from:
-    @longcw faster_rcnn_pytorch: https://github.com/longcw/faster_rcnn_pytorch
-    @rbgirshick py-faster-rcnn https://github.com/rbgirshick/py-faster-rcnn
-    Licensed under The MIT License [see LICENSE for details]
-    This is a mix between eval.py and demo/live.py just to visualize whatever the network is detecting as an object
-"""
-
 from __future__ import print_function
 import torch
 import torch.nn as nn
@@ -39,26 +32,28 @@ def str2bool(v):
 parser = argparse.ArgumentParser(
     description='Single Shot MultiBox Detector Evaluation')
 parser.add_argument('--trained_model',
-                    default='weights/ssd300x300_kitti_all_noR_10_100000.pth', type=str,
+                    default='weights/ssd_VOC_no_random_sub_mean_no_normalize_12.3_150000.pth', type=str,
                     help='Trained state_dict file path to open')
-                    #ssd1000x300_kitti_small_noR_test09_100000.pth
-                    #ssd300x300_kitti_small_test08_100000.pth
 parser.add_argument('--config', default='300x300', choices=['300x300', '1000x300'],
                     type=str, help='size of the imagescales')
 parser.add_argument('--save_folder', default='eval/', type=str,
                     help='File path to save results')
 parser.add_argument('--confidence_threshold', default=0.01, type=float,
                     help='Detection confidence threshold')
+parser.add_argument('--normalize', default=False, type=str2bool,
+                    help='normalize images before training')
+parser.add_argument('--subtract_mean', default=True, type=str2bool,
+                    help='subtract the color means before training')
 parser.add_argument('--top_k', default=5, type=int,
                     help='Further restrict the number of predictions to parse')
 parser.add_argument('--cuda', default=True, type=str2bool,
                     help='Use cuda to train model')
-parser.add_argument('--dataset_root', default=kitti_ROOT,
+parser.add_argument('--dataset_root', default=toy_data_ROOT,
                     help='Location of VOC root directory')
 parser.add_argument('--cleanup', default=True, type=str2bool,
                     help='Cleanup and remove results files following eval')
-parser.add_argument('--dataset', default='kitti_voc', choices=['VOC', 'kitti_voc', 'kitti_voc_small'],
-                    type=str, help='VOC, kitti_voc or kitti_voc_small')
+parser.add_argument('--dataset', default='toy_data', choices=['VOC', 'kitti_voc', 'kitti_voc_small', 'toy_data'],
+                    type=str, help='VOC, kitti_voc, toy_data or kitti_voc_small')
 
 
 args = parser.parse_args()
@@ -94,8 +89,28 @@ elif args.dataset == 'kitti_voc':
                           'Main', '{:s}.txt')
     devkit_path = args.dataset_root
     dataset_mean = KITTI_MEANS
+    set_type = 'val'
+    labelmap = kitti_CLASSES
+
+elif args.dataset == 'kitti_voc_small':
+    annopath = os.path.join(args.dataset_root,  'Annotations', '%s.xml')
+    imgpath = os.path.join(args.dataset_root,  'JPEGImages', '%s.jpg')
+    imgsetpath = os.path.join(args.dataset_root, 'ImageSets',
+                          'Main', '{:s}.txt')
+    devkit_path = args.dataset_root
+    dataset_mean = KITTI_MEANS
     set_type = 'train'
     labelmap = kitti_CLASSES
+
+elif args.dataset == 'toy_data':
+    annopath = os.path.join(args.dataset_root,  'Annotations', '%s.xml')
+    imgpath = os.path.join(args.dataset_root,  'JPEGImages', '%s.jpg')
+    imgsetpath = os.path.join(args.dataset_root, 'ImageSets',
+                          'Main', '{:s}.txt')
+    devkit_path = args.dataset_root
+    dataset_mean = (0,0,0)
+    set_type = 'test'
+    labelmap = toy_data_CLASSES
 
 
 class Timer(object):
@@ -187,7 +202,7 @@ COLORS = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]
 FONT = cv2.FONT_HERSHEY_SIMPLEX
 
 
-def show_label_annotations(image_file, label_file):
+def show_label_annotations(image_file, label_file, save_file=None):
     #get the image
     image = cv2.imread(image_file)
 
@@ -203,10 +218,14 @@ def show_label_annotations(image_file, label_file):
                       (int(pts[0]), int(pts[1])),
                       (int(pts[2]), int(pts[3])),
                       COLORS[i % 3], 2)
-        cv2.putText(image, name, (int(pts[0]), int(pts[1])), FONT, 2, (255, 255, 255), 2, cv2.LINE_AA)
+        cv2.putText(image, name, (int(pts[0]), int(pts[1])), FONT, 2, COLORS[i % 3], 2, cv2.LINE_AA) # (255, 255, 255)
 
     cv2.imshow('image', image)
     cv2.waitKey(0)
+    if save_file != None:
+        print('saving image')
+        #cv2.imwrite('Images/annotations_for_{}.png'.format(image_file), image)
+        cv2.imwrite('Images/annots.png', image)
     cv2.destroyAllWindows()
     #print(tree)
 
@@ -264,11 +283,29 @@ if __name__ == '__main__':
     # load net
     if args.dataset == 'VOC':
         cfg = voc
-        dataset = VOCDetection(root=VOC_ROOT,
-                               transform=SSDAugmentation(size_x=cfg['dim_x'],
+
+        dataset = VOCDetection(root = VOC_ROOT,
+                               image_sets=[('2007', set_type)],
+                               transform = BaseTransform(size_x=cfg['dim_x'],
                                                          size_y=cfg['dim_y'],
+                                                         sub_mean=args.subtract_mean,
                                                          mean=VOC_MEANS,
-                                                         eval=True))
+                                                         normalize=args.normalize,
+                                                         norm_value=255),
+                               target_transform=VOCAnnotationTransform())
+
+    elif args.dataset == 'toy_data':
+        cfg = voc  #toy_data
+
+        dataset = toydataDetection(root = toy_data_ROOT,
+                              image_sets=[set_type],
+                              transform = BaseTransform(size_x=cfg['dim_x'],
+                                                        size_y=cfg['dim_y'],
+                                                        sub_mean=args.subtract_mean,
+                                                        mean=(0,0,0),
+                                                        normalize=args.normalize,
+                                                        norm_value=255),
+                              target_transform=toydataVOCAnnotationTransform())
 
     elif args.dataset == 'kitti_voc':
         if args.config == '300x300':
@@ -279,10 +316,14 @@ if __name__ == '__main__':
             raise ValueError('The given configuration is not possible')
 
         dataset = kittiDetection(root = kitti_ROOT,
-                                transform = SSDAugmentation(size_x=cfg['dim_x'],
-                                                            size_y=cfg['dim_y'],
-                                                            mean=KITTI_MEANS,
-                                                            eval=True))
+                                image_sets=[set_type],
+                                transform = BaseTransform(size_x=cfg['dim_x'],
+                                                          size_y=cfg['dim_y'],
+                                                          sub_mean=args.subtract_mean,
+                                                          mean=KITTI_MEANS,
+                                                          normalize=args.normalize,
+                                                          norm_value=255),
+                                target_transform=kittiVOCAnnotationTransform())
 
     elif args.dataset == 'kitti_voc_small':
         if args.config == '300x300':
@@ -298,10 +339,18 @@ if __name__ == '__main__':
                                                             mean=KITTI_MEANS,
                                                             eval=True))
 
+    else:
+        raise(TypeError("config was not possible. check for typos"))
+
 
     #test_image = "/home/marius/data/kitti_voc/JPEGImages/000000001_000468.jpg"
     #test_label = "/home/marius/data/kitti_voc/Annotations/000000001_000468.xml"
-    #show_label_annotations(test_image, test_label)
+    test_image = "/home/marius/data/kitti_voc/JPEGImages/000000032_007469.jpg"
+    test_label = "/home/marius/data/kitti_voc/Annotations/000000032_007469.xml"
+    test_image_toy_data = "/home/marius/data/toy_data/JPEGImages/0010000.jpg"
+    test_label_toy_data = "/home/marius/data/toy_data/Annotations/0010000.xml"
+    show_label_annotations(test_image_toy_data, test_label_toy_data, save_file=False)
+    #cv2.imwrite('Images/test_annotation.png',pred)
 
     print("dim_x, y: ", cfg['dim_x'], cfg['dim_y'])
     net = build_ssd(phase='test', size_x=cfg['dim_x'], size_y=cfg['dim_y'], num_classes=cfg['num_classes'], cfg=cfg)            # initialize SSD
@@ -310,12 +359,12 @@ if __name__ == '__main__':
         net = net.cuda()
         cudnn.benchmark = True
 
-    #transform = BaseTransform(cfg['dim_x'], cfg['dim_y'], (104/256.0, 117/256.0, 123/256.0))
 
-    pred = predict(net=net.eval(), dataset=dataset, frame_index=1, original_size=True, confidence_threshold=0.2)
-    cv2.imshow('frame', pred)
+    #pred = predict(net=net.eval(), dataset=dataset, frame_index=6, original_size=True, confidence_threshold=0.30)
+    #cv2.imshow('frame', pred)
     #cv2.imshow("image", imagefile)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    #cv2.waitKey(0)
+    #cv2.imwrite('Images/test_VOC.png',pred)
+    #cv2.destroyAllWindows()
 
     #"""

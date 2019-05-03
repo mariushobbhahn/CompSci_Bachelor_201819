@@ -92,7 +92,7 @@ class kitti_small_Detection(data.Dataset):
     def __init__(self, root,
                  image_sets=['train'],
                  transform=None, target_transform=kittiVOCAnnotationTransform(),
-                 dataset_name='kitti'):
+                 dataset_name='kitti_small'):
         self.root = root
         self.image_set = image_sets
         self.transform = transform

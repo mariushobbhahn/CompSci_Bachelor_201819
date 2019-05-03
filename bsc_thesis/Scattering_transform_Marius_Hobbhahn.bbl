@@ -13,6 +13,12 @@ Joan Bruna and St{\'{e}}phane Mallat.
 \newblock Invariant scattering convolution networks.
 \newblock {\em CoRR}, abs/1203.1513, 2012.
 
+\bibitem[LBD{\etalchar{+}}89]{LeCun1989BackpropagationAT}
+Yann LeCun, Bernhard~E. Boser, John~S. Denker, Donnie Henderson, Richard~E.
+  Howard, Wayne~E. Hubbard, and Lawrence~D. Jackel.
+\newblock Backpropagation applied to handwritten zip code recognition.
+\newblock {\em Neural Computation}, 1:541--551, 1989.
+
 \bibitem[OBZ17]{ScalingTheScatteringTransform2017}
 Edouard Oyallon, Eugene Belilovsky, and Sergey Zagoruyko.
 \newblock Scaling the scattering transform: Deep hybrid networks.

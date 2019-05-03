@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export PYTHONPATH=$${PYTHONPATH}:$${HOME}
+python3 ~/SSD/eval.py --trained_model="weights/${weights_name}.pth" --dataset="${dataset}" --config="${format}" --batch_norm="${batch_norm}"

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.11)  18 DEC 2018 13:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.11)  24 APR 2019 14:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -894,7 +894,7 @@ LaTeX Font Info:    Try loading font information for U+pxsyc on input line 1.
 (/usr/share/texlive/texmf-dist/tex/latex/pxfonts/upxsyc.fd
 File: upxsyc.fd 2000/12/14 v1.0
 )
-<./images/UT_WBMW_Rot_4C.pdf, id=56, 554.82881pt x 142.26349pt>
+<./images/UT_WBMW_Rot_4C.pdf, id=76, 554.82881pt x 142.26349pt>
 File: ./images/UT_WBMW_Rot_4C.pdf Graphic file (type pdf)
 
 <use ./images/UT_WBMW_Rot_4C.pdf>
@@ -1006,7 +1006,7 @@ Class scrbook Warning: \float@addtolists detected!
 
 ) (./content/theory.tex [11] [12]
 chapter 2.
-<images/image_surfaces.jpg, id=160, 708.6475pt x 199.74625pt>
+<images/image_surfaces.jpg, id=186, 708.6475pt x 199.74625pt>
 File: images/image_surfaces.jpg Graphic file (type jpg)
 
 <use images/image_surfaces.jpg>
@@ -1026,7 +1026,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 
 
  <./images/image_surfaces.jpg>]
-<images/2d_sine.jpg, id=178, 803.0pt x 205.76875pt>
+<images/2d_sine.jpg, id=203, 803.0pt x 205.76875pt>
 File: images/2d_sine.jpg Graphic file (type jpg)
  <use images/2d_sine.jpg>
 Package pdftex.def Info: images/2d_sine.jpg used on input line 34.
@@ -1037,44 +1037,73 @@ Underfull \hbox (badness 10000) in paragraph at lines 53--54
  []
 
 [14 <./images/2d_sine.jpg>]
+<images/Annotations_example.png, id=224, 1242.6425pt x 375.4025pt>
+File: images/Annotations_example.png Graphic file (type png)
 
-LaTeX Warning: Reference `eq:morlet2d' on page 15 undefined on input line 90.
+<use images/Annotations_example.png>
+Package pdftex.def Info: images/Annotations_example.png used on input line 92.
+(pdftex.def)             Requested size: 358.50233pt x 108.30257pt.
+ [15]
+<images/convolution.png, id=234, 434.62375pt x 487.8225pt>
+File: images/convolution.png Graphic file (type png)
 
-[15] <images/morlet2d.png, id=210, 801.99625pt x 299.1175pt>
+<use images/convolution.png>
+Package pdftex.def Info: images/convolution.png used on input line 105.
+(pdftex.def)             Requested size: 199.16931pt x 223.5525pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
+[][][]\T1/pxr/m/n/9 (+20) Figure taken from and an-i-mated ver-sion at []$\T1/p
+xtt/m/n/9 https : / / towardsdatascience . com /
+ []
+
+[16 <./images/Annotations_example.png (PNG copy)>] [17 <./images/convolution.pn
+g>] <images/morlet2d.png, id=255, 801.99625pt x 299.1175pt>
 File: images/morlet2d.png Graphic file (type png)
 
 <use images/morlet2d.png>
-Package pdftex.def Info: images/morlet2d.png used on input line 106.
+Package pdftex.def Info: images/morlet2d.png used on input line 137.
 (pdftex.def)             Requested size: 358.50233pt x 133.71161pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--117
+<images/filter_bank_vis.png, id=259, 1340.6085pt x 712.5822pt>
+File: images/filter_bank_vis.png Graphic file (type png)
 
- []
+<use images/filter_bank_vis.png>
+Package pdftex.def Info: images/filter_bank_vis.png used on input line 150.
+(pdftex.def)             Requested size: 398.33864pt x 211.73216pt.
 
+Underfull \vbox (badness 4328) has occurred while \output is active []
 
+ [18 <./images/morlet2d.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [16 <./images/morlet2d.png>]) (./content/experiments.tex [17] [18
+ [19 <./images/filter_bank_vis.png>]
+<images/scattering_network.png, id=280, 1126.2075pt x 621.32124pt>
+File: images/scattering_network.png Graphic file (type png)
 
-
-]
+<use images/scattering_network.png>
+Package pdftex.def Info: images/scattering_network.png used on input line 186.
+(pdftex.def)             Requested size: 298.75397pt x 164.81999pt.
+ [20] [21 <./images/scattering_network.png>]) (./content/experiments.tex [22]
 chapter 3.
-) (./content/results.tex [19] [20
+) (./content/results.tex [23
+
+
+] [24
 
 
 ]
 chapter 4.
-) (./content/conclusion.tex [21] [22
+) (./content/conclusion.tex [25] [26
 
 
 ]
 chapter 5.
-) (./Scattering_transform_Marius_Hobbhahn.bbl [23] [24
+) (./Scattering_transform_Marius_Hobbhahn.bbl [27] [28
 
 
 ])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 45.
- [25]
+ [29]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 45.
 
 (./Scattering_transform_Marius_Hobbhahn.aux)
@@ -1082,21 +1111,17 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 45.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 45.
 Package rerunfilecheck Info: File `Scattering_transform_Marius_Hobbhahn.out' ha
 s not changed.
-(rerunfilecheck)             Checksum: DCDA02D70ABA4C470DD38E0E218E5C7A;783.
-
-
-LaTeX Warning: There were undefined references.
-
+(rerunfilecheck)             Checksum: 0FC4B7FA1C692C7C9C237B82EFEE6942;1123.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 45.
  ) 
 Here is how much of TeX's memory you used:
- 15424 strings out of 493029
- 238875 string characters out of 6136233
- 419759 words of memory out of 5000000
- 18383 multiletter control sequences out of 15000+600000
- 84971 words of font info for 302 fonts, out of 8000000 for 9000
+ 15583 strings out of 493029
+ 240849 string characters out of 6136233
+ 420826 words of memory out of 5000000
+ 18420 multiletter control sequences out of 15000+600000
+ 93357 words of font info for 383 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,12n,66p,1051b,690s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 53i,12n,66p,1383b,690s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/pxfonts/pxex.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/pxfonts/pxsy.pfb></usr/share/texlive/texmf-dist/fonts/type1
@@ -1108,11 +1133,11 @@ texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/
 uplri8a.pfb>
-Output written on Scattering_transform_Marius_Hobbhahn.pdf (25 pages, 487443 by
-tes).
+Output written on Scattering_transform_Marius_Hobbhahn.pdf (29 pages, 1465350 b
+ytes).
 PDF statistics:
- 312 PDF objects out of 1000 (max. 8388607)
- 251 compressed objects within 3 object streams
- 62 named destinations out of 1000 (max. 500000)
- 63101 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 389 PDF objects out of 1000 (max. 8388607)
+ 317 compressed objects within 4 object streams
+ 80 named destinations out of 1000 (max. 500000)
+ 65209 words of extra memory for PDF output out of 74296 (max. 10000000)
 

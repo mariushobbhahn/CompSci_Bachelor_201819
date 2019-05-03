@@ -11,17 +11,17 @@
 #SBATCH --cpus-per-task=8
 # the job can use and see 4 CPUs (from max 24).
 
-#SBATCH --partition=day
+#SBATCH --partition=week
 # the slurm partition the job is queued to.
 
-#SBATCH --mem-per-cpu=10G
+#SBATCH --mem-per-cpu=30G
 # the job will need 12GB of memory equally distributed on 4 cpus.  (251GB are available in total on one node)
 
 
-#SBATCH --gres=gpu:1080ti:4
+#SBATCH --gres=gpu:1080ti:2
 #the job can use and see 1 GPUs (4 GPUs are available in total on one node)
 
-#SBATCH --time=23:59:59
+#SBATCH --time=100:00:00
 # the maximum time the scripts needs to run
 
 #SBATCH --error=job.%J.err
@@ -48,7 +48,7 @@
 #cnn_minst.py <model save path> <mnist data path>
 ####
 
-singularity exec --nv /common/singularityImages/TCML-Cuda9_0Tensorflow1_11.simg python3 ~/SSD/train.py
+singularity exec --nv ~/TCML-scattering_transform.simg  python3 ~/SSD/train.py
 
 echo DONE!
 

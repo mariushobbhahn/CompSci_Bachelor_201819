@@ -408,37 +408,39 @@ class PhotometricDistort(object):
 
 
 class SSDAugmentation(object):
-    def __init__(self, mean, size_x=1000, size_y=300, normalize_value=255, sub_mean=True, normalize=True, eval=False):
+    def __init__(self, mean, size_x=1000, size_y=300, random=True, sub_mean=True, normalize=True, normalize_value=255):
         self.mean = mean
         self.normalize_value = normalize_value
         self.size_x = size_x
         self.size_y = size_y
 
-        if eval:
-            list_of_aug = [
-                ConvertFromInts(),
-                ToAbsoluteCoords(),
-                ToPercentCoords(),
-                Resize(self.size_x, self.size_y),
-            ]
-            if sub_mean:
-                list_of_aug.append(SubtractMeans(self.mean))
-            if normalize:
-                list_of_aug.append(Normalize(self.normalize_value))
+        list_of_aug = [
+            ConvertFromInts(),
+            ToAbsoluteCoords(),
+        ]
 
-            self.augment = Compose(list_of_aug)
-        else:
-            self.augment = Compose([
-                ConvertFromInts(),
-                ToAbsoluteCoords(),
+        if random:
+            list_of_aug.extend([
                 PhotometricDistort(),
-                Expand(self.mean),
+                #Expand(self.mean),
                 RandomSampleCrop(),
-                RandomMirror(),
+                RandomMirror()
+                ])
+
+        list_of_aug.extend([
                 ToPercentCoords(),
-                Resize(self.size_x, self.size_y),
-                SubtractMeans(self.mean)
-            ])
+                Resize(self.size_x, self.size_y)
+                ])
+
+        if sub_mean:
+            list_of_aug.append(SubtractMeans(self.mean))
+        if normalize:
+            list_of_aug.append(Normalize(self.normalize_value))
+        
+        print("list_of_aug: ", list_of_aug) 
+        self.augment = Compose(list_of_aug)
+
+
 
     def __call__(self, img, boxes, labels):
         return self.augment(img, boxes, labels)

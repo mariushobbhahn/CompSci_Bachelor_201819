@@ -4,10 +4,15 @@
 \BOOKMARK [1][-]{section.2.2}{Fourier Transformation}{chapter.2}% 4
 \BOOKMARK [2][-]{subsection.2.2.1}{One dimensional FT}{section.2.2}% 5
 \BOOKMARK [2][-]{subsection.2.2.2}{Two dimensional FT}{section.2.2}% 6
-\BOOKMARK [1][-]{section.2.3}{Scattering Transform}{chapter.2}% 7
-\BOOKMARK [2][-]{subsection.2.3.1}{Properties of the Scattering Transform}{section.2.3}% 8
-\BOOKMARK [1][-]{section.2.4}{Convolutional Neural Networks}{chapter.2}% 9
-\BOOKMARK [0][-]{chapter.3}{Experiments}{}% 10
-\BOOKMARK [1][-]{section.3.1}{Setup}{chapter.3}% 11
-\BOOKMARK [0][-]{chapter.4}{Results}{}% 12
-\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 13
+\BOOKMARK [1][-]{section.2.3}{Object detection}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.4}{Convolutional Neural Networks}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.5}{Scattering Transform}{chapter.2}% 9
+\BOOKMARK [2][-]{subsection.2.5.1}{Filter Bank}{section.2.5}% 10
+\BOOKMARK [2][-]{subsection.2.5.2}{Scattering Paths}{section.2.5}% 11
+\BOOKMARK [2][-]{subsection.2.5.3}{Scattering Networks}{section.2.5}% 12
+\BOOKMARK [2][-]{subsection.2.5.4}{Properties of the Scattering Transform}{section.2.5}% 13
+\BOOKMARK [2][-]{subsection.2.5.5}{Hybrid Networks}{section.2.5}% 14
+\BOOKMARK [0][-]{chapter.3}{Experiments}{}% 15
+\BOOKMARK [1][-]{section.3.1}{Setup}{chapter.3}% 16
+\BOOKMARK [0][-]{chapter.4}{Results}{}% 17
+\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 18

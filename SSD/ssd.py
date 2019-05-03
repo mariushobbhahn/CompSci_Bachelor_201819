@@ -25,7 +25,7 @@ class SSD(nn.Module):
         head: "multibox head" consists of loc and conf conv layers
     """
 
-    def __init__(self, phase, size_x, size_y, base, extras, head, num_classes, cfg):
+    def __init__(self, phase, size_x, size_y, batch_norm, base, extras, head, num_classes, cfg):
         super(SSD, self).__init__()
         self.phase = phase
         self.num_classes = num_classes
@@ -34,11 +34,12 @@ class SSD(nn.Module):
         self.priors = Variable(self.priorbox.forward(), volatile=True)
         self.size_x = size_x
         self.size_y = size_y
+        self.batch_norm = batch_norm
 
         # SSD network
         self.vgg = nn.ModuleList(base)
         # Layer learns to scale the l2 normalized features from conv4_3
-        self.L2Norm = L2Norm(512, 20)
+        self.L2Norm = L2Norm(512, 4)                       #what does this 20 mean?
         self.extras = nn.ModuleList(extras)
 
         self.loc = nn.ModuleList(head[0])
@@ -76,14 +77,14 @@ class SSD(nn.Module):
         #print("x: ", x)
         #print("x_dim: ", x.size())
         # apply vgg up to conv4_3 relu
-        for k in range(23):
+        for k in range(23 + 10 if self.batch_norm else 23):
             x = self.vgg[k](x)
 
         s = self.L2Norm(x)
         sources.append(s)
 
         # apply vgg up to fc7
-        for k in range(23, len(self.vgg)):
+        for k in range(23 + 10 if self.batch_norm else 23, len(self.vgg)):
             x = self.vgg[k](x)
         sources.append(x)
 
@@ -134,6 +135,21 @@ class SSD(nn.Module):
         else:
             print('Sorry only .pth and .pkl files supported.')
 
+    #only loads those layers that are needed in current system
+    def load_my_state_dict(self, state_dict):
+
+            own_state = self.state_dict()
+            #print("own_state: ", own_state)
+            for name, param in state_dict.items():
+                print("name: ", name)
+                if name not in own_state:
+                     continue
+                if isinstance(param, Parameter):
+                    # backwards compatibility for serialized parameters
+                    print("param: ", param)
+                    param = param.data
+                own_state[name].copy_(param)
+
 
 # This function is derived from torchvision VGG make_layers()
 # https://github.com/pytorch/vision/blob/master/torchvision/models/vgg.py
@@ -177,10 +193,10 @@ def add_extras(cfg, i, batch_norm=False):
     return layers
 
 
-def multibox(vgg, extra_layers, cfg, num_classes):
+def multibox(vgg, extra_layers, cfg, num_classes, batch_norm):
     loc_layers = []
     conf_layers = []
-    vgg_source = [21, -2]
+    vgg_source = [21 + 9 if batch_norm else 21, -2]
     for k, v in enumerate(vgg_source):
         loc_layers += [nn.Conv2d(vgg[v].out_channels,
                                  cfg[k] * 4, kernel_size=3, padding=1)]
@@ -194,23 +210,21 @@ def multibox(vgg, extra_layers, cfg, num_classes):
     return vgg, extra_layers, (loc_layers, conf_layers)
 
 
-base = {
-    '300': [64, 64, 'M', 128, 128, 'M', 256, 256, 256, 'C', 512, 512, 512, 'M',
-            512, 512, 512],
-    '512': [],
-}
+#base = {
+#    '300': [64, 64, 'M', 128, 128, 'M', 256, 256, 256, 'C', 512, 512, 512, 'M',
+#            512, 512, 512]
+#}
 extras = {
-    '300': [256, 'S', 512, 128, 'S', 256, 128, 256, 128, 256],
-    '512': [],
+    '300': [256, 'S', 512, 128, 'S', 256, 128, 256, 128, 256]
 }
-mbox = {
-    #'300': [4, 6, 6, 6, 4, 4],  # number of boxes per feature map location
-    '300': [6, 6, 6, 6, 6, 6],
-    '512': [],
-}
+# mbox = {
+#     #'300': [4, 6, 6, 6, 4, 4],  # number of boxes per feature map location
+#     '300': [8, 8, 8, 8, 8, 8],
+#     '512': [],
+# }
 
 
-def build_ssd(phase, size_x=1000, size_y=300, num_classes=21, cfg='kitti'):
+def build_ssd(phase, size_x=1000, size_y=300, num_classes=21, cfg='kitti', batch_norm=False):
     if phase != "test" and phase != "train":
         print("ERROR: Phase: " + phase + " not recognized")
         return
@@ -221,7 +235,7 @@ def build_ssd(phase, size_x=1000, size_y=300, num_classes=21, cfg='kitti'):
 
     #print("ar during building: ", cfg["aspect_ratios"])
 
-    base_, extras_, head_ = multibox(vgg(base[str(size_y)], 3),
+    base_, extras_, head_ = multibox(vgg(cfg['base'], i=3, batch_norm=batch_norm),
                                      add_extras(extras[str(size_y)], 1024),
-                                     mbox[str(size_y)], num_classes)
-    return SSD(phase, size_x, size_y, base_, extras_, head_, num_classes, cfg)
+                                     cfg['mbox'], num_classes, batch_norm)
+    return SSD(phase, size_x, size_y, batch_norm, base_, extras_, head_, num_classes, cfg)
