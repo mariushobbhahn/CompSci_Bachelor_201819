@@ -1,4 +1,136 @@
 \chapter{Results}
 \label{chap:results}
 
-TODO
+In this chapter the results of all experiments are presented. Every result is put into perspective and discussed making an extra discussion chapter unnecessary.
+
+\section{Classification}
+
+The Network in combination with the scattering transform is able to classify all test data correctly with 100 percent accuracy after two episodes of training before it starts overfitting to the training data. In comparison, the network without the scattering transform achieves 99.65 percent accuracy after four episodes before it starts overfitting. This shows that the scattering transform is able to provide useful information, at least when presented with simple datasets as shown in figure \ref{fig:toy_data_class_samples}. Further implications like a slightly better accuracy or a slightly faster convergence are potentially true, but cannot be concluded with high confidence from this single observations. This experiment gets its relevance for this paper by showing classification, a necessary condition for object detection, is fulfilled.
+
+\section{Baseline Performance of the SSD}
+
+In this section the results of all the main experiments are presented. First the baselines that establish reasonable values for the use of batch norm and augmentations. Additionally, the baselines for comparison with the hybrid networks are determined. In the second subsection the results of the sequential scattering experiments are presented while the third subsection shows those of the parallel approach.
+
+\subsection{Hyperparameterization and Baselines for PASCAL VOC, KITTI and Toy data}
+
+The average and standard deviation (std) of a given combination of variables can be found in table \ref{table:baseline}. The coefficient of the GLM for augmentations are positive and it is therefore used as a standard for future experiments. The p-value is 0.044 < 0.05 and we can therefore say it has a significant positive effect on the training. The coefficient for batch norm is also positive and is used in later experiments. Its p-value, however, is 0.79 > 0.05 and therefore we cannot assume that it has a significant positive effect. Pretraining on ImageNet has a positive coefficient as well but no significant p-value with 0.41. Future experiments will still consider both possible values of \textit{pretrained} since interesting information about the network structure might be analyzed. On average the combination of Augmentations, no batchnorm and Pretrained has the highest mean accuracy for all datasets. For PASCAL VOC an accuracy of 0.630 is achieved, for Kitti it is 0.125 and for the Toy data it is 0.792. These are the baselines to be compared with the results of the scattering experiments. The standard deviations show that the networks converge to somewhat similar functions even if their results deviate by some noise. Given that outliers were removed prior to the GLM fitting the standard deviations are only minor. 
+
+\begin{table}[!htb]
+	\centering
+	\caption{Results of the baseline experiments. Mean and standard deviation are denoted for every combination of features that were measured}
+	\begin{tabular}{lrrrrr}
+		\toprule
+		Dataset &  Augmentations &  Batchnorm &  Pretrained &   Mean &  Std\_dev \\
+		\midrule
+		VOC &              0 &          0 &           0 &  0.108 &    0.008 \\
+		VOC &              0 &          0 &           1 &  0.363 &    0.055 \\
+		VOC &              0 &          1 &           0 &  0.329 &    0.041 \\
+		VOC &              0 &          1 &           1 &  0.341 &    0.017 \\
+		VOC &              1 &          0 &           0 &  0.364 &    0.025 \\
+		VOC &              1 &          0 &           1 &  0.630 &    0.003 \\
+		VOC &              1 &          1 &           0 &  0.568 &    0.002 \\
+		VOC &              1 &          1 &           1 &  0.619 &    0.007 \\
+		Kitti &              0 &          0 &           0 &  0.027 &    0.024 \\
+		Kitti &              0 &          0 &           1 &  0.032 &    0.009 \\
+		Kitti &              0 &          1 &           0 &  0.032 &    0.010 \\
+		Kitti &              0 &          1 &           1 &  0.024 &    0.002 \\
+		Kitti &              1 &          0 &           0 &  0.050 &    0.010 \\
+		Kitti &              1 &          0 &           1 &  0.125 &    0.011 \\
+		Kitti &              1 &          1 &           0 &  0.116 &    0.012 \\
+		Kitti &              1 &          1 &           1 &  0.113 &    0.010 \\
+		Toy\_data &              0 &          0 &           0 &  0.487 &    0.060 \\
+		Toy\_data &              0 &          0 &           1 &  0.505 &    0.027 \\
+		Toy\_data &              0 &          1 &           0 &  0.511 &    0.123 \\
+		Toy\_data &              0 &          1 &           1 &  0.474 &    0.053 \\
+		Toy\_data &              1 &          0 &           0 &  0.773 &    0.017 \\
+		Toy\_data &              1 &          0 &           1 &  0.792 &    0.049 \\
+		Toy\_data &              1 &          1 &           0 &  0.613 &    0.128 \\
+		Toy\_data &              1 &          1 &           1 &  0.710 &    0.058 \\
+		\bottomrule
+	\end{tabular}
+	\label{table:baseline}
+\end{table}
+
+All results of the GLM can be found in the appendix in figure \ref{fig:GLM_baseline}. 
+
+
+\subsection{Invariant toy data}
+
+The results of the invariant toy data experiments with the standard architecture with augmentations and batchnorm set to true can be found in table \ref{table:invariant_data}. All experiments have on average a slightly higher accuracy for the model without pretraining. This is confirmed by the negative coefficient of the GLM that can be found in the appendix in figure \ref{fig:GLM_invariances}. All other results of the GLM are in the same figure.  This seems plausible given that the invariances of geometric object have nothing to do with the patterns learned on real life objects from ImageNet. The networks are able to recognize objects are deformation with accuracy of 0.928. However the deformations are not that big which might be the primary reason for that result. Rotation and scale have and accuracy of 0.635 and 0.644 respectively. Translation has an accuracy of 0.002. This could be explained either by overfitting on the training set or a impossibility to generalize from the small number of training data. Overall it shows that the possibility to generalize is rather limited for a standard SSD network trained on a low number of training data points. All results of the GLM can be found in the appendix in figure \ref{fig:GLM_invariances}. 
+
+\begin{table}[!htb]
+	\centering
+	\caption{Results of the invariant toy data experiments. Mean and standard deviation are denoted for every combination of features that were measured}
+	\begin{tabular}{lrrr}
+		\toprule
+		Dataset &  Pretrained &   Mean &  Std\_dev \\
+		\midrule
+		Deformation\_data &           0 &  0.928 &    0.003 \\
+		Deformation\_data &           1 &  0.896 &    0.026 \\
+		Rotation\_data &           0 &  0.635 &    0.010 \\
+		Rotation\_data &           1 &  0.622 &    0.026 \\
+		Translation\_data &           0 &  0.001 &    0.001 \\
+		Translation\_data &           1 &  0.002 &    0.001 \\
+		Scale\_data &           0 &  0.644 &    0.006 \\
+		Scale\_data &           1 &  0.637 &    0.004 \\
+		\bottomrule
+	\end{tabular}
+	\label{table:invariant_data}
+\end{table}
+
+\section{Sequential Scattering}
+
+%TODO
+
+\section{Parallel Scattering}
+
+%TODO
+
+\section{Small Toy Data Experiments}
+
+The results of the small data experiments can be found in table \ref{table:small_data_experiments}. On the small toy dataset the sequential scattering outperforms both the standard and the parallel scattering network significantly with 0.759 to 0.630 and 0.411 for 25k epochs and 0.121 to 0.043 and 0.003 for 5k epochs. In the case of the PASCAL VOC dataset the standard SSD outperforms both others with 0.317 to 0.053 and 0.013 for 25k epochs and 0.025 to 0.011 and 0.004 for 5k epochs. The conclusions from this are twofold: a) The sequential scattering setup is useful in specific use cases while having problems with very noisy and unstructured datasets such as VOC and b) The parallel scattering approach (at least with the setup used in this paper) does not really yield the expected results. Instead of providing the best of both techniques the parallel scattering gets outperformed on both datasets. All results of the GLM can be found in the appendix in figure \ref{fig:GLM_small_data}. 
+
+
+\begin{table}[!htb]
+	\centering
+	\caption{Results of the small data experiments. Mean and standard deviation of the accuracy are denoted for every combination of features that were measured.}
+	\begin{tabular}{lllrr}
+		\toprule
+		Dataset & epochs &           network type &   Mean &  Std\_dev \\
+		\midrule
+		Toy\_data\_small &    25k &               standard &  0.630 &    0.008 \\
+		Toy\_data\_small &    25k &  sequential\_scattering &  0.759 &    0.004 \\
+		Toy\_data\_small &    25k &    parallel\_scattering &  0.411 &    0.012 \\
+		Toy\_data\_small &     5k &               standard &  0.043 &    0.007 \\
+		Toy\_data\_small &     5k &  sequential\_scattering &  0.121 &    0.027 \\
+		Toy\_data\_small &     5k &    parallel\_scattering &  0.003 &    0.001 \\
+		VOC &    25k &               standard &  0.317 &    0.011 \\
+		VOC &    25k &  sequential\_scattering &  0.053 &    0.006 \\
+		VOC &    25k &    parallel\_scattering &  0.013 &    0.001 \\
+		VOC &     5k &               standard &  0.025 &    0.001 \\
+		VOC &     5k &  sequential\_scattering &  0.011 &    0.007 \\
+		VOC &     5k &    parallel\_scattering &  0.004 &    0.000 \\
+		\bottomrule
+	\end{tabular}
+	\label{table:small_data_experiments}
+\end{table}
+
+\section{Timing Evaluation}
+
+The results of the timing evaluation can be found in table \ref{table:timing_evaluation}. The sequential scattering SSD setup is the fastest with an average of 0.178 seconds per forward pass followed by the normal SSD setup with 0.236 seconds. Both are far ahead of the parallel scattering setup with 1.499 seconds per forward pass. The standard deviations are very small in all cases as a result of the deterministic nature of all three methods. The timing is not compared to other network setups, i.e. a ResNet instead of a VGG, since the scattering approach is easily transferable to other networks and relative results are therefore the only relevant ones. \\
+There are two conclusions to be drawn from these results. First, the sequential scattering is slightly faster than the normal SSD and therefore could replace it in specific niche tasks when both have the same accuracy. Second, the parallel scattering approach is slower by a factor of 6-9 and is therefore only justified either when time is no constrain (e.g. offline applications) or when the accuracy of the parallel approach far outperforms the other two. The reason for the parallel approach taking so much longer than the other two is the calculation of second order coefficients. If this is left out. This approach should only be marginally slower.
+
+\begin{table}[!htb]
+	\centering
+	\caption{Mean and standard deviation (std.) of 100 runs of the timing evaluation for the normal SSD, the sequential and the parallel scattering SSD are shown. Means are reported in seconds.}
+	\begin{tabular}{lcc}
+		\toprule
+		network type & mean & std. \\
+		\midrule
+		normal SSD & 0.236 & 0.004 \\
+		sequential scattering & 0.178 & 0.004 \\
+		parallel scattering & 1.499 & 0.002 \\
+		\bottomrule
+	\end{tabular}
+	\label{table:timing_evaluation}
+\end{table}

@@ -10,10 +10,45 @@
 \contentsline {subsection}{\numberline {2.5.1}Filter Bank}{18}{subsection.2.5.1}
 \contentsline {subsection}{\numberline {2.5.2}Scattering Paths}{19}{subsection.2.5.2}
 \contentsline {subsection}{\numberline {2.5.3}Scattering Networks}{20}{subsection.2.5.3}
-\contentsline {subsection}{\numberline {2.5.4}Properties of the Scattering Transform}{21}{subsection.2.5.4}
-\contentsline {subsubsection}{\nonumberline Discussion of the properties}{22}{section*.12}
-\contentsline {subsection}{\numberline {2.5.5}Hybrid Networks}{22}{subsection.2.5.5}
-\contentsline {chapter}{\numberline {3}Experiments}{23}{chapter.3}
-\contentsline {section}{\numberline {3.1}Setup}{23}{section.3.1}
-\contentsline {chapter}{\numberline {4}Results}{25}{chapter.4}
-\contentsline {chapter}{\numberline {5}Conclusion}{27}{chapter.5}
+\contentsline {subsection}{\numberline {2.5.4}Properties of the Scattering Transform}{22}{subsection.2.5.4}
+\contentsline {subsection}{\numberline {2.5.5}Discussion of the properties}{24}{subsection.2.5.5}
+\contentsline {section}{\numberline {2.6}Single Shot Detector (SSD) - Object Detection Network}{25}{section.2.6}
+\contentsline {section}{\numberline {2.7}Hybrid Networks}{27}{section.2.7}
+\contentsline {subsection}{\numberline {2.7.1}Sequential Hybrid Networks}{27}{subsection.2.7.1}
+\contentsline {subsection}{\numberline {2.7.2}Parallel Hybrid Networks}{28}{subsection.2.7.2}
+\contentsline {chapter}{\numberline {3}Experiments}{29}{chapter.3}
+\contentsline {section}{\numberline {3.1}Datasets}{29}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}PASCAL VOC}{29}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}KITTI}{29}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Toy Data}{30}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}Test Invariances Toy Data}{31}{subsection.3.1.4}
+\contentsline {subsubsection}{\nonumberline Scale}{31}{section*.20}
+\contentsline {subsubsection}{\nonumberline Rotation}{31}{section*.22}
+\contentsline {subsubsection}{\nonumberline Deformation}{32}{section*.24}
+\contentsline {subsubsection}{\nonumberline Translation}{33}{section*.26}
+\contentsline {subsection}{\numberline {3.1.5}Classification Toy Data}{33}{subsection.3.1.5}
+\contentsline {section}{\numberline {3.2}Setup}{33}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Technical Details}{34}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Augmentations, Batchnorm, Multibox Loss, Optimizer}{34}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Hyperparameters}{35}{subsection.3.2.3}
+\contentsline {section}{\numberline {3.3}Classification}{37}{section.3.3}
+\contentsline {section}{\numberline {3.4}Baseline Performance of the SSD}{37}{section.3.4}
+\contentsline {section}{\numberline {3.5}Sequential Scattering}{38}{section.3.5}
+\contentsline {section}{\numberline {3.6}Parallel Scattering}{39}{section.3.6}
+\contentsline {section}{\numberline {3.7}Small Toy Data Experiments}{40}{section.3.7}
+\contentsline {section}{\numberline {3.8}Timeconstraints}{40}{section.3.8}
+\contentsline {chapter}{\numberline {4}Results}{41}{chapter.4}
+\contentsline {section}{\numberline {4.1}Classification}{41}{section.4.1}
+\contentsline {section}{\numberline {4.2}Baseline Performance of the SSD}{41}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Hyperparameterization and Baselines for PASCAL VOC, KITTI and Toy data}{42}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Invariant toy data}{42}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Sequential Scattering}{44}{section.4.3}
+\contentsline {section}{\numberline {4.4}Parallel Scattering}{44}{section.4.4}
+\contentsline {section}{\numberline {4.5}Small Toy Data Experiments}{44}{section.4.5}
+\contentsline {section}{\numberline {4.6}Timing Evaluation}{44}{section.4.6}
+\contentsline {chapter}{\numberline {5}Conclusion}{47}{chapter.5}
+\contentsline {section}{\numberline {5.1}Future Outlook}{47}{section.5.1}
+\contentsline {chapter}{\numberline {6}Appendix}{49}{chapter.6}
+\contentsline {section}{\numberline {6.1}Negative Results}{49}{section.6.1}
+\contentsline {section}{\numberline {6.2}Explanations of the Scattering Transform}{49}{section.6.2}
+\contentsline {section}{\numberline {6.3}Results}{49}{section.6.3}

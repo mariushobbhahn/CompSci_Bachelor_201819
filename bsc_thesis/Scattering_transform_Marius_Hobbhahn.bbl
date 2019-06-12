@@ -1,5 +1,5 @@
 \newcommand{\etalchar}[1]{$^{#1}$}
-\begin{thebibliography}{ACC{\etalchar{+}}17}
+\begin{thebibliography}{EEVG{\etalchar{+}}15}
 
 \bibitem[ACC{\etalchar{+}}17]{3DScatteringTransformNeuro2017}
 Tameem Adel, Taco Cohen, Matthan Caan, Max Welling, On~behalf of the AGEhIV
@@ -12,6 +12,40 @@ Tameem Adel, Taco Cohen, Matthan Caan, Max Welling, On~behalf of the AGEhIV
 Joan Bruna and St{\'{e}}phane Mallat.
 \newblock Invariant scattering convolution networks.
 \newblock {\em CoRR}, abs/1203.1513, 2012.
+
+\bibitem[EEVG{\etalchar{+}}15]{VOC}
+M.~Everingham, S.~M.~A. Eslami, L.~Van~Gool, C.~K.~I. Williams, J.~Winn, and
+  A.~Zisserman.
+\newblock The pascal visual object classes challenge: A retrospective.
+\newblock {\em International Journal of Computer Vision}, 111(1):98--136,
+  January 2015.
+
+\bibitem[Gir15]{FastRCNN}
+Ross~B. Girshick.
+\newblock Fast {R-CNN}.
+\newblock {\em CoRR}, abs/1504.08083, 2015.
+
+\bibitem[GLSU13]{Geiger2013IJRR}
+Andreas Geiger, Philip Lenz, Christoph Stiller, and Raquel Urtasun.
+\newblock Vision meets robotics: The kitti dataset.
+\newblock {\em International Journal of Robotics Research (IJRR)}, 2013.
+
+\bibitem[HZRS15]{ResNet15}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+\newblock Deep residual learning for image recognition.
+\newblock {\em CoRR}, abs/1512.03385, 2015.
+
+\bibitem[IS15]{BatchNorm}
+Sergey Ioffe and Christian Szegedy.
+\newblock Batch normalization: Accelerating deep network training by reducing
+  internal covariate shift.
+\newblock {\em CoRR}, abs/1502.03167, 2015.
+
+\bibitem[LAE{\etalchar{+}}15]{SSD}
+Wei Liu, Dragomir Anguelov, Dumitru Erhan, Christian Szegedy, Scott~E. Reed,
+  Cheng{-}Yang Fu, and Alexander~C. Berg.
+\newblock {SSD:} single shot multibox detector.
+\newblock {\em CoRR}, abs/1512.02325, 2015.
 
 \bibitem[LBD{\etalchar{+}}89]{LeCun1989BackpropagationAT}
 Yann LeCun, Bernhard~E. Boser, John~S. Denker, Donnie Henderson, Richard~E.
@@ -28,6 +62,24 @@ Edouard Oyallon, Eugene Belilovsky, and Sergey Zagoruyko.
 Edouard Oyallon and St{\'{e}}phane Mallat.
 \newblock Deep roto-translation scattering for object classification.
 \newblock {\em CoRR}, abs/1412.8659, 2014.
+
+\bibitem[PGC{\etalchar{+}}17]{Pytorch}
+Adam Paszke, Sam Gross, Soumith Chintala, Gregory Chanan, Edward Yang, Zachary
+  DeVito, Zeming Lin, Alban Desmaison, Luca Antiga, and Adam Lerer.
+\newblock Automatic differentiation in pytorch.
+\newblock 2017.
+
+\bibitem[RHGS15]{FasterRCNN}
+Shaoqing Ren, Kaiming He, Ross~B. Girshick, and Jian Sun.
+\newblock Faster {R-CNN:} towards real-time object detection with region
+  proposal networks.
+\newblock {\em CoRR}, abs/1506.01497, 2015.
+
+\bibitem[Sch15]{SchmidhuberOverview}
+J.~Schmidhuber.
+\newblock Deep learning in neural networks: An overview.
+\newblock {\em Neural Networks}, 61:85--117, 2015.
+\newblock Published online 2014; based on TR arXiv:1404.7828 [cs.NE].
 
 \bibitem[SM13]{InvariantScatteringTextureDiscrimination2013}
 Laurent Sifre and Stephane Mallat.

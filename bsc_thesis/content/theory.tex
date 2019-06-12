@@ -1,6 +1,8 @@
 \chapter{Theory}
 \label{chap:theory}
 
+This chapter provides an introduction to all relevant basis for this work. If you are already familiar with image processing and convolutional neural networks you can skip to \ref{sec:scattering_transform}.
+
 \section{2D Image Processing}
 
 Image processing describes the application of different algorithms on images with the purpose of gaining certain information about it or changing its representation. Most of the time images are given as two dimensional pixel arrays where each entry denotes the intensity of that pixel. In the case of grayscale images the value is between 0 and 255 representing black and white respectively. When handling color images an additional 3rd dimension is added with three channels representing a red, green, blue (rgb) encoding. Each entry, again, has values between 0 and 255 representing color intensity. \\
@@ -19,7 +21,7 @@ Instead of imagining an image as a flat 2D object, it can also be seen as a terr
 %how does this work for color images?
 %-> see scaling the scattering transform, just use 3 channels
 
-Like every other surface, these images can now be approximated as the sum of many different two dimensional sine waves. 2D sine waves are defined as in equation \ref{eq:2d_sine}, where f $a$ is the amplitude and $h, k$ are the frequencies in $x$ and $y$ direction respectively.
+Like every other surface, these images can now be approximated as the sum of many different two dimensional sine waves. 2D sine waves are defined as in equation \ref{eq:2d_sine}, where $a$ is the amplitude and $h, k$ are the frequencies in $x$ and $y$ direction respectively.
 
 \begin{equation}
 	f = a \sin(h\cdot x+k\cdot y)
@@ -43,14 +45,14 @@ To give an example of how this approximation looks like, figure \ref{fig:2d_sine
 A Fourier Transform (FT) decomposes a signal into the frequencies that make it up.
 \subsection{One dimensional FT} 
 
-In the case of one dimensional signals the decomposition are the coefficients of the sine waves representing the signal. A good example of this would be the decomposition of a  The FT is defined by equation \ref{eq:forward_FT} for any real number $\omega$ and any integrable function $f:\mathbb{R} \rightarrow \mathbb{C}$. 
+In the case of one dimensional signals the decomposition are the coefficients of the sine waves representing the signal. A good example of this would be the decomposition of an audio signal. The FT is defined by equation \ref{eq:forward_FT} for any real number $\omega$ and any integrable function $f:\mathbb{R} \rightarrow \mathbb{C}$. 
 
 \begin{equation}
 	\tilde{f}(\omega) = \int_{-\infty}^{\infty} f(x)\ e^{-2\pi i x \omega}dx
 	\label{eq:forward_FT}
 \end{equation} 
 
-To get back to the Fourier domain when the given a frequency, the inverse Fourier transform defined in equation \ref{eq:inverse_FT} is used.  \\
+To get back to the Fourier domain when given a frequency, the inverse Fourier transform defined in equation \ref{eq:inverse_FT} is used.  \\
 
 \begin{equation}
 	f(x) = \int_{-\infty}^{\infty} \tilde{f}(\omega)\ e^{2 \pi i x \omega}d\omega
@@ -71,7 +73,7 @@ f(x) = \sum_{x=1}^{n} \tilde{f}(\omega)\ e^{2 \pi i x \omega}
 
 \subsection{Two dimensional FT}
 
-Since images are two dimensional objects the Fourier transform needs to be extended. The Fourier transform then becomes a complex function of two or more real frequency variables $\omega_1, \omega_2$. Since images images are finite objects the discrete version of the two dimensional Fourier transform is given in equation \ref{eq:forward_FT_2D} for the forward case and in equation \ref{eq:inverse_FT_2D} for the inverse case.
+Since images are two dimensional objects the Fourier transform needs to be extended. The Fourier transform then becomes a complex function of two or more real frequency variables $\omega_1, \omega_2$. Since images are finite objects the discrete version of the two dimensional Fourier transform is given in equation \ref{eq:forward_FT_2D} for the forward case and in equation \ref{eq:inverse_FT_2D} for the inverse case.
 
 \begin{equation}
 	\tilde{f}(\omega_1, \omega_2) = \sum_{x=1}^{n} \sum_{y=1}^{m} f(x,y)\ e^{-2\pi i (\omega_1 \cdot x + \omega_2 \cdot y)}
@@ -94,16 +96,17 @@ Object detection is a task within image processing where objects on a given imag
 	\label{fig:annot_example}
 \end{figure}
 
-Many methods have been explored to increase the accuracy of object detection ranging from sliding window approaches (citation needed) over hand crafted feature extraction (citation needed) to artificial neural networks. All current state of the art results for object detection are achieved by using Convolutional Neural Networks (CNN) with minor or major adaptions (citation needed). Therefore this work also uses a CNN as the backbone of the object detection.
+Many methods have been explored to increase the accuracy of object detection ranging from sliding window approaches over hand crafted feature extraction to artificial neural networks. All current state of the art results for object detection are achieved by using Convolutional Neural Networks (CNN) with minor or major adaptions (see \cite{SSD}, \cite{FastRCNN}, \cite{FasterRCNN}). Therefore this work also uses a CNN as the backbone of the object detection.
      
 \section{Convolutional Neural Networks}
+\label{sec:cnns}
 
-For most image-related tasks, i.e. classification or object detection, a picture is used as a collection of pixels. However, not all pixels are equally important and subsets of the entire image form meaningfully connected subcollections. This might be a face in a photo of a family gathering. For humans the ability to detect these features and contextualize them comes naturally, for computers it does not. Therefore convolutional neural networks (CNNs) \cite{LeCun1989BackpropagationAT} are used. Convolutions are essentially just the application of filters on an image. The filter is applied at every possible location in the image, as described in figure: 
+For most image-related tasks, i.e. classification or object detection, a picture is used as a collection of pixels. However, not all pixels are equally important and subsets of the entire image form meaningfully connected subcollections. This might be a face in a photo of a family gathering. For humans the ability to detect these features and contextualize them comes naturally, for computers it does not. Therefore convolutional neural networks (CNNs) \cite{LeCun1989BackpropagationAT} are used. Convolutions are essentially just the application of filters on an image. The filter is applied at every possible location in the image, as described in figure \ref{fig:convolution}. In formulas the application of a filter through convolution will be denoted with the convolution operator $\star$.
 
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=0.5\textwidth]{images/convolution.png}
-	\caption{3x3 convolution on 5x5 image. Resulting image is also 5x5 due to the padding of size 1 added on original image. \protect\footnotemark}
+	\caption{3x3 convolution on 5x5 image. Resulting image is also 5x5 due to the padding of size 1 added to the original image. \protect\footnotemark}
 	\label{fig:convolution}
 \end{figure}
 
@@ -114,8 +117,9 @@ In CNNs there are multiple stages of filters in sequential order and multiple fi
 As just explained in conventional CNNs the filters are trained. However, there are some approaches that use static filters. The Scattering Transform is one of those approaches. Given its unique properties the results might be comparable to the conventional approach. If weights are not trained a lot of time can be saved. 
 
 \section{Scattering Transform}
+\label{sec:scattering_transform}
 
-A transformation from the Fourier to the frequency domain cannot only be performed by using the sine but in principal with any given periodic function.
+A transformation from the time to the frequency domain cannot only be performed by using the sine but in principal with any given periodic function.
 Wavelets are wave-like oscillation with an amplitude that begin and end at zero. In most use cases wavelets are specifically crafted to have certain properties. 
 The Scattering Transform is based on a Morlet wavelet, which is defined in equation \ref{eq:morlet2d}.
 
@@ -124,13 +128,9 @@ The Scattering Transform is based on a Morlet wavelet, which is defined in equat
 	\label{eq:morlet2d}
 \end{equation}
 
-%TODO: what is the meaning of all those symbols?
 
-where $C_2$ is chosen such that $\int \psi(u) du = 0$. $u.\xi$ denotes the innerproduct of $u$ and $\xi$ and $|u|^2$ is the norm in $\mathbb{R}^2$. 
-%TODO: what is sigma
-%TODO: what is xi
-%TODO: what is C_1 and C_2
-Figure \ref{fig:morlet2d} shows the 2 dimensional Morlet wavelet with parameters $\sigma = 0.85$ and $\xi = \frac{3\pi}{4}$. These parameters are taken from \cite{scatteringTransform2012}. No additional fine tuning w.r.t. to these parameters is done in this work. 
+where $C_1$ and $C_2$ are constants. $C_2$ is chosen such that $\int \psi(u) du = 0$, $u.\xi$ denotes the inner product of $u$ and $\xi$, and $|u|^2$ is the norm in $\mathbb{R}^2$. 
+Figure \ref{fig:morlet2d} shows the 2 dimensional Morlet wavelet with parameters $\sigma = 0.85$ and $\xi = \frac{3\pi}{4}$. These parameters are taken from \cite{scatteringTransform2012}. No additional fine tuning w.r.t. to these parameters is done in this paper. 
 
 \begin{figure}[!htb]
 	\centering
@@ -141,14 +141,14 @@ Figure \ref{fig:morlet2d} shows the 2 dimensional Morlet wavelet with parameters
 
 \subsection{Filter Bank}
 
-A wavelet transform filters $x$ using a family of wavelets: $\{x \star \psi_\lambda (u)\}_\lambda$. It is computed with a filter bank of dilated and rotated wavelets having no orthogonality property. The filter bank has 4 parameters: $M, N, J, L$ where $M,N$ stand for the initial spatial size of the input, $J$ is the scaling parameter and $L$ is the number of angles used for the wavelet transform. $J$ determines the size of the downsampling for the filters. The new output is downsampled by $2^{2*J}$, i.e. An input image of size $(32, 32)$ is downsampled by $J=1$ to be of size $(16,16)$ or by $J=2$ to be of size $(8,8)$. It is important to note that the filter bank is just an accumulation of filters and is independent of the data. \\
-A visualization of the filter bank used in this work can be found in figure \ref{fig:viz_filter_bank}. The filters are shown for $J=0,1,2$ and $L=8$ different angles. The red blurry dot in the bottom is the result of a Gabor filter which is a sinosoidal wave multiplied with a Gaussian function. The Gabor Filter is used as a low-pass filter.
+A wavelet transform filters $x$ using a family of wavelets: $\{x \star \psi_\lambda (u)\}_\lambda$. It is computed with a filter bank of dilated and rotated wavelets having no orthogonality property. The filter bank has four parameters: $M, N, J, L$ where $M,N$ stand for the initial spatial size of the input, $J$ is the scaling parameter and $L$ is the number of angles used for the wavelet transform. $J$ determines the size of the downsampling for the filters. The new output is downsampled by $2^{2\cdot J}$, i.e. An input image of size $(32, 32)$ is downsampled by $J=1$ to be of size $(16,16)$ or by $J=2$ to be of size $(8,8)$. It is important to note that the filter bank is just an accumulation of filters and is independent of the data. \\
+A visualization of the filter bank used in this work can be found in figure \ref{fig:viz_filter_bank}. The filters are shown for $J=0,1,2$ and $L=8$ different angles. The red blurry dot in the bottom is the result of a Gabor filter which is a sinosoidal wave multiplied with a Gaussian function. The Gabor Filter is used as a low-pass filter. 
 
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=\textwidth]{images/filter_bank_vis.png}
-	\caption{Visualization of the filter bank. The $j=0,1,2$ describe the different downsample sizes. The $\theta=0,...,7$ describe the different angles. For these images $N,M=32, L=8, J=3$.}
+	\includegraphics[width=\textwidth]{images/filter_bank_vis2.png}
+	\caption{Visualization of the filter bank. The $j=0,1,2$ describe the different downsample sizes. The $\theta=0,...,7$ describe the different angles. For these images $N,M=32, L=8, J=3$. The contrast corresponds to the amplitude and the color to the phase. The blurry red dot in the bottom is the corresponding low-pass filter.}
     \label{fig:viz_filter_bank}
 \end{figure}
 
@@ -161,17 +161,19 @@ $$U[p]x = U[\lambda_m]...U[\lambda_2]U[\lambda_1] = | ||x \star \psi_{\lambda_1}
 
 A scattering transform along the path $p$ is defined as an integral, normalized by the response of a Dirac:
 
-$$\bar{S}x(p) = \mu_p^{-1} \int U[p]x(u)du)$$
+$$\bar{S}x(p) = \mu_p^{-1} \int U[p]x(u)du$$
 
-with $\mu_p \int U[p] \delta(u) du$. From this it follows that each scattering coefficient $\bar{S}x(p)$ is invariant to a translation of $x$. The scattering is Lipschitz continuous to deformations as opposed to the Fourier transform modulus
+with $\mu_p = \int U[p] \delta(u) du$. From this it follows that each scattering coefficient $\bar{S}x(p)$ is invariant to a translation of $x$. The scattering is Lipschitz continuous to deformations as opposed to the Fourier transform modulus.
 
 %TODO what does that mean and what property does the Fourier transform modulus have?
 
 \subsection{Scattering Networks}
+\label{subsec:scattering_networks}
 
-Scattering Networks are the result of all previously explained concepts. There are $m$ layers in the network, where every $m$ describes the length of the scattering paths in that layer. $m$ is also called order because it describes the number of consecutive scattering applications in that path. A scattering network is a tree that starts with a single root node in layer $m=0$ and branches out for every further layer with branching factor $L$. Similar to the filter bank the Scattering network is a collection of filters. However, the scattering network is the first time when data is actually input into those filters. In distinction to conventional CNNs the final output is not only taken from the last layer, but from every single node in that network. An example of a scattering network with $L=4$ and $m=3$ is shown in figure \ref{fig:scattering_network}. The nodes describe the filters that are independent of the data, i.e. $U[\lambda_1]f$ for the first layer. The black arrows indicate the outputs at every node, i.e. the scattering coefficients that result from applying this particular scattering path to data for example $S_J[\lambda_1]f$ for a node in the first layer. The root node $U_J[\theta]f = f \star \phi_J$ is the low-pass filter which is in this case a Gabor filter. \\
+
+Scattering Networks are the result of all previously explained concepts. There are $m$ layers in the network, where every $m$ describes the length of the scattering paths in that layer. $m$ is also called order because it describes the number of consecutive scattering applications in that path. A scattering network is a tree that starts with a single root node in layer $m=0$ and branches out for every further layer with branching factor $L$. Similar to the filter bank, the scattering network is a collection of filters. However, the scattering network is the first time when data is actually input into those filters. In distinction to conventional CNNs the final output is not only taken from the last layer, but from every single node in that network. An example of a scattering network with $L=4$ and $m=2$ is shown in figure \ref{fig:scattering_network}. The nodes describe the filters that are independent of the data, i.e. $U[\lambda_1]f$ for the first layer. The blue arrows indicate the outputs at every node, i.e. the scattering coefficients that result from applying this particular scattering path to data for example $S_J[\lambda_1]f$ for a node in the first layer. The root node $U_J[\theta]f = f \star \phi_J$ is the low-pass filter which is in this case a Gabor filter. \\
 In \cite{scatteringTransform2012} it is shown that using more than $m=2$ produces a lot of unnecessary computation because most of the information from data is already captured in the second-order scattering coefficients. For practical purposes this paper from now on assumes that networks are at maximum $m=2$ layers deep and in this paper for some applications $m=1$ only. 
-The total number of filters and therefore also the total number of outputs per datapoint are shown in 
+The total number of filters and therefore also the total number of outputs per datapoint are shown in \ref{eq:order1_num_filters} for $m=1$ and in \ref{eq:order2_num_filters} for $m=2$.
 \begin{equation}
 	i \cdot (1 + JL) 
 	\label{eq:order1_num_filters}
@@ -180,36 +182,110 @@ The total number of filters and therefore also the total number of outputs per d
 	i \cdot (1 + JL + \frac{1}{2}J(J-1)L^2)
 	\label{eq:order2_num_filters}
 \end{equation}
-\ref{eq:order1_num_filters} for $m=1$ and in \ref{eq:order2_num_filters} for $m=2$. $i$ denotes the number of input channels of the input which is 3 for most applications since RGB images are used. In the case of RGB images the scattering transformation is applied for every channel separately. Figure \ref{fig:scattering_network} is only showing a network for one abstract $J$. In a real network this $J$ is an actual integer. Therefore it also has to be factored in the equations \ref{eq:order1_num_filters} and \ref{eq:order2_num_filters}. Lastly, it should be noted that the output of the scattering network all have the same downsamples size determined by $J$ even if the filters have different sizes. This is achieved by subsampling the current scattering coefficients in the Fourier domain such that the output is the desired one. To make this more clear an example is provided: A scattering network with $N,M = 32; J=2; L=8$ is initialized. The network is applied on an RGB image. Therefore there are $3*(1+2*8) = 51$ outputs of size $(8,8)$ because of the downsampling factor $J=2$. 
+$i$ denotes the number of input channels of the input data which is 3 for most applications since RGB images are used. In the case of RGB images the scattering transformation is applied for every channel separately. Figure \ref{fig:scattering_network} is only showing a network for one abstract $J$. In a real network this $J$ is an actual integer. Therefore it also has to be factored in the equations \ref{eq:order1_num_filters} and \ref{eq:order2_num_filters}. Lastly, it should be noted that the output of the scattering network all have the same downsampled size determined by $J$ even if the filters have different sizes. This is achieved by subsampling the current scattering coefficients in the Fourier domain such that the output size is the desired one. To make this more clear an example is provided: A scattering network with $N,M = 32; J=2; L=8$ is initialized. The network is applied on an RGB image. Therefore there are $3 \cdot (1+2 \cdot 8) = 51$ outputs of size $(8,8)$ because of the downsampling factor $J=2$. 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width = 0.75\textwidth]{images/scattering_network.png}
-	\caption{Representation of a scattering network. Each black arrow is an output of scattering coefficients of the specified path. The $m=0,1,2,3$ indicates the layer in the network, i.e. the number of iterations of the scattering transform.}
+	\includegraphics[width = 0.75\textwidth]{images/scattering_network_overview.png}
+	\caption{Representation of a scattering network. Each filter is described by its path, e.g. $U[\lambda_1]f$. Every blue arrow describes an output at the particular filter. The $m=0,1,2$ describe the number of iterative applications of the scattering transform. $L=4$ is the branching factor in the network also known as the number of angles for the filter.}
 	\label{fig:scattering_network}
 \end{figure}
 
+The filters are applied in a convolutional manner, i.e. every point in the feature map is the result of the filter applied on a particular patch in the previous image or feature map. In comparison to the way convolution is described in section \ref{sec:cnns} the convolution is implemented through the Fourier Transform. By applying the inverse Fourier transform  ${\mathcal F}^{-1}$, we can write:
+
+$$ f*g={\mathcal {F}}^{-1}{\big \{}{\mathcal {F}}\{f\}\cdot {\mathcal {F}}\{g\}{\big \}}$$
+
+Instead of sliding a filter over the image, both the filter and the image are transformed in Fourier space and multiplied point-wise. The result of the point-wise multiplication is transformed back through the inverse Fourier Transform. The feature maps have semantic meaning and can be analyzed visually. For two different images the 0th order, first order and second order scattering coefficients have been visualized in figure \ref{fig:example1_coefficients} and \ref{fig:example_cat_coefficients}. The first subfigure shows the original image. The second, third and fourth subfigures show the 0th to second order scattering coefficients respectively. The number of filters grows as described in \ref{eq:order1_num_filters} and \ref{eq:order2_num_filters}. Through this example it is very clear that the filters primarily encode geometric information, i.e. edges and corners of the object in the image. To get an  impression of the scattering coefficients in a more realistic setting, an additional image is analyzed in figure \ref{fig:example_cat_coefficients}. As one can see in the cat image, the scattering coefficients are also interpretable in terms of geometric properties of the cat. Additional examples are shown in the appendix. A comparison of the images in the appendix and in this section suggests that the scattering transform is equivariant w.r.t transformation instead of invariant. This means that the translation of an object in the image corresponds to a similar or at least proportional translation in the feature map. This is a desirable property for object detection but stands in direct conflict to the characterization of invariance w.r.t translation taken from the original paper and described in \ref{subsec:properties}. 
+
+\fboxsep=0mm%padding thickness
+\fboxrule=1pt%border thickness
+
+\begin{figure}[!htb]
+	\centering
+	\begin{tabular}{cc}
+		\subfloat[]{\fbox{\includegraphics[width=4.5cm]{images/0000011_00.jpg}}} 
+		& \subfloat[]{\includegraphics[width=7cm]{images/example1_0ord.png}}\\
+		
+		\subfloat[]{\includegraphics[width=7cm]{images/example1_1ord.png}} &
+		\subfloat[]{\includegraphics[width=7cm]{images/example1_2ord.png}}
+	\end{tabular}
+	\caption{Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients}
+	\label{fig:example1_coefficients}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\begin{tabular}{cc}
+		\subfloat[]{\fbox{\includegraphics[width=4.5cm]{images/cat_example.jpg}}} 
+		& \subfloat[]{\includegraphics[width=7cm]{images/example_cat_0ord.png}}\\
+		
+		\subfloat[]{\includegraphics[width=7cm]{images/example_cat_1ord.png}} &
+		\subfloat[]{\includegraphics[width=7cm]{images/example_cat_2ord.png}}
+	\end{tabular}
+	\caption{Image taken from the VOC dataset. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients}
+	\label{fig:example_cat_coefficients}
+\end{figure}
 
 \subsection{Properties of the Scattering Transform}
+\label{subsec:properties}
 
 %TODO: How detailed? Just hint at it or copy entire section of original paper?
 %-> rather detailed. everything should be clear
 
-In this subsection the properties of the scattering transform as used in this work are layed out and the reasons for the properties are pointed out but not proven. For a more detailed explanation and references to proofs the original paper \cite{scatteringTransform2012} must be conducted. \\
+In this subsection the properties of the scattering transform as used in this work are layed out and the reasons for the properties are pointed out but not proven. For a more detailed explanation and references to proofs the original paper \cite{scatteringTransform2012} must be consulted. \\
 A wavelet is a localized waveform and therefore stable to deformations. This is an upgrade to the sinusoidal waves of the Fourier transform which do not have this property. 
-A wavelet transform computes convolutions with wavelets. It is thus translation covariant not invariant. To achieve invariance a non-linearity must be added. One can then show that the only non-linearity that fulfills the $\textbf{L}^2(\mathbb{R}^2)$ stability, is differentiable and commutes with translations is the $\textbf{L}^1(\mathbb{R}^2)$ norm. Therefore it is chosen as the non-linearity. \\
+A wavelet transform computes convolutions with wavelets. It is thus translation covariant not invariant. To achieve invariance a non-linearity must be added. One can then show that the only non-linearity that fulfills the $\textbf{L}^2(\mathbb{R}^2)$ stability, is differentiable and commutes with translations is the $\textbf{L}^1(\mathbb{R}^2)$ norm. Therefore it is chosen as the non-linearity.\\
 As already stated in its respective subsection \ref{subsec:scattering_path} a scattering transform along any scattering path is translation invariant. 
 Compared to the Fourier transform modulus, which is also invariant to deformations, the scattering transform is Lipschitz continuous to deformations, i.e. the change in the scattering coefficients is bounded and determined by the change in the deformed object. \\
-There are no theoretical bounds on the behavior of the scattering transform when confronted with scaled or rotated objects. However, there are some predictions one can make that will be layed out in the following. Given that scattering networks use rotated and dilated filters with $L$ different angles with equidistant spacing it seems plausible that rotated objects should be captured in some of the filters. Scaled objects should also be captured by the scattering network, because scaling can be viewed as a specific subset of deformation. The Lipschitz continuity w.r.t deformation should also benefit the detection of scaled objects. 
+There are no theoretical bounds on the behavior of the scattering transform when confronted with scaled or rotated objects. However, there are some predictions one can make that will be layed out in the following. Given that scattering networks use rotated and dilated filters with $L$ different angles with equidistant spacing it seems plausible that rotated objects should be captured in some of the filters. Scaled objects should also be captured by the scattering network, because scaling can be viewed as a specific subset of deformation. The Lipschitz continuity w.r.t. deformation should also benefit the detection of scaled objects. 
 
-\subsubsection{Discussion of the properties}
+\subsection{Discussion of the properties}
 
-In this work the scattering transform should be applied to object detection. In previous works the scattering transform has mainly been applied to image classification. In the following a short distinction between the two tasks is presented. For image classification invariance/Lipschitz continuity w.r.t. rotation, translation, scale and deformation are all positive attributes because every image corresponds to exactly one category. In the context of object detection invariance/Lipschitz continuity w.r.t. rotation, scale and deformation are positive attributes. However, the invariance w.r.t. translation is potentially very problematic. When two objects at two different locations in the image lead to exactly the same scattering coefficients it is impossible to detect these objects correctly. \\
+In this work the scattering transform is applied to object detection. In previous works the scattering transform has mainly been applied to image classification. In the following a short distinction between the two tasks is presented. For image classification invariance/Lipschitz continuity w.r.t. rotation, translation, scale and deformation are all positive attributes because every image corresponds to exactly one category. In the context of object detection invariance/Lipschitz continuity w.r.t. rotation, scale and deformation are positive attributes. However, the invariance w.r.t. translation is potentially very problematic. When two objects at two different locations in the image lead to exactly the same scattering coefficients it is impossible to detect these objects correctly. However, the empirical results, i.e. figures \ref{fig:example1_coefficients}, \ref{fig:example_cat_coefficients} and appendix suggest translation equivariance instead of invariance. Equivariance is a desirable property for object detection and therefore not problematic.\\
 Given this theoretical insight this work proposes a specific kind of hybrid network which includes information from both a conventional CNN and the scattering networks. 
+
+\section{Single Shot Detector (SSD) - Object Detection Network}
+
+%How does it work?
+The Single Shot Detector (SSD) is a fully convolutional object detection network \cite{SSD}. The SSD consists of two main components: an adapted version of a standard CNN used in classification tasks, i.e. VGG or ResNet, and extra feature layers that transform the features from the first part to meaningful information w.r.t. the final classes and their location. The final detections are then pushed through a Non-Maximum Suppression operation to put a higher weight on probably correct detections and a lower weight on probably incorrect detections. 
+A detailed graphical description of the SSD and VGG16 can be found in figure \ref{fig:SSD}. In the upper picture an overview of the SSD architecture can be seen. The data is piped through the adapted classification architecture, in this case VGG16. However, instead of connecting the output with a fully connected layer to the output layer it is now piped through the extra feature layers. Those are responsible for anchor boxes on the image with different feature sizes and aspect ratios. Some of the combinations of feature sizes and aspect ratios will match an object on the image. The probability that an anchor box represents an object is evaluated by the confidence layers. There are a total of 8732 detections per image and class . All detections that are bigger than a certain threshold are the output of the network. The VGG is just represented as a big box in the first image but a more detailed view is represented in the second. The main idea behind the VGG is to pipe the data through multiple convolutional layers that have decreasing feature map size but increasing number of channels. As already described in \ref{sec:cnns} the representations are increasingly large with increasing layer number. The reduction of the feature map size is done by a 2x2 max pooling operation which is a method to reduce the size of representations while keeping the most important information. For a theoretical introduction to max pooling or a general overview of CNNs see Schmidhubers overview paper \cite{SchmidhuberOverview}. 
+
+\begin{figure}[!htb]
+	\centering
+	\begin{tabular}{c}
+		\subfloat[]{\fbox{\includegraphics[width=\textwidth]{images/simple_ssd.png}}} 
+		\\ \subfloat[]{\fbox{\includegraphics[width=\textwidth]{images/VGG16.png}}} 
+	\end{tabular}
+	\caption{Figure of the SSD network. a) Entire SSD with focus on extra feature layers and Non-Maximum Suppression. b) VGG16 in more detail. Explanations for the figures are in the respective section. The tensors NxNxC stand for the feature map size and number of channels, i.e. conv\_2\_1 has a feature map of 150x150 with 128 parallel channels. The red boxes describe $2x2$ max-pooling operations.}
+	\label{fig:SSD}
+\end{figure}
+
+%why SSD instead of fast RCNN or faster RCNN
+In its original paper \cite{SSD} the SSD performed very well on the PASCAL VOC2007 benchmark set, however, on most other object detection tasks, i.e. Kitti \cite{Geiger2013IJRR}, it is outperformed by fast R-CNN \cite{FastRCNN} or faster R-CNN \cite{FasterRCNN} two other architectures for object detection. In this work SSD is used instead of other architectures because it is comparably simple and easier to set up. Given that the task of this work is only to test whether the scattering transform can be used effectively to perform object detection, relative measures to the standard architecture are sufficient. However, there is no principal reason not to combine the scattering transform in the same way it is done in this paper with other object detection architectures if those are using convolutional layers (which is the current state of the art). This might be a suggestion for future work but is not part of this paper.
+
 
 \section{Hybrid Networks}
 
-%TODO
+Hybrid networks in the context of this paper describe a combination of conventional object detection network architectures and the scattering transform. Two possible ways to combine the two techniques are described in the following.
 
 \subsection{Sequential Hybrid Networks}
 
+Sequential hybrid networks describe an architecture in which the first couple of filters in a conventional object detection network have been replaced by the scattering transform. A general overview of the sequential architecture can be found in figure \ref{fig:sequential_scattering_overview}. The details of the implementation are found in figure \ref{fig:sequential_scattering_SSD} in the following chapter. 
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=\textwidth]{images/sequential_scattering_overview.png}
+	\caption{General overview of the sequential scattering architecture.}
+	\label{fig:sequential_scattering_overview}	
+\end{figure}
+
+
 \subsection{Parallel Hybrid Networks}
+
+Another possibility to combine the two networks is through concatenation during the forward pipeline. The intention here is to combine the strength of both techniques: the flexibility of the CNN with the robustness of the scattering transform. A general overview of the parallel architecture can be found in figure \ref{fig:parallel_scattering_overview} The details of the implementation are found in figure \ref{fig:parallel_scattering_SSD} in the following chapter. 
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=\textwidth]{images/parallel_scattering_overview.png}
+	\caption{General overview of the parallel scattering architecture.}
+	\label{fig:parallel_scattering_overview}	
+\end{figure}

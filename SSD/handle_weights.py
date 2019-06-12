@@ -19,11 +19,14 @@ import argparse
 from ssd import build_ssd
 from collections import OrderedDict
 
-sys.path.append('/home/hobbhahn/scattering_transform')
-from scattering import Scattering2D
+module_path = os.path.abspath(os.path.join('..'))
+scattering_path = os.path.abspath('/home/marius/Desktop/Comp.Sci_Bachelor_2018/scattering_transform')
+if module_path not in sys.path:
+    sys.path.append(module_path)
+sys.path.append(scattering_path)
 
 
-cfg = voc
+cfg = VOC_scat
 dataset = VOCDetection(root=VOC_ROOT,
                        transform=SSDAugmentation(size_x=cfg['dim_x'],
                                                  size_y=cfg['dim_y'],
@@ -78,6 +81,62 @@ def prepare_pretrained_for_scattering(list_of_old_names, list_of_new_names, file
             i += 1
 
     torch.save(new_weights, filename)
+
+def prepare_pretrained_for_scattering_bn(list_of_old_names, list_of_new_names, filename):
+#weights_name_list is a list of the old names that are supposed to become the new ones
+    assert(len(list_of_new_names) == len(list_of_old_names))
+    weights_location = 'weights/vgg16_reduced_bn.pth'
+    vgg_weights = torch.load(weights_location)
+    new_weights = OrderedDict([])
+    i = 0
+    for name, param in vgg_weights.items():
+        if name in list_of_old_names:
+            new_weights.update({list_of_new_names[i] : param})
+            i += 1
+
+    torch.save(new_weights, filename)
+
+def prepare_pretrained_for_parallel_scattering():
+
+    weights_location = 'weights/vgg16_reduced_bn.pth'
+    vgg_weights = torch.load(weights_location)
+    for name, param in vgg_weights.items():
+         print(name, param.size())
+
+    weight_tensor1 = torch.Tensor(128, 91, 3, 3)
+    weight_tensor1 = nn.init.xavier_normal_(weight_tensor1)
+    weight_tensor2 = torch.Tensor(256, 371, 3, 3)
+    weight_tensor2 = nn.init.xavier_normal_(weight_tensor2)
+
+    vgg_weights['7.weight'] = weight_tensor1
+    vgg_weights['14.weight'] = weight_tensor2
+    #vgg_weights['5.weight'] = weight_tensor1
+    #vgg_weights['10.weight'] = weight_tensor2
+
+    for name, param in vgg_weights.items():
+         print(name, param.size())
+
+    filename = 'weights/vgg16_reduced_bn_scat_par.pth'
+    print("save the weights at: ", filename)
+    torch.save(vgg_weights, filename)
+
+def remove_transformation_layer(weights):
+
+    vgg_weights = torch.load(weights, map_location='cpu')
+    new_weights = OrderedDict([])
+    for name, param in vgg_weights.items():
+        if name not in ['transform_layer.weight', 'transform_layer.bias']:
+            print(name, param.size())
+            new_weights.update({name: param})
+
+    print("save the weights at: ", weights)
+    torch.save(new_weights, weights)
+
+
+
+remove_transformation_layer('weights/scattering_parallel_ssd_J2_VOC_random_batch_norm_pretrained_13_125000.pth')
+
+#prepare_pretrained_for_parallel_scattering()
 
 #names for the scattering setup with J=2, this means vgg setup is [128, 128, 256, 256, 256, 'C', 512, 512, 512, 'M',  512, 512, 512] #removed 64, 64, 'M' for the scattering implementation, removed 'M' after 128
 
@@ -135,15 +194,166 @@ list_of_new_names_J2 = ['0.weight',
  '27.weight',
  '27.bias']
 
-prepare_pretrained_for_scattering(list_of_old_names_J2, list_of_new_names_J2, filename="weights/vgg16_pretrained_scat_J2.pth")
+#for scattering with batch norm
+list_of_old_names_J2_bn = [
+'7.weight',
+'7.bias',
+'8.weight',
+'8.bias',
+'8.running_mean',
+'8.running_var',
+'10.weight',
+'10.bias',
+'11.weight',
+'11.bias',
+'11.running_mean',
+'11.running_var',
+'14.weight',
+'14.bias',
+'15.weight',
+'15.bias',
+'15.running_mean',
+'15.running_var',
+'17.weight',
+'17.bias',
+'18.weight',
+'18.bias',
+'18.running_mean',
+'18.running_var',
+'20.weight',
+'20.bias',
+'21.weight',
+'21.bias',
+'21.running_mean',
+'21.running_var',
+'24.weight',
+'24.bias',
+'25.weight',
+'25.bias',
+'25.running_mean',
+'25.running_var',
+'27.weight',
+'27.bias',
+'28.weight',
+'28.bias',
+'28.running_mean',
+'28.running_var',
+'30.weight',
+'30.bias',
+'31.weight',
+'31.bias',
+'31.running_mean',
+'31.running_var',
+'34.weight',
+'34.bias',
+'35.weight',
+'35.bias',
+'35.running_mean',
+'35.running_var',
+'37.weight',
+'37.bias',
+'38.weight',
+'38.bias',
+'38.running_mean',
+'38.running_var',
+'40.weight',
+'40.bias',
+'41.weight',
+'41.bias',
+'41.running_mean',
+'41.running_var',
+'44.weight',
+'44.bias',
+'46.weight',
+'46.bias']
+
+list_of_new_names_J2_bn = [
+'0.weight',
+'0.bias',
+'1.weight',
+'1.bias',
+'1.running_mean',
+'1.running_var',
+'3.weight',
+'3.bias',
+'4.weight',
+'4.bias',
+'4.running_mean',
+'4.running_var',
+'6.weight',
+'6.bias',
+'7.weight',
+'7.bias',
+'7.running_mean',
+'7.running_var',
+'9.weight',
+'9.bias',
+'10.weight',
+'10.bias',
+'10.running_mean',
+'10.running_var',
+'12.weight',
+'12.bias',
+'13.weight',
+'13.bias',
+'13.running_mean',
+'13.running_var',
+'16.weight',
+'16.bias',
+'17.weight',
+'17.bias',
+'17.running_mean',
+'17.running_var',
+'19.weight',
+'19.bias',
+'20.weight',
+'20.bias',
+'20.running_mean',
+'20.running_var',
+'22.weight',
+'22.bias',
+'23.weight',
+'23.bias',
+'23.running_mean',
+'23.running_var',
+'26.weight',
+'26.bias',
+'27.weight',
+'27.bias',
+'27.running_mean',
+'27.running_var',
+'29.weight',
+'29.bias',
+'30.weight',
+'30.bias',
+'30.running_mean',
+'30.running_var',
+'32.weight',
+'32.bias',
+'33.weight',
+'33.bias',
+'33.running_mean',
+'33.running_var',
+'36.weight',
+'36.bias',
+'38.weight',
+'38.bias']
+
+
+#prepare_pretrained_for_scattering(list_of_old_names_J2, list_of_new_names_J2, filename="weights/vgg16_pretrained_scat_J2.pth")
+#prepare_pretrained_for_scattering_bn(list_of_old_names_J2_bn, list_of_new_names_J2_bn, filename="weights/vgg16_pretrained_scat_J2_bn.pth")
 
 #test if it worked:
-inp_channels = 51
+#inp_channels = 64
 
-ssd_net = build_scattering_ssd(phase='train', inp_channels=inp_channels, size_x=cfg['dim_x'], size_y=cfg['dim_y'], num_classes=cfg['num_classes'], cfg=cfg)
-vgg16_pretrained_scat_J2 = torch.load('weights/vgg16_pretrained_scat_J2.pth')
-print('Loading base network...')
-ssd_net.vgg.load_state_dict(vgg16_pretrained_scat_J2)
+#ssd_net = build_scattering_ssd(phase='train', inp_channels=inp_channels, size_x=cfg['dim_x'], size_y=cfg['dim_y'], num_classes=cfg['num_classes'],
+#                               cfg=cfg, batch_norm=True, pretrained=True)
+#print(ssd_net.vgg)
+# for name, param in ssd_net.vgg.items():
+#     print(name, param.size())
+#vgg16_pretrained_scat_J2_bn = torch.load('weights/vgg16_pretrained_scat_J2_bn.pth')
+#print('Loading base network...')
+#ssd_net.vgg.load_state_dict(vgg16_pretrained_scat_J2_bn)
 
 scattering_J2_names = ['vgg.0.weight',
  'vgg.0.bias',
@@ -308,7 +518,7 @@ vgg16_bn_names = ['features.0.weight',
 #print("vgg16_reduced_bn names: ")
 #vgg16_reduced_bn = torch.load('weights/vgg16_reduced_bn.pth')
 #for name, param in vgg16_reduced_bn.items():
-#    print(name)
+#    print(name, param.size())
 
 #test whether this is loadable:
 # vgg16_reduced_bn = torch.load('weights/vgg16_reduced_bn.pth')
@@ -349,4 +559,90 @@ vgg16_reducedfc_names = [
 '31.bias',
 '33.weight',
 '33.bias',
+]
+
+
+vgg16_reducedfc_bn_names = [
+'0.weight',
+'0.bias',
+'1.weight',
+'1.bias',
+'1.running_mean',
+'1.running_var',
+'3.weight',
+'3.bias',
+'4.weight',
+'4.bias',
+'4.running_mean',
+'4.running_var',
+'7.weight',
+'7.bias',
+'8.weight',
+'8.bias',
+'8.running_mean',
+'8.running_var',
+'10.weight',
+'10.bias',
+'11.weight',
+'11.bias',
+'11.running_mean',
+'11.running_var',
+'14.weight',
+'14.bias',
+'15.weight',
+'15.bias',
+'15.running_mean',
+'15.running_var',
+'17.weight',
+'17.bias',
+'18.weight',
+'18.bias',
+'18.running_mean',
+'18.running_var',
+'20.weight',
+'20.bias',
+'21.weight',
+'21.bias',
+'21.running_mean',
+'21.running_var',
+'24.weight',
+'24.bias',
+'25.weight',
+'25.bias',
+'25.running_mean',
+'25.running_var',
+'27.weight',
+'27.bias',
+'28.weight',
+'28.bias',
+'28.running_mean',
+'28.running_var',
+'30.weight',
+'30.bias',
+'31.weight',
+'31.bias',
+'31.running_mean',
+'31.running_var',
+'34.weight',
+'34.bias',
+'35.weight',
+'35.bias',
+'35.running_mean',
+'35.running_var',
+'37.weight',
+'37.bias',
+'38.weight',
+'38.bias',
+'38.running_mean',
+'38.running_var',
+'40.weight',
+'40.bias',
+'41.weight',
+'41.bias',
+'41.running_mean',
+'41.running_var',
+'44.weight',
+'44.bias',
+'46.weight',
+'46.bias'
 ]

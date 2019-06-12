@@ -34,7 +34,7 @@ class Scattering2dSSD(nn.Module):
 
     """
 
-    def __init__(self, inp_channels, phase, size_x, size_y, base, extras, head, num_classes, cfg, pretrained_weights):
+    def __init__(self, inp_channels, phase, size_x, size_y, base, extras, head, num_classes, cfg, batch_norm, pretrained_weights):
         super(Scattering2dSSD, self).__init__()
         self.phase = phase
         self.K = inp_channels
@@ -44,6 +44,7 @@ class Scattering2dSSD(nn.Module):
         self.priors = Variable(self.priorbox.forward(), volatile=True)
         self.size_x = size_x
         self.size_y = size_y
+        self.batch_norm = batch_norm
 
         # SSD network
         self.pretrained_weights = pretrained_weights
@@ -97,14 +98,14 @@ class Scattering2dSSD(nn.Module):
             x = x.view(x.size(0), self.K, 75, 75)
 
         # apply vgg up to conv4_3 relu
-        for k in range(17):                 #changed 23 to 18 since we removed 64, relu, 64, relu, 'M' as the first 5 layers, -1 for removing 'M'
+        for k in range(17 + 8 if self.batch_norm else 17):                 #changed 23 to 18 since we removed 64, relu, 64, relu, 'M' as the first 5 layers, -1 for removing 'M'
             x = self.vgg[k](x)
 
         s = self.L2Norm(x)
         sources.append(s)
 
         # apply vgg up to fc7
-        for k in range(17, len(self.vgg)):
+        for k in range(17 + 8 if self.batch_norm else 17, len(self.vgg)):
             x = self.vgg[k](x)
         sources.append(x)
 
@@ -238,10 +239,10 @@ def add_extras(cfg, i, batch_norm=False):
     return layers
 
 
-def multibox(vgg, extra_layers, cfg, num_classes):
+def multibox(vgg, extra_layers, cfg, num_classes, batch_norm):
     loc_layers = []
     conf_layers = []
-    vgg_source = [-14, -2]       #corresponds to conv4_3 and conv7
+    vgg_source = [15 + 7 if batch_norm else 15, -2]       #corresponds to conv4_3 and conv7
     
     for k, v in enumerate(vgg_source):
         loc_layers += [nn.Conv2d(vgg[v].out_channels,
@@ -287,7 +288,7 @@ def build_scattering_ssd(phase, inp_channels, size_x=300, size_y=300, num_classe
         return
     base_, extras_, head_ = multibox(vgg(cfg['base'], i=inp_channels, batch_norm=batch_norm),          #81 is for mode = 1 Calculation is explained in paper and code
                                      add_extras(cfg=extras[str(size_y)], i=1024),
-                                     cfg['mbox'], num_classes)
+                                     cfg['mbox'], num_classes, batch_norm)
     return Scattering2dSSD(phase=phase, inp_channels=inp_channels,
                            size_x=size_x, size_y=size_y, base=base_, extras=extras_,
-                           head=head_, num_classes=num_classes, cfg=cfg, pretrained_weights=pretrained)
+                           head=head_, num_classes=num_classes, cfg=cfg, pretrained_weights=pretrained, batch_norm=batch_norm)
