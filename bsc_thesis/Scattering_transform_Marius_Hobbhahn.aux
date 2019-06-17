@@ -21,10 +21,7 @@
 \newlabel{chap:abstract}{{}{5}{Abstract}{chapter*.2}{}}
 \newlabel{chap:zusammenfassung}{{}{7}{Zusammenfassung}{chapter*.3}{}}
 \citation{scatteringTransform2012}
-\citation{InvariantScatteringTextureDiscrimination2013}
-\citation{DeepRotoTranslation2014}
-\citation{3DScatteringTransformNeuro2017}
-\citation{ScalingTheScatteringTransform2017}
+\citation{scatteringTransform2012}
 \citation{ScalingTheScatteringTransform2017}
 \@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction}{11}{chapter.1}}
 \@writefile{lof}{\addvspace {10\p@ }}
@@ -32,255 +29,314 @@
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
 \newlabel{chap:introduction}{{1}{11}{Introduction}{chapter.1}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}Theory}{13}{chapter.2}}
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{lol}{\addvspace {10\p@ }}
-\@writefile{loa}{\addvspace {10\p@ }}
-\newlabel{chap:theory}{{2}{13}{Theory}{chapter.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}2D Image Processing}{13}{section.2.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Left: image represented as 2D flat surface. Right: image as 3D terrain with uneven surface. \footnotemark \relax }}{13}{figure.caption.5}}
-\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:image_surfaces}{{2.1}{13}{Left: image represented as 2D flat surface. Right: image as 3D terrain with uneven surface. \protect \footnotemark \relax }{figure.caption.5}{}}
-\newlabel{eq:2d_sine}{{2.1}{14}{2D Image Processing}{equation.2.1.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Left: $\qopname  \relax o{sin}(x) +\qopname  \relax o{sin}(y)$. Middle: $5 \qopname  \relax o{sin}(x)+ \qopname  \relax o{sin}(y)$. Right: $ \qopname  \relax o{sin}(x)+5\qopname  \relax o{sin}(y)$. On the middle and right images the higher amplitudes of 5 dominate the resulting wave. \footnotemark \relax }}{14}{figure.caption.6}}
-\newlabel{fig:2d_sine}{{2.2}{14}{Left: $\sin (x) +\sin (y)$. Middle: $5 \sin (x)+ \sin (y)$. Right: $ \sin (x)+5\sin (y)$. On the middle and right images the higher amplitudes of 5 dominate the resulting wave. \protect \footnotemark \relax }{figure.caption.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}Fourier Transformation}{14}{section.2.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}One dimensional FT}{14}{subsection.2.2.1}}
-\newlabel{eq:forward_FT}{{2.2}{14}{One dimensional FT}{equation.2.2.2}{}}
-\newlabel{eq:inverse_FT}{{2.3}{15}{One dimensional FT}{equation.2.2.3}{}}
-\newlabel{eq:forward_FT_dis}{{2.4}{15}{One dimensional FT}{equation.2.2.4}{}}
-\newlabel{eq:inverse_FT_dis}{{2.5}{15}{One dimensional FT}{equation.2.2.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Two dimensional FT}{15}{subsection.2.2.2}}
-\newlabel{eq:forward_FT_2D}{{2.6}{15}{Two dimensional FT}{equation.2.2.6}{}}
-\newlabel{eq:inverse_FT_2D}{{2.7}{15}{Two dimensional FT}{equation.2.2.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}Object detection}{15}{section.2.3}}
-\citation{SSD}
-\citation{FastRCNN}
-\citation{FasterRCNN}
-\citation{LeCun1989BackpropagationAT}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces An example of a annotated image taken from the Kitti dataset. There are seven objects of four classes visible: cyclist, car, pedestrian and dontcare.\relax }}{16}{figure.caption.7}}
-\newlabel{fig:annot_example}{{2.3}{16}{An example of a annotated image taken from the Kitti dataset. There are seven objects of four classes visible: cyclist, car, pedestrian and dontcare.\relax }{figure.caption.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}Convolutional Neural Networks}{16}{section.2.4}}
-\newlabel{sec:cnns}{{2.4}{16}{Convolutional Neural Networks}{section.2.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces 3x3 convolution on 5x5 image. Resulting image is also 5x5 due to the padding of size 1 added to the original image. \footnotemark \relax }}{17}{figure.caption.8}}
-\newlabel{fig:convolution}{{2.4}{17}{3x3 convolution on 5x5 image. Resulting image is also 5x5 due to the padding of size 1 added to the original image. \protect \footnotemark \relax }{figure.caption.8}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.5}Scattering Transform}{17}{section.2.5}}
-\newlabel{sec:scattering_transform}{{2.5}{17}{Scattering Transform}{section.2.5}{}}
-\citation{scatteringTransform2012}
-\citation{scatteringTransform2012}
-\citation{scatteringTransform2012}
-\newlabel{eq:morlet2d}{{2.8}{18}{Scattering Transform}{equation.2.5.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Complex morlet wavelet. a) Real part of $\psi $. b) Imaginary part of $\psi $. c) Fourier modulus $|\mathaccentV {hat}05E{\psi }|$. Image taken from \cite  {scatteringTransform2012}.\relax }}{18}{figure.caption.9}}
-\newlabel{fig:morlet2d}{{2.5}{18}{Complex morlet wavelet. a) Real part of $\psi $. b) Imaginary part of $\psi $. c) Fourier modulus $|\hat {\psi }|$. Image taken from \cite {scatteringTransform2012}.\relax }{figure.caption.9}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.1}Filter Bank}{18}{subsection.2.5.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces Visualization of the filter bank. The $j=0,1,2$ describe the different downsample sizes. The $\theta =0,...,7$ describe the different angles. For these images $N,M=32, L=8, J=3$. The contrast corresponds to the amplitude and the color to the phase. The blurry red dot in the bottom is the corresponding low-pass filter.\relax }}{19}{figure.caption.10}}
-\newlabel{fig:viz_filter_bank}{{2.6}{19}{Visualization of the filter bank. The $j=0,1,2$ describe the different downsample sizes. The $\theta =0,...,7$ describe the different angles. For these images $N,M=32, L=8, J=3$. The contrast corresponds to the amplitude and the color to the phase. The blurry red dot in the bottom is the corresponding low-pass filter.\relax }{figure.caption.10}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.2}Scattering Paths}{19}{subsection.2.5.2}}
-\newlabel{subsec:scattering_path}{{2.5.2}{19}{Scattering Paths}{subsection.2.5.2}{}}
-\citation{scatteringTransform2012}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.3}Scattering Networks}{20}{subsection.2.5.3}}
-\newlabel{subsec:scattering_networks}{{2.5.3}{20}{Scattering Networks}{subsection.2.5.3}{}}
-\newlabel{eq:order1_num_filters}{{2.9}{20}{Scattering Networks}{equation.2.5.9}{}}
-\newlabel{eq:order2_num_filters}{{2.10}{20}{Scattering Networks}{equation.2.5.10}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.7}{\ignorespaces Representation of a scattering network. Each filter is described by its path, e.g. $U[\lambda _1]f$. Every blue arrow describes an output at the particular filter. The $m=0,1,2$ describe the number of iterative applications of the scattering transform. $L=4$ is the branching factor in the network also known as the number of angles for the filter.\relax }}{21}{figure.caption.11}}
-\newlabel{fig:scattering_network}{{2.7}{21}{Representation of a scattering network. Each filter is described by its path, e.g. $U[\lambda _1]f$. Every blue arrow describes an output at the particular filter. The $m=0,1,2$ describe the number of iterative applications of the scattering transform. $L=4$ is the branching factor in the network also known as the number of angles for the filter.\relax }{figure.caption.11}{}}
-\citation{scatteringTransform2012}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.4}Properties of the Scattering Transform}{22}{subsection.2.5.4}}
-\newlabel{subsec:properties}{{2.5.4}{22}{Properties of the Scattering Transform}{subsection.2.5.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.8}{\ignorespaces Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }}{23}{figure.caption.12}}
-\newlabel{fig:example1_coefficients}{{2.8}{23}{Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }{figure.caption.12}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{23}{subfigure.8.1}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{23}{subfigure.8.2}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{23}{subfigure.8.3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{23}{subfigure.8.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.9}{\ignorespaces Image taken from the VOC dataset. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }}{24}{figure.caption.13}}
-\newlabel{fig:example_cat_coefficients}{{2.9}{24}{Image taken from the VOC dataset. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }{figure.caption.13}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{24}{subfigure.9.1}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{24}{subfigure.9.2}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{24}{subfigure.9.3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{24}{subfigure.9.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.5}Discussion of the properties}{24}{subsection.2.5.5}}
-\citation{SSD}
-\citation{SchmidhuberOverview}
-\citation{SSD}
-\citation{Geiger2013IJRR}
-\citation{FastRCNN}
-\citation{FasterRCNN}
-\@writefile{toc}{\contentsline {section}{\numberline {2.6}Single Shot Detector (SSD) - Object Detection Network}{25}{section.2.6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.10}{\ignorespaces Figure of the SSD network. a) Entire SSD with focus on extra feature layers and Non-Maximum Suppression. b) VGG16 in more detail. Explanations for the figures are in the respective section. The tensors NxNxC stand for the feature map size and number of channels, i.e. conv\_2\_1 has a feature map of 150x150 with 128 parallel channels. The red boxes describe $2x2$ max-pooling operations.\relax }}{26}{figure.caption.14}}
-\newlabel{fig:SSD}{{2.10}{26}{Figure of the SSD network. a) Entire SSD with focus on extra feature layers and Non-Maximum Suppression. b) VGG16 in more detail. Explanations for the figures are in the respective section. The tensors NxNxC stand for the feature map size and number of channels, i.e. conv\_2\_1 has a feature map of 150x150 with 128 parallel channels. The red boxes describe $2x2$ max-pooling operations.\relax }{figure.caption.14}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{26}{subfigure.10.1}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{26}{subfigure.10.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.7}Hybrid Networks}{27}{section.2.7}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.7.1}Sequential Hybrid Networks}{27}{subsection.2.7.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.11}{\ignorespaces General overview of the sequential scattering architecture.\relax }}{27}{figure.caption.15}}
-\newlabel{fig:sequential_scattering_overview}{{2.11}{27}{General overview of the sequential scattering architecture.\relax }{figure.caption.15}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.7.2}Parallel Hybrid Networks}{28}{subsection.2.7.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.12}{\ignorespaces General overview of the parallel scattering architecture.\relax }}{28}{figure.caption.16}}
-\newlabel{fig:parallel_scattering_overview}{{2.12}{28}{General overview of the parallel scattering architecture.\relax }{figure.caption.16}{}}
-\citation{VOC}
-\citation{Geiger2013IJRR}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Experiments}{29}{chapter.3}}
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{lol}{\addvspace {10\p@ }}
-\@writefile{loa}{\addvspace {10\p@ }}
-\newlabel{chap:experiments}{{3}{29}{Experiments}{chapter.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Datasets}{29}{section.3.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}PASCAL VOC}{29}{subsection.3.1.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}KITTI}{29}{subsection.3.1.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Three samples from the PASCAL VOC dataset showing a dog, bus and TV monitor from left to right.\relax }}{30}{figure.caption.17}}
-\newlabel{fig:VOC_samples}{{3.1}{30}{Three samples from the PASCAL VOC dataset showing a dog, bus and TV monitor from left to right.\relax }{figure.caption.17}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{30}{subfigure.1.1}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{30}{subfigure.1.2}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{30}{subfigure.1.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Four samples from the KITTI dataset.\relax }}{30}{figure.caption.18}}
-\newlabel{fig:kitti_samples}{{3.2}{30}{Four samples from the KITTI dataset.\relax }{figure.caption.18}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{30}{subfigure.2.1}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{30}{subfigure.2.2}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{30}{subfigure.2.3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{30}{subfigure.2.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Toy Data}{30}{subsection.3.1.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Four samples from the toy data set.\relax }}{31}{figure.caption.19}}
-\newlabel{fig:toy_data_samples}{{3.3}{31}{Four samples from the toy data set.\relax }{figure.caption.19}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{31}{subfigure.3.1}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{31}{subfigure.3.2}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{31}{subfigure.3.3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{31}{subfigure.3.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.4}Test Invariances Toy Data}{31}{subsection.3.1.4}}
-\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Scale}{31}{section*.20}}
-\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Rotation}{31}{section*.22}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Four samples from the scale toy data set. a) is the base image; b) -d) are the scaled versions\relax }}{32}{figure.caption.21}}
-\newlabel{fig:scale_samples}{{3.4}{32}{Four samples from the scale toy data set. a) is the base image; b) -d) are the scaled versions\relax }{figure.caption.21}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{32}{subfigure.4.1}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{32}{subfigure.4.2}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{32}{subfigure.4.3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{32}{subfigure.4.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Four samples from the rotation toy data set. a) is the base image; b) -d) are the rotated versions\relax }}{32}{figure.caption.23}}
-\newlabel{fig:rotation_samples}{{3.5}{32}{Four samples from the rotation toy data set. a) is the base image; b) -d) are the rotated versions\relax }{figure.caption.23}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{32}{subfigure.5.1}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{32}{subfigure.5.2}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{32}{subfigure.5.3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{32}{subfigure.5.4}}
-\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Deformation}{32}{section*.24}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Four samples from the deformation toy data set. a) is the base image; b) -d) are the deformed versions\relax }}{32}{figure.caption.25}}
-\newlabel{fig:deformation_samples}{{3.6}{32}{Four samples from the deformation toy data set. a) is the base image; b) -d) are the deformed versions\relax }{figure.caption.25}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{32}{subfigure.6.1}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{32}{subfigure.6.2}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{32}{subfigure.6.3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{32}{subfigure.6.4}}
+\citation{InvariantScatteringTextureDiscrimination2013}
+\citation{DeepRotoTranslation2014}
+\citation{3DScatteringTransformNeuro2017}
 \citation{ScalingTheScatteringTransform2017}
-\citation{Pytorch}
-\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Translation}{33}{section*.26}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Four samples from the translation toy data set. a) is the base image; b) -d) are the translated versions\relax }}{33}{figure.caption.27}}
-\newlabel{fig:translation_samples}{{3.7}{33}{Four samples from the translation toy data set. a) is the base image; b) -d) are the translated versions\relax }{figure.caption.27}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{33}{subfigure.7.1}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{33}{subfigure.7.2}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{33}{subfigure.7.3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{33}{subfigure.7.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.5}Classification Toy Data}{33}{subsection.3.1.5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Four samples from the classification toy data set.\relax }}{33}{figure.caption.28}}
-\newlabel{fig:toy_data_class_samples}{{3.8}{33}{Four samples from the classification toy data set.\relax }{figure.caption.28}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{33}{subfigure.8.1}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{33}{subfigure.8.2}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{33}{subfigure.8.3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{33}{subfigure.8.4}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Setup}{33}{section.3.2}}
-\citation{BatchNorm}
-\citation{SSD}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Technical Details}{34}{subsection.3.2.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Augmentations, Batchnorm, Multibox Loss, Optimizer}{34}{subsection.3.2.2}}
-\newlabel{eq:multibox_loss}{{3.1}{34}{Augmentations, Batchnorm, Multibox Loss, Optimizer}{equation.3.2.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Hyperparameters}{35}{subsection.3.2.3}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Hyperparameters for the SSD. Explanations for some Parameters are given in the accompanying text.\relax }}{35}{table.caption.29}}
-\newlabel{table:hyperparameters}{{3.1}{35}{Hyperparameters for the SSD. Explanations for some Parameters are given in the accompanying text.\relax }{table.caption.29}{}}
-\citation{SSD}
-\citation{SSD}
-\citation{SSD}
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}Related Work}{13}{section.1.1}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Theory}{15}{chapter.2}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{lol}{\addvspace {10\p@ }}
+\@writefile{loa}{\addvspace {10\p@ }}
+\newlabel{chap:theory}{{2}{15}{Theory}{chapter.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}2D Image Processing}{15}{section.2.1}}
+\newlabel{sec:2D_image_processing}{{2.1}{15}{2D Image Processing}{section.2.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Left: image represented as 2D flat surface. Right: image as 3D terrain with uneven surface. \footnotemark \relax }}{16}{figure.caption.5}}
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:image_surfaces}{{2.1}{16}{Left: image represented as 2D flat surface. Right: image as 3D terrain with uneven surface. \protect \footnotemark \relax }{figure.caption.5}{}}
+\newlabel{eq:2d_sine}{{2.1}{16}{2D Image Processing}{equation.2.1.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Left: $\qopname  \relax o{sin}(x) +\qopname  \relax o{sin}(y)$. Middle: $5 \qopname  \relax o{sin}(x)+ \qopname  \relax o{sin}(y)$. Right: $ \qopname  \relax o{sin}(x)+5\qopname  \relax o{sin}(y)$. On the middle and right images the higher amplitudes of 5 dominate the resulting wave. \footnotemark \relax }}{16}{figure.caption.6}}
+\newlabel{fig:2d_sine}{{2.2}{16}{Left: $\sin (x) +\sin (y)$. Middle: $5 \sin (x)+ \sin (y)$. Right: $ \sin (x)+5\sin (y)$. On the middle and right images the higher amplitudes of 5 dominate the resulting wave. \protect \footnotemark \relax }{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Fourier Transformation}{16}{section.2.2}}
+\newlabel{sec:fourier_transform}{{2.2}{16}{Fourier Transformation}{section.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}One Dimensional FT}{17}{subsection.2.2.1}}
+\newlabel{eq:forward_FT}{{2.2}{17}{One Dimensional FT}{equation.2.2.2}{}}
+\newlabel{eq:inverse_FT}{{2.3}{17}{One Dimensional FT}{equation.2.2.3}{}}
+\newlabel{eq:forward_FT_dis}{{2.4}{17}{One Dimensional FT}{equation.2.2.4}{}}
+\newlabel{eq:inverse_FT_dis}{{2.5}{17}{One Dimensional FT}{equation.2.2.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Two Dimensional FT}{17}{subsection.2.2.2}}
+\citation{scatteringTransform2012}
+\citation{scatteringTransform2012}
+\citation{scatteringTransform2012}
+\newlabel{eq:forward_FT_2D}{{2.6}{18}{Two Dimensional FT}{equation.2.2.6}{}}
+\newlabel{eq:inverse_FT_2D}{{2.7}{18}{Two Dimensional FT}{equation.2.2.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Scattering Transform}{18}{section.2.3}}
+\newlabel{sec:scattering_transform}{{2.3}{18}{Scattering Transform}{section.2.3}{}}
+\newlabel{eq:morlet2d}{{2.8}{18}{Scattering Transform}{equation.2.3.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Real and Complex part of Morlet wavelet in 1D. \footnotemark \relax }}{19}{figure.caption.7}}
+\newlabel{fig:morlet1d}{{2.3}{19}{Real and Complex part of Morlet wavelet in 1D. \protect \footnotemark \relax }{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Complex morlet wavelet. a) Real part of $\psi $. b) Imaginary part of $\psi $. c) Fourier modulus $|\mathaccentV {hat}05E{\psi }|$. Image taken from \cite  {scatteringTransform2012}.\relax }}{19}{figure.caption.8}}
+\newlabel{fig:morlet2d}{{2.4}{19}{Complex morlet wavelet. a) Real part of $\psi $. b) Imaginary part of $\psi $. c) Fourier modulus $|\hat {\psi }|$. Image taken from \cite {scatteringTransform2012}.\relax }{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Filter Bank}{19}{subsection.2.3.1}}
+\newlabel{subsec:filter_bank}{{2.3.1}{19}{Filter Bank}{subsection.2.3.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Visualization of the filter bank. The $j=0,1,2$ describe the different downsample sizes. The $\theta =0,...,7$ describe the different angles. For these images $N,M=32, L=8, J=3$. The contrast corresponds to the amplitude and the color to the phase. The blurry red dot in the bottom is the corresponding low-pass filter.\relax }}{20}{figure.caption.9}}
+\newlabel{fig:viz_filter_bank}{{2.5}{20}{Visualization of the filter bank. The $j=0,1,2$ describe the different downsample sizes. The $\theta =0,...,7$ describe the different angles. For these images $N,M=32, L=8, J=3$. The contrast corresponds to the amplitude and the color to the phase. The blurry red dot in the bottom is the corresponding low-pass filter.\relax }{figure.caption.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Scattering Paths}{20}{subsection.2.3.2}}
+\newlabel{subsec:scattering_path}{{2.3.2}{20}{Scattering Paths}{subsection.2.3.2}{}}
+\citation{scatteringTransform2012}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Scattering Networks}{21}{subsection.2.3.3}}
+\newlabel{subsec:scattering_networks}{{2.3.3}{21}{Scattering Networks}{subsection.2.3.3}{}}
+\newlabel{eq:order1_num_filters}{{2.9}{21}{Scattering Networks}{equation.2.3.9}{}}
+\newlabel{eq:order2_num_filters}{{2.10}{21}{Scattering Networks}{equation.2.3.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces Representation of a scattering network. Each filter is described by its path, e.g. $U[\lambda _1]f$. Every blue arrow describes an output at the particular filter. The $m=0,1,2$ describe the number of iterative applications of the scattering transform. $L=4$ is the branching factor in the network also known as the number of angles for the filter. The filters\relax }}{22}{figure.caption.10}}
+\newlabel{fig:scattering_network}{{2.6}{22}{Representation of a scattering network. Each filter is described by its path, e.g. $U[\lambda _1]f$. Every blue arrow describes an output at the particular filter. The $m=0,1,2$ describe the number of iterative applications of the scattering transform. $L=4$ is the branching factor in the network also known as the number of angles for the filter. The filters\relax }{figure.caption.10}{}}
+\citation{scatteringTransform2012}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.4}Properties of the Scattering Transform}{23}{subsection.2.3.4}}
+\newlabel{subsec:properties}{{2.3.4}{23}{Properties of the Scattering Transform}{subsection.2.3.4}{}}
+\newlabel{eq:invariance}{{2.11}{23}{Properties of the Scattering Transform}{equation.2.3.11}{}}
+\citation{RotationScalingDeformationSifre2013}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.7}{\ignorespaces Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }}{24}{figure.caption.11}}
+\newlabel{fig:example1_coefficients}{{2.7}{24}{Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }{figure.caption.11}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{24}{subfigure.7.1}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{24}{subfigure.7.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{24}{subfigure.7.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{24}{subfigure.7.4}}
+\newlabel{eq:equivariance}{{2.12}{24}{Properties of the Scattering Transform}{equation.2.3.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.8}{\ignorespaces Image taken from the VOC dataset. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }}{25}{figure.caption.12}}
+\newlabel{fig:example_cat_coefficients}{{2.8}{25}{Image taken from the VOC dataset. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{25}{subfigure.8.1}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{25}{subfigure.8.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{25}{subfigure.8.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{25}{subfigure.8.4}}
+\citation{LeCun1989BackpropagationAT}
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Discussion of the Properties}{26}{section*.13}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Convolutional Neural Networks}{26}{section.2.4}}
+\newlabel{sec:cnns}{{2.4}{26}{Convolutional Neural Networks}{section.2.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.9}{\ignorespaces 3x3 convolution on 5x5 image. Resulting image is also 5x5 due to the padding of size 1 added to the original image. \footnotemark \relax }}{27}{figure.caption.14}}
+\newlabel{fig:convolution}{{2.9}{27}{3x3 convolution on 5x5 image. Resulting image is also 5x5 due to the padding of size 1 added to the original image. \protect \footnotemark \relax }{figure.caption.14}{}}
 \citation{ScalingTheScatteringTransform2017}
 \citation{ResNet15}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces A graphical explanation of the feature maps. Image from the original SSD paper \cite  {SSD}.\relax }}{36}{figure.caption.30}}
-\newlabel{fig:SSD_feature_maps}{{3.9}{36}{A graphical explanation of the feature maps. Image from the original SSD paper \cite {SSD}.\relax }{figure.caption.30}{}}
-\citation{imagenet_cvpr_09}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Classification}{37}{section.3.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}Baseline Performance of the SSD}{37}{section.3.4}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.5}Sequential Scattering}{38}{section.3.5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces Sequantial scattering SSD. The first two filters are replaced by a scattering transform with $J=2$ and $m=1$. This means the output has $3 \cdot 17 =51$ output channel.\relax }}{38}{figure.caption.31}}
-\newlabel{fig:sequential_scattering_SSD}{{3.10}{38}{Sequantial scattering SSD. The first two filters are replaced by a scattering transform with $J=2$ and $m=1$. This means the output has $3 \cdot 17 =51$ output channel.\relax }{figure.caption.31}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.6}Parallel Scattering}{39}{section.3.6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces Parallel scattering SSD. The image is piped through the normal VGG path and additionally through a scattering transform with $J=1$ and $m=1$ and a second one with $J=2$ and $m=2$. The outputs of the scattering transforms are concatenated with the other pipe as soon as the dimensions are compatible.\relax }}{39}{figure.caption.32}}
-\newlabel{fig:parallel_scattering_SSD}{{3.11}{39}{Parallel scattering SSD. The image is piped through the normal VGG path and additionally through a scattering transform with $J=1$ and $m=1$ and a second one with $J=2$ and $m=2$. The outputs of the scattering transforms are concatenated with the other pipe as soon as the dimensions are compatible.\relax }{figure.caption.32}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.7}Small Toy Data Experiments}{40}{section.3.7}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.8}Timeconstraints}{40}{section.3.8}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Results}{41}{chapter.4}}
+\citation{yolo}
+\citation{SSD}
+\citation{RCNN}
+\citation{FastRCNN}
+\citation{FasterRCNN}
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}Hybrid Networks for Classification}{28}{section.2.5}}
+\newlabel{section:hybrid_networks_for_classification}{{2.5}{28}{Hybrid Networks for Classification}{section.2.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.6}Object Detection}{28}{section.2.6}}
+\newlabel{sec:object_detection}{{2.6}{28}{Object Detection}{section.2.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.10}{\ignorespaces An example of a annotated image taken from the Kitti dataset. There are seven objects of four classes visible: cyclist, car, pedestrian and dontcare.\relax }}{28}{figure.caption.15}}
+\newlabel{fig:annot_example}{{2.10}{28}{An example of a annotated image taken from the Kitti dataset. There are seven objects of four classes visible: cyclist, car, pedestrian and dontcare.\relax }{figure.caption.15}{}}
+\citation{SSD}
+\citation{SSD}
+\citation{SSD}
+\citation{SchmidhuberOverview}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.1}Single Shot Multibox Detector (SSD)}{29}{subsection.2.6.1}}
+\citation{SSD}
+\citation{Geiger2013IJRR}
+\citation{FastRCNN}
+\citation{FasterRCNN}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.11}{\ignorespaces A graphical explanation of the feature maps and anchor boxes. The grid shows the feature map. The boxes with dotted contours describe different possible anchor boxes for one entry on the grid. Image from the original SSD paper \cite  {SSD}.\relax }}{30}{figure.caption.16}}
+\newlabel{fig:SSD_feature_maps}{{2.11}{30}{A graphical explanation of the feature maps and anchor boxes. The grid shows the feature map. The boxes with dotted contours describe different possible anchor boxes for one entry on the grid. Image from the original SSD paper \cite {SSD}.\relax }{figure.caption.16}{}}
+\citation{ScalingTheScatteringTransform2017}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.12}{\ignorespaces Figure of the SSD network. a) Entire SSD with focus on extra feature layers and Non-Maximum Suppression. b) VGG16 in more detail. Explanations for the figures are in the respective section. The tensors NxNxC stand for the feature map size and number of channels, i.e. conv\_2\_1 has a feature map of 150x150 with 128 parallel channels. The red boxes describe $2x2$ max-pooling operations.\relax }}{31}{figure.caption.17}}
+\newlabel{fig:SSD}{{2.12}{31}{Figure of the SSD network. a) Entire SSD with focus on extra feature layers and Non-Maximum Suppression. b) VGG16 in more detail. Explanations for the figures are in the respective section. The tensors NxNxC stand for the feature map size and number of channels, i.e. conv\_2\_1 has a feature map of 150x150 with 128 parallel channels. The red boxes describe $2x2$ max-pooling operations.\relax }{figure.caption.17}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{31}{subfigure.12.1}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{31}{subfigure.12.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.7}Hybrid Networks for Object Detection}{32}{section.2.7}}
+\newlabel{sec:hybrid_networks_for_od}{{2.7}{32}{Hybrid Networks for Object Detection}{section.2.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7.1}Sequential Hybrid Networks}{32}{subsection.2.7.1}}
+\newlabel{subsec:sequential_hybrid}{{2.7.1}{32}{Sequential Hybrid Networks}{subsection.2.7.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.13}{\ignorespaces General overview of the sequential scattering architecture.\relax }}{32}{figure.caption.18}}
+\newlabel{fig:sequential_scattering_overview}{{2.13}{32}{General overview of the sequential scattering architecture.\relax }{figure.caption.18}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7.2}Parallel Hybrid Networks}{32}{subsection.2.7.2}}
+\newlabel{subsec:parallel_hybrid}{{2.7.2}{32}{Parallel Hybrid Networks}{subsection.2.7.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.14}{\ignorespaces General overview of the parallel scattering architecture.\relax }}{33}{figure.caption.19}}
+\newlabel{fig:parallel_scattering_overview}{{2.14}{33}{General overview of the parallel scattering architecture.\relax }{figure.caption.19}{}}
+\citation{VOC}
+\citation{Geiger2013IJRR}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Experiments}{35}{chapter.3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\newlabel{chap:results}{{4}{41}{Results}{chapter.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Classification}{41}{section.4.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Baseline Performance of the SSD}{41}{section.4.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Hyperparameterization and Baselines for PASCAL VOC, KITTI and Toy data}{42}{subsection.4.2.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Invariant toy data}{42}{subsection.4.2.2}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Results of the baseline experiments. Mean and standard deviation are denoted for every combination of features that were measured\relax }}{43}{table.caption.33}}
-\newlabel{table:baseline}{{4.1}{43}{Results of the baseline experiments. Mean and standard deviation are denoted for every combination of features that were measured\relax }{table.caption.33}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Results of the invariant toy data experiments. Mean and standard deviation are denoted for every combination of features that were measured\relax }}{44}{table.caption.34}}
-\newlabel{table:invariant_data}{{4.2}{44}{Results of the invariant toy data experiments. Mean and standard deviation are denoted for every combination of features that were measured\relax }{table.caption.34}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Sequential Scattering}{44}{section.4.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Parallel Scattering}{44}{section.4.4}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}Small Toy Data Experiments}{44}{section.4.5}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.6}Timing Evaluation}{44}{section.4.6}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces Results of the small data experiments. Mean and standard deviation of the accuracy are denoted for every combination of features that were measured.\relax }}{45}{table.caption.35}}
-\newlabel{table:small_data_experiments}{{4.3}{45}{Results of the small data experiments. Mean and standard deviation of the accuracy are denoted for every combination of features that were measured.\relax }{table.caption.35}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces Mean and standard deviation (std.) of 100 runs of the timing evaluation for the normal SSD, the sequential and the parallel scattering SSD are shown. Means are reported in seconds.\relax }}{45}{table.caption.36}}
-\newlabel{table:timing_evaluation}{{4.4}{45}{Mean and standard deviation (std.) of 100 runs of the timing evaluation for the normal SSD, the sequential and the parallel scattering SSD are shown. Means are reported in seconds.\relax }{table.caption.36}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Conclusion}{47}{chapter.5}}
+\newlabel{chap:experiments}{{3}{35}{Experiments}{chapter.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Datasets}{35}{section.3.1}}
+\newlabel{sec:datasets}{{3.1}{35}{Datasets}{section.3.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}PASCAL VOC}{35}{subsection.3.1.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Three samples from the PASCAL VOC dataset showing a dog, bus and TV monitor from left to right.\relax }}{36}{figure.caption.20}}
+\newlabel{fig:VOC_samples}{{3.1}{36}{Three samples from the PASCAL VOC dataset showing a dog, bus and TV monitor from left to right.\relax }{figure.caption.20}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{36}{subfigure.1.1}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{36}{subfigure.1.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{36}{subfigure.1.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}KITTI}{36}{subsection.3.1.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Four samples from the KITTI dataset.\relax }}{36}{figure.caption.21}}
+\newlabel{fig:kitti_samples}{{3.2}{36}{Four samples from the KITTI dataset.\relax }{figure.caption.21}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{36}{subfigure.2.1}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{36}{subfigure.2.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{36}{subfigure.2.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{36}{subfigure.2.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Toy Data}{37}{subsection.3.1.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Four samples from the toy data set.\relax }}{37}{figure.caption.22}}
+\newlabel{fig:toy_data_samples}{{3.3}{37}{Four samples from the toy data set.\relax }{figure.caption.22}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{37}{subfigure.3.1}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{37}{subfigure.3.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{37}{subfigure.3.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{37}{subfigure.3.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.4}Test Invariances Toy Data}{37}{subsection.3.1.4}}
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Scale}{37}{section*.23}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Four samples from the scale toy data set. a) is the base image; b) -d) are the scaled versions\relax }}{38}{figure.caption.24}}
+\newlabel{fig:scale_samples}{{3.4}{38}{Four samples from the scale toy data set. a) is the base image; b) -d) are the scaled versions\relax }{figure.caption.24}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{38}{subfigure.4.1}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{38}{subfigure.4.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{38}{subfigure.4.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{38}{subfigure.4.4}}
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Rotation}{38}{section*.25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Four samples from the rotation toy data set. a) is the base image; b) -d) are the rotated versions\relax }}{38}{figure.caption.26}}
+\newlabel{fig:rotation_samples}{{3.5}{38}{Four samples from the rotation toy data set. a) is the base image; b) -d) are the rotated versions\relax }{figure.caption.26}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{38}{subfigure.5.1}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{38}{subfigure.5.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{38}{subfigure.5.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{38}{subfigure.5.4}}
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Deformation}{38}{section*.27}}
+\citation{ScalingTheScatteringTransform2017}
+\citation{Pytorch}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Four samples from the deformation toy data set. a) is the base image; b) -d) are the deformed versions\relax }}{39}{figure.caption.28}}
+\newlabel{fig:deformation_samples}{{3.6}{39}{Four samples from the deformation toy data set. a) is the base image; b) -d) are the deformed versions\relax }{figure.caption.28}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{39}{subfigure.6.1}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{39}{subfigure.6.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{39}{subfigure.6.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{39}{subfigure.6.4}}
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Translation}{39}{section*.29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Four samples from the translation toy data set. a) is the base image; b) -d) are the translated versions\relax }}{39}{figure.caption.30}}
+\newlabel{fig:translation_samples}{{3.7}{39}{Four samples from the translation toy data set. a) is the base image; b) -d) are the translated versions\relax }{figure.caption.30}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{39}{subfigure.7.1}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{39}{subfigure.7.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{39}{subfigure.7.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{39}{subfigure.7.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.5}Classification Toy Data}{39}{subsection.3.1.5}}
+\citation{BatchNorm}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Four samples from the classification toy data set.\relax }}{40}{figure.caption.31}}
+\newlabel{fig:toy_data_class_samples}{{3.8}{40}{Four samples from the classification toy data set.\relax }{figure.caption.31}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{40}{subfigure.8.1}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{40}{subfigure.8.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{40}{subfigure.8.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{40}{subfigure.8.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Setup}{40}{section.3.2}}
+\newlabel{sec:setup}{{3.2}{40}{Setup}{section.3.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Augmentations, Batchnorm, Multibox Loss, Optimizer}{40}{subsection.3.2.1}}
+\citation{SSD}
+\citation{SSD}
+\newlabel{eq:multibox_loss}{{3.1}{41}{Augmentations, Batchnorm, Multibox Loss, Optimizer}{equation.3.2.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Hyperparameters}{41}{subsection.3.2.2}}
+\newlabel{subsec:hyperparameters}{{3.2.2}{41}{Hyperparameters}{subsection.3.2.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Hyperparameters for the SSD. Explanations for some Parameters are given in the accompanying text.\relax }}{41}{table.caption.32}}
+\newlabel{table:hyperparameters}{{3.1}{41}{Hyperparameters for the SSD. Explanations for some Parameters are given in the accompanying text.\relax }{table.caption.32}{}}
+\citation{ScalingTheScatteringTransform2017}
+\citation{ResNet15}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Classification}{42}{section.3.3}}
+\newlabel{sec:classification_experiments}{{3.3}{42}{Classification}{section.3.3}{}}
+\citation{imagenet_cvpr09}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Object Detection}{43}{section.3.4}}
+\newlabel{sec:object_detection_experiments}{{3.4}{43}{Object Detection}{section.3.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Baseline Performance of the SSD}{43}{subsection.3.4.1}}
+\newlabel{subsec:baseline_SSD}{{3.4.1}{43}{Baseline Performance of the SSD}{subsection.3.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Sequential Scattering}{44}{subsection.3.4.2}}
+\newlabel{subsec:sequential_scattering_experiment}{{3.4.2}{44}{Sequential Scattering}{subsection.3.4.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.3}Parallel Scattering}{44}{subsection.3.4.3}}
+\newlabel{subsec:parallel_scattering_experiment}{{3.4.3}{44}{Parallel Scattering}{subsection.3.4.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces Sequantial scattering SSD. The first two filters are replaced by a scattering transform with $J=2$ and $m=1$. This means the output has $3 \cdot 17 =51$ output channel.\relax }}{45}{figure.caption.33}}
+\newlabel{fig:sequential_scattering_SSD}{{3.9}{45}{Sequantial scattering SSD. The first two filters are replaced by a scattering transform with $J=2$ and $m=1$. This means the output has $3 \cdot 17 =51$ output channel.\relax }{figure.caption.33}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.4}Small Data Experiments}{45}{subsection.3.4.4}}
+\newlabel{subsec:small_data_experiments}{{3.4.4}{45}{Small Data Experiments}{subsection.3.4.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces Parallel scattering SSD. The image is piped through the normal VGG path and additionally through a scattering transform with $J=1$ and $m=1$ and a second one with $J=2$ and $m=2$. The outputs of the scattering transforms are concatenated with the other pipe as soon as the dimensions are compatible.\relax }}{46}{figure.caption.34}}
+\newlabel{fig:parallel_scattering_SSD}{{3.10}{46}{Parallel scattering SSD. The image is piped through the normal VGG path and additionally through a scattering transform with $J=1$ and $m=1$ and a second one with $J=2$ and $m=2$. The outputs of the scattering transforms are concatenated with the other pipe as soon as the dimensions are compatible.\relax }{figure.caption.34}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.5}Timing exeriments}{46}{subsection.3.4.5}}
+\newlabel{subsec:timing_experiments}{{3.4.5}{46}{Timing exeriments}{subsection.3.4.5}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Results}{47}{chapter.4}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\newlabel{chap:conclusion}{{5}{47}{Conclusion}{chapter.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Future Outlook}{47}{section.5.1}}
+\newlabel{chap:results}{{4}{47}{Results}{chapter.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Classification}{47}{section.4.1}}
+\newlabel{sec:classification_results}{{4.1}{47}{Classification}{section.4.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Object Detection}{47}{section.4.2}}
+\newlabel{sec:object_detection_results}{{4.2}{47}{Object Detection}{section.4.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Baseline Performance of the SSD}{48}{subsection.4.2.1}}
+\newlabel{subsec:baseline_SSD_results}{{4.2.1}{48}{Baseline Performance of the SSD}{subsection.4.2.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Hyperparameterization and Baselines}{48}{section*.35}}
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Invariant toy data}{48}{section*.37}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Results of the baseline experiments. Mean and standard deviation are denoted for every combination of features that were measured. The results show that the combination of Augmentations and Pretrained true and Batchnorm false achieve the highest accuracy in all cases.\relax }}{49}{table.caption.36}}
+\newlabel{table:baseline}{{4.1}{49}{Results of the baseline experiments. Mean and standard deviation are denoted for every combination of features that were measured. The results show that the combination of Augmentations and Pretrained true and Batchnorm false achieve the highest accuracy in all cases.\relax }{table.caption.36}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Results of the invariant toy data experiments. Mean and standard deviation are denoted for every combination of features that were measured. Pretraining on ImageNet decreases the average accuracy slightly.\relax }}{50}{table.caption.38}}
+\newlabel{table:invariant_data}{{4.2}{50}{Results of the invariant toy data experiments. Mean and standard deviation are denoted for every combination of features that were measured. Pretraining on ImageNet decreases the average accuracy slightly.\relax }{table.caption.38}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Sequential Scattering}{50}{subsection.4.2.2}}
+\newlabel{subsec:sequential_scattering_results}{{4.2.2}{50}{Sequential Scattering}{subsection.4.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Parallel Scattering}{50}{subsection.4.2.3}}
+\newlabel{subsec:parallel_scattering_results}{{4.2.3}{50}{Parallel Scattering}{subsection.4.2.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces Results of the sequential scattering experiments. Mean and standard deviation of the accuracy are denoted for every combination of features that were measured. Pretraining on ImageNet does not add any benefit.\relax }}{51}{table.caption.39}}
+\newlabel{table:sequential_scattering_experiments}{{4.3}{51}{Results of the sequential scattering experiments. Mean and standard deviation of the accuracy are denoted for every combination of features that were measured. Pretraining on ImageNet does not add any benefit.\relax }{table.caption.39}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces Results of the parallel scattering experiments. Mean and standard deviation of the accuracy are denoted for every combination of features that were measured. Pretraining on ImageNet does improve accuracy.\relax }}{51}{table.caption.40}}
+\newlabel{table:parallel_scattering_experiments}{{4.4}{51}{Results of the parallel scattering experiments. Mean and standard deviation of the accuracy are denoted for every combination of features that were measured. Pretraining on ImageNet does improve accuracy.\relax }{table.caption.40}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Comparison of the Techniques}{52}{subsection.4.2.4}}
+\newlabel{subsec:comparison_results}{{4.2.4}{52}{Comparison of the Techniques}{subsection.4.2.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Small Data Experiments}{52}{subsection.4.2.5}}
+\newlabel{subsec:small_data_results}{{4.2.5}{52}{Small Data Experiments}{subsection.4.2.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.5}{\ignorespaces Comparison between the standard SSD, sequential scattering and parallel scattering. For each method the best mean accuracy for all datasets is reported and compared. The standard SSD outperforms both others on VOC. The inverse happens in translation data.\relax }}{53}{table.caption.41}}
+\newlabel{table:comparison}{{4.5}{53}{Comparison between the standard SSD, sequential scattering and parallel scattering. For each method the best mean accuracy for all datasets is reported and compared. The standard SSD outperforms both others on VOC. The inverse happens in translation data.\relax }{table.caption.41}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Comparison between the standard SSD, sequential scattering and parallel scattering. For each method the best mean accuracy for all datasets is reported and compared. The standard SSD outperforms both others on VOC. The inverse happens in translation data.\relax }}{53}{figure.caption.42}}
+\newlabel{fig:comparison}{{4.1}{53}{Comparison between the standard SSD, sequential scattering and parallel scattering. For each method the best mean accuracy for all datasets is reported and compared. The standard SSD outperforms both others on VOC. The inverse happens in translation data.\relax }{figure.caption.42}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.6}Timing Evaluation}{53}{subsection.4.2.6}}
+\newlabel{subsec:timing_evaluation_results}{{4.2.6}{53}{Timing Evaluation}{subsection.4.2.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.6}{\ignorespaces Results of the small data experiments. Mean and standard deviation of the accuracy are denoted for every combination of features that were measured.\relax }}{54}{table.caption.43}}
+\newlabel{table:small_data_experiments}{{4.6}{54}{Results of the small data experiments. Mean and standard deviation of the accuracy are denoted for every combination of features that were measured.\relax }{table.caption.43}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.7}{\ignorespaces Mean and standard deviation (std.) of 100 runs of the timing evaluation for the normal SSD, the sequential and the parallel scattering SSD are shown. Means are reported in seconds. The sequential scattering is faster than the standard approach. Both are significantly faster than the parallel scattering.\relax }}{54}{table.caption.44}}
+\newlabel{table:timing_evaluation}{{4.7}{54}{Mean and standard deviation (std.) of 100 runs of the timing evaluation for the normal SSD, the sequential and the parallel scattering SSD are shown. Means are reported in seconds. The sequential scattering is faster than the standard approach. Both are significantly faster than the parallel scattering.\relax }{table.caption.44}{}}
+\citation{ScalingTheScatteringTransform2017}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Conclusion}{55}{chapter.5}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{lol}{\addvspace {10\p@ }}
+\@writefile{loa}{\addvspace {10\p@ }}
+\newlabel{chap:conclusion}{{5}{55}{Conclusion}{chapter.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Future Outlook}{56}{section.5.1}}
 \bibstyle{alpha}
 \bibdata{bibliography}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Appendix}{49}{chapter.6}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Appendix}{57}{chapter.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\newlabel{chap:appendix}{{6}{49}{Appendix}{chapter.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Negative Results}{49}{section.6.1}}
-\newlabel{sec:stuff_that_did_not_work}{{6.1}{49}{Negative Results}{section.6.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Explanations of the Scattering Transform}{49}{section.6.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Results}{49}{section.6.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }}{50}{figure.caption.37}}
-\newlabel{fig:example2_coefficients}{{6.1}{50}{Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }{figure.caption.37}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{50}{subfigure.1.1}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{50}{subfigure.1.2}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{50}{subfigure.1.3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{50}{subfigure.1.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }}{51}{figure.caption.38}}
-\newlabel{fig:example1e_coefficients}{{6.2}{51}{Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }{figure.caption.38}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{51}{subfigure.2.1}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{51}{subfigure.2.2}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{51}{subfigure.2.3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{51}{subfigure.2.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }}{52}{figure.caption.39}}
-\newlabel{fig:example2e_coefficients}{{6.3}{52}{Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }{figure.caption.39}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{52}{subfigure.3.1}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{52}{subfigure.3.2}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{52}{subfigure.3.3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{52}{subfigure.3.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.4}{\ignorespaces GLM for the baseline experiments. Positive Coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }}{53}{figure.caption.40}}
-\newlabel{fig:GLM_baseline}{{6.4}{53}{GLM for the baseline experiments. Positive Coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }{figure.caption.40}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.5}{\ignorespaces GLM for the baseline invariant experiments. Positive Coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }}{53}{figure.caption.41}}
-\newlabel{fig:GLM_invariances}{{6.5}{53}{GLM for the baseline invariant experiments. Positive Coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }{figure.caption.41}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.6}{\ignorespaces GLM for the small data experiments. Positive Coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }}{54}{figure.caption.42}}
-\newlabel{fig:GLM_small_data}{{6.6}{54}{GLM for the small data experiments. Positive Coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }{figure.caption.42}{}}
+\newlabel{chap:appendix}{{6}{57}{Appendix}{chapter.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Negative Results}{57}{section.6.1}}
+\newlabel{sec:stuff_that_did_not_work}{{6.1}{57}{Negative Results}{section.6.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Explanations of the Scattering Transform}{57}{section.6.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Results}{57}{section.6.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }}{58}{figure.caption.45}}
+\newlabel{fig:example2_coefficients}{{6.1}{58}{Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }{figure.caption.45}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{58}{subfigure.1.1}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{58}{subfigure.1.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{58}{subfigure.1.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{58}{subfigure.1.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }}{59}{figure.caption.46}}
+\newlabel{fig:example1e_coefficients}{{6.2}{59}{Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }{figure.caption.46}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{59}{subfigure.2.1}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{59}{subfigure.2.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{59}{subfigure.2.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{59}{subfigure.2.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }}{60}{figure.caption.47}}
+\newlabel{fig:example2e_coefficients}{{6.3}{60}{Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }{figure.caption.47}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{60}{subfigure.3.1}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{60}{subfigure.3.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{60}{subfigure.3.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{60}{subfigure.3.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.4}{\ignorespaces GLM for the baseline experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }}{61}{figure.caption.48}}
+\newlabel{fig:GLM_baseline}{{6.4}{61}{GLM for the baseline experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }{figure.caption.48}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.5}{\ignorespaces GLM for the baseline invariant experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }}{61}{figure.caption.49}}
+\newlabel{fig:GLM_invariances}{{6.5}{61}{GLM for the baseline invariant experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }{figure.caption.49}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.6}{\ignorespaces GLM for the sequential scattering experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }}{62}{figure.caption.50}}
+\newlabel{fig:GLM_sequential_scattering}{{6.6}{62}{GLM for the sequential scattering experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }{figure.caption.50}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.7}{\ignorespaces GLM for the parallel scattering experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }}{62}{figure.caption.51}}
+\newlabel{fig:GLM_parallel_scattering}{{6.7}{62}{GLM for the parallel scattering experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }{figure.caption.51}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.8}{\ignorespaces GLM for the small data experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }}{63}{figure.caption.52}}
+\newlabel{fig:GLM_small_data}{{6.8}{63}{GLM for the small data experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }{figure.caption.52}{}}
 \bibcite{3DScatteringTransformNeuro2017}{ACC{$^{+}$}17}
 \bibcite{scatteringTransform2012}{BM12}
+\bibcite{imagenet_cvpr09}{DDS{$^{+}$}09}
 \bibcite{VOC}{EEVG{$^{+}$}15}
+\bibcite{RCNN}{GDDM13}
 \bibcite{FastRCNN}{Gir15}
 \bibcite{Geiger2013IJRR}{GLSU13}
 \bibcite{ResNet15}{HZRS15}
@@ -290,9 +346,11 @@
 \bibcite{ScalingTheScatteringTransform2017}{OBZ17}
 \bibcite{DeepRotoTranslation2014}{OM14}
 \bibcite{Pytorch}{PGC{$^{+}$}17}
+\bibcite{yolo}{RF18}
 \bibcite{FasterRCNN}{RHGS15}
 \bibcite{SchmidhuberOverview}{Sch15}
-\bibcite{InvariantScatteringTextureDiscrimination2013}{SM13}
+\bibcite{InvariantScatteringTextureDiscrimination2013}{SM13a}
+\bibcite{RotationScalingDeformationSifre2013}{SM13b}
 \global\@namedef{scr@dte@chapter@lastmaxnumwidth}{10.46811pt}
 \global\@namedef{scr@dte@section@lastmaxnumwidth}{18.0674pt}
 \global\@namedef{scr@dte@subsection@lastmaxnumwidth}{26.27988pt}

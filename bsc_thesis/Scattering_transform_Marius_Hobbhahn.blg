@@ -2,52 +2,51 @@ This is BibTeX, Version 0.99d (TeX Live 2016/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Scattering_transform_Marius_Hobbhahn.aux
 The style file: alpha.bst
-Illegal, another \bibstyle command---line 238 of file Scattering_transform_Marius_Hobbhahn.aux
+Illegal, another \bibstyle command---line 295 of file Scattering_transform_Marius_Hobbhahn.aux
  : \bibstyle
  :          {alpha}
 I'm skipping whatever remains of this command
 Database file #1: bibliography.bib
-Warning--I didn't find a database entry for "imagenet_cvpr_09"
 Warning--empty journal in Pytorch
-You've used 15 entries,
+You've used 19 entries,
             2543 wiz_defined-function locations,
-            653 strings with 7537 characters,
-and the built_in function-call counts, 6483 in all, are:
-= -- 625
-> -- 440
-< -- 3
-+ -- 161
-- -- 160
-* -- 502
-:= -- 1163
-add.period$ -- 48
-call.type$ -- 15
-change.case$ -- 121
-chr.to.int$ -- 15
-cite$ -- 16
-duplicate$ -- 216
-empty$ -- 361
-format.name$ -- 172
-if$ -- 1254
-int.to.chr$ -- 1
+            672 strings with 8112 characters,
+and the built_in function-call counts, 8230 in all, are:
+= -- 795
+> -- 549
+< -- 4
++ -- 201
+- -- 199
+* -- 623
+:= -- 1458
+add.period$ -- 60
+call.type$ -- 19
+change.case$ -- 151
+chr.to.int$ -- 18
+cite$ -- 20
+duplicate$ -- 284
+empty$ -- 470
+format.name$ -- 214
+if$ -- 1610
+int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 15
-newline$ -- 81
-num.names$ -- 45
-pop$ -- 84
+missing$ -- 19
+newline$ -- 101
+num.names$ -- 57
+pop$ -- 110
 preamble$ -- 1
-purify$ -- 136
+purify$ -- 170
 quote$ -- 0
-skip$ -- 196
+skip$ -- 261
 stack$ -- 0
-substring$ -- 228
-swap$ -- 25
-text.length$ -- 3
+substring$ -- 292
+swap$ -- 41
+text.length$ -- 4
 text.prefix$ -- 2
 top$ -- 0
-type$ -- 120
+type$ -- 152
 warning$ -- 1
-while$ -- 51
-width$ -- 20
-write$ -- 202
+while$ -- 65
+width$ -- 24
+write$ -- 253
 (There was 1 error message)

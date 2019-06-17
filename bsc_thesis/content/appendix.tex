@@ -7,7 +7,8 @@ Additional material for explanations and results can be found here. There is als
 \label{sec:stuff_that_did_not_work}
 
 \begin{enumerate}
-	\item 
+	\item Given that the aspect ratio of the images from the KITTI dataset are 3:1 we set up an SSD with input size 1000x300 and adapted the feature sizes accordingly. However, the results were comparable to or worse than the 300x300 version but took longer to compute and was therefore discarded.
+	\item The values called s\_sizes in the hyperparameters Subsection \ref{subsec:hyperparameters} are calculated according to a minimum value of 0.2 and maximum value of 0.9 with a linear interpolation in between. We changed these values to 0.1 and 0.95 and other combinations. Non of them were more successful than the default ones.
 \end{enumerate}
 
 \section{Explanations of the Scattering Transform}
@@ -24,7 +25,7 @@ Figure \ref{fig:example2e_coefficients} shows a scaled version of \ref{fig:examp
 		& \subfloat[]{\includegraphics[width=7cm]{images/example2_0ord.png}}\\
 		
 		\subfloat[]{\includegraphics[width=7cm]{images/example2_1ord.png}} &
-		\subfloat[]{\includegraphics[width=7cm]{images/example2_2ord.png}}
+		\subfloat[]{\includegraphics[width=8cm]{images/example2_2ord.png}}
 	\end{tabular}
 	\caption{Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients}
 	\label{fig:example2_coefficients}
@@ -38,7 +39,7 @@ Figure \ref{fig:example2e_coefficients} shows a scaled version of \ref{fig:examp
 		& \subfloat[]{\includegraphics[width=7cm]{images/example1e_0ord.png}}\\
 		
 		\subfloat[]{\includegraphics[width=7cm]{images/example1e_1ord.png}} &
-		\subfloat[]{\includegraphics[width=7cm]{images/example1e_2ord.png}}
+		\subfloat[]{\includegraphics[width=8cm]{images/example1e_2ord.png}}
 	\end{tabular}
 	\caption{Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients}
 	\label{fig:example1e_coefficients}
@@ -52,7 +53,7 @@ Figure \ref{fig:example2e_coefficients} shows a scaled version of \ref{fig:examp
 		& \subfloat[]{\includegraphics[width=7cm]{images/example2e_0ord.png}}\\
 		
 		\subfloat[]{\includegraphics[width=7cm]{images/example2e_1ord.png}} &
-		\subfloat[]{\includegraphics[width=7cm]{images/example2e_2ord.png}}
+		\subfloat[]{\includegraphics[width=8cm]{images/example2e_2ord.png}}
 	\end{tabular}
 	\caption{Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients}
 	\label{fig:example2e_coefficients}
@@ -125,6 +126,74 @@ Figure \ref{fig:example2e_coefficients} shows a scaled version of \ref{fig:examp
 	\end{center}
 	\caption{GLM for the baseline invariant experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.}
 	\label{fig:GLM_invariances}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\begin{center}
+		\begin{tabular}{lclc}
+			\toprule
+			\textbf{Dep. Variable:}    &     Accuracy     & \textbf{  No. Observations:  } &       40    \\
+			\textbf{Model:}            &       GLM        & \textbf{  Df Residuals:      } &       32    \\
+			\textbf{Model Family:}     &     Binomial     & \textbf{  Df Model:          } &        7    \\
+			\textbf{Link Function:}    &      logit       & \textbf{  Scale:             } &    1.0000   \\
+			\textbf{Method:}           &       IRLS       & \textbf{  Log-Likelihood:    } &   -13.468   \\
+			\textbf{Date:}             & Fri, 14 Jun 2019 & \textbf{  Deviance:          } &   0.45398   \\
+			\textbf{Time:}             &     16:16:06     & \textbf{  Pearson chi2:      } &    0.504    \\
+			\bottomrule
+		\end{tabular}
+		\begin{tabular}{lcccccc}
+			& \textbf{coef} & \textbf{std err} & \textbf{z} & \textbf{P$>$$|$z$|$} & \textbf{[0.025} & \textbf{0.975]}  \\
+			\midrule
+			\textbf{Intercept}         &       0.5339  &        0.515     &     1.037  &         0.300        &       -0.475    &        1.543     \\
+			\textbf{VOC}               &      -0.8504  &        0.959     &    -0.887  &         0.375        &       -2.729    &        1.029     \\
+			\textbf{Kitti}             &      -2.7801  &        1.273     &    -2.184  &         0.029        &       -5.275    &       -0.285     \\
+			\textbf{Toy\_data}         &       1.0364  &        1.005     &     1.031  &         0.303        &       -0.934    &        3.007     \\
+			\textbf{Deformation\_data} &       2.0923  &        1.446     &     1.447  &         0.148        &       -0.742    &        4.927     \\
+			\textbf{Rotation\_data}    &       0.0003  &        0.825     &     0.000  &         1.000        &       -1.616    &        1.617     \\
+			\textbf{Scale\_data}       &       0.0821  &        0.832     &     0.099  &         0.921        &       -1.549    &        1.713     \\
+			\textbf{Translation\_data} &       0.9533  &        0.983     &     0.970  &         0.332        &       -0.973    &        2.880     \\
+			\textbf{Pretrained}        &      -0.0502  &        0.789     &    -0.064  &         0.949        &       -1.596    &        1.495     \\
+			\bottomrule
+		\end{tabular}
+		%\caption{Generalized Linear Model Regression Results}
+	\end{center}
+\caption{GLM for the sequential scattering experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.}
+\label{fig:GLM_sequential_scattering}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\begin{center}
+		\begin{tabular}{lclc}
+			\toprule
+			\textbf{Dep. Variable:}    &     Accuracy     & \textbf{  No. Observations:  } &       14    \\
+			\textbf{Model:}            &       GLM        & \textbf{  Df Residuals:      } &        6    \\
+			\textbf{Model Family:}     &     Binomial     & \textbf{  Df Model:          } &        7    \\
+			\textbf{Link Function:}    &      logit       & \textbf{  Scale:             } &    1.0000   \\
+			\textbf{Method:}           &       IRLS       & \textbf{  Log-Likelihood:    } &   -4.7429   \\
+			\textbf{Date:}             & Sun, 16 Jun 2019 & \textbf{  Deviance:          } &   0.24234   \\
+			\textbf{Time:}             &     12:27:21     & \textbf{  Pearson chi2:      } &    0.234    \\
+			\bottomrule
+		\end{tabular}
+		\begin{tabular}{lcccccc}
+			& \textbf{coef} & \textbf{std err} & \textbf{z} & \textbf{P$>$$|$z$|$} & \textbf{[0.025} & \textbf{0.975]}  \\
+			\midrule
+			\textbf{Intercept}         &       0.2234  &        0.858     &     0.260  &         0.794        &       -1.458    &        1.904     \\
+			\textbf{VOC}               &      -1.2057  &        1.484     &    -0.812  &         0.417        &       -4.114    &        1.703     \\
+			\textbf{Kitti}             &      -2.9562  &        2.450     &    -1.207  &         0.228        &       -7.758    &        1.846     \\
+			\textbf{Toy\_data}         &       0.8385  &        1.605     &     0.522  &         0.601        &       -2.307    &        3.984     \\
+			\textbf{Deformation\_data} &       1.8721  &        2.195     &     0.853  &         0.394        &       -2.431    &        6.175     \\
+			\textbf{Rotation\_data}    &       0.1984  &        1.439     &     0.138  &         0.890        &       -2.622    &        3.019     \\
+			\textbf{Scale\_data}       &       0.1826  &        1.437     &     0.127  &         0.899        &       -2.633    &        2.999     \\
+			\textbf{Translation\_data} &       1.2936  &        1.809     &     0.715  &         0.475        &       -2.252    &        4.839     \\
+			\textbf{Pretrained}        &       0.3595  &        1.338     &     0.269  &         0.788        &       -2.263    &        2.982     \\
+			\bottomrule
+		\end{tabular}
+		%\caption{Generalized Linear Model Regression Results}
+	\end{center}
+\caption{GLM for the parallel scattering experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.}
+\label{fig:GLM_parallel_scattering}
 \end{figure}
 
 \begin{figure}[!htb]

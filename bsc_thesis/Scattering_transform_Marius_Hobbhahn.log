@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2019.6.4)  12 JUN 2019 16:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2019.6.4)  16 JUN 2019 17:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -775,13 +775,36 @@ Package caption Info: listings package is loaded.
 \sf@top=\skip86
 \sf@bottom=\skip87
 )
+(/usr/share/texlive/texmf-dist/tex/latex/arydshln/arydshln.sty
+Package: arydshln 2016/04/28 v1.73 
+\dashlinedash=\dimen157
+\dashlinegap=\dimen158
+\adl@box=\box40
+\adl@height=\dimen159
+\adl@heightsave=\dimen160
+\adl@depth=\dimen161
+\adl@depthsave=\dimen162
+\adl@finaldepth=\dimen163
+\adl@columns=\count141
+\adl@ncol=\count142
+\adl@currentcolumn=\count143
+\adl@currentcolumnsave=\count144
+\adl@totalheight=\count145
+\adl@totalheightsave=\count146
+\adl@dash=\count147
+\adl@gap=\count148
+\adl@cla=\count149
+\adl@clb=\count150
+\adl@everyvbox=\toks31
+\adl@LTpagetotal=\dimen164
+)
 
 Class scrbook Warning: Usage of package `fancyhdr' together
 (scrbook)              with a KOMA-Script class is not recommended.
 (scrbook)              I'd suggest to use 
 (scrbook)              package `scrlayer-scrpage'.
 (scrbook)              Nevertheless, using requested
-(scrbook)              package `fancyhdr' on input line 70.
+(scrbook)              package `fancyhdr' on input line 72.
 
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 \fancy@headwidth=\skip88
@@ -845,17 +868,17 @@ File: t1pxr.fd 2000/12/14 v1.0
 )
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count141
-\scratchdimen=\dimen157
-\scratchbox=\box40
-\nofMPsegments=\count142
-\nofMParguments=\count143
-\everyMPshowfont=\toks31
-\MPscratchCnt=\count144
-\MPscratchDim=\dimen158
-\MPnumerator=\count145
-\makeMPintoPDFobject=\count146
-\everyMPtoPDFconversion=\toks32
+\scratchcounter=\count151
+\scratchdimen=\dimen165
+\scratchbox=\box41
+\nofMPsegments=\count152
+\nofMParguments=\count153
+\everyMPshowfont=\toks32
+\MPscratchCnt=\count154
+\MPscratchDim=\dimen166
+\MPnumerator=\count155
+\makeMPintoPDFobject=\count156
+\everyMPtoPDFconversion=\toks33
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -888,8 +911,8 @@ Package microtype Info: No adjustment of character kerning.
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ppl.cfg
 File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 )
-\c@lstlisting=\count147
-\AtBeginShipoutBox=\box41
+\c@lstlisting=\count157
+\AtBeginShipoutBox=\box42
 Package hyperref Info: Link coloring OFF on input line 7.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -898,7 +921,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count148
+\c@section@level=\count158
 )
 LaTeX Info: Redefining \ref on input line 7.
 LaTeX Info: Redefining \pageref on input line 7.
@@ -953,7 +976,7 @@ LaTeX Font Info:    Try loading font information for U+pxsyc on input line 1.
 (/usr/share/texlive/texmf-dist/tex/latex/pxfonts/upxsyc.fd
 File: upxsyc.fd 2000/12/14 v1.0
 )
-<./images/UT_WBMW_Rot_4C.pdf, id=205, 554.82881pt x 142.26349pt>
+<./images/UT_WBMW_Rot_4C.pdf, id=209, 554.82881pt x 142.26349pt>
 File: ./images/UT_WBMW_Rot_4C.pdf Graphic file (type pdf)
 
 <use ./images/UT_WBMW_Rot_4C.pdf>
@@ -1078,635 +1101,658 @@ Class scrbook Warning: \float@addtolists detected!
 (scrbook)              a package that still implements the
 (scrbook)              deprecated \float@addtolist interface .
 
-) (./content/theory.tex [11
+[11
 
 
-] [12]
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12])
+(./content/theory.tex
+Underfull \hbox (badness 10000) in paragraph at lines 26--1
+
+ []
+
+[13] [14
+
+
+]
 chapter 2.
-<images/image_surfaces.jpg, id=349, 708.6475pt x 199.74625pt>
+<images/image_surfaces.jpg, id=370, 708.6475pt x 199.74625pt>
 File: images/image_surfaces.jpg Graphic file (type jpg)
 
 <use images/image_surfaces.jpg>
-Package pdftex.def Info: images/image_surfaces.jpg used on input line 14.
+Package pdftex.def Info: images/image_surfaces.jpg used on input line 16.
 (pdftex.def)             Requested size: 358.50233pt x 101.0524pt.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 15.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 17.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 15.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 17.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 19.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 21.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 19.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 21.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 19.
- [13
-
-
- <./images/image_surfaces.jpg>]
-<images/2d_sine.jpg, id=363, 803.0pt x 205.76875pt>
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 21.
+ [15]
+<images/2d_sine.jpg, id=382, 803.0pt x 205.76875pt>
 File: images/2d_sine.jpg Graphic file (type jpg)
  <use images/2d_sine.jpg>
-Package pdftex.def Info: images/2d_sine.jpg used on input line 36.
+Package pdftex.def Info: images/2d_sine.jpg used on input line 38.
 (pdftex.def)             Requested size: 398.33864pt x 102.0772pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--56
+[16 <./images/image_surfaces.jpg> <./images/2d_sine.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 59--60
 
  []
 
-[14 <./images/2d_sine.jpg>] [15]
-<images/Annotations_example.png, id=395, 1242.6425pt x 375.4025pt>
-File: images/Annotations_example.png Graphic file (type png)
+[17] <images/Morlet_wavelet_1D.png, id=421, 441.65pt x 263.98625pt>
+File: images/Morlet_wavelet_1D.png Graphic file (type png)
 
-<use images/Annotations_example.png>
-Package pdftex.def Info: images/Annotations_example.png used on input line 94.
-(pdftex.def)             Requested size: 358.50233pt x 108.30257pt.
+<use images/Morlet_wavelet_1D.png>
+Package pdftex.def Info: images/Morlet_wavelet_1D.png used on input line 112.
+(pdftex.def)             Requested size: 358.50233pt x 214.29494pt.
 
-<images/convolution.png, id=401, 434.62375pt x 487.8225pt>
-File: images/convolution.png Graphic file (type png)
-
-<use images/convolution.png>
-Package pdftex.def Info: images/convolution.png used on input line 108.
-(pdftex.def)             Requested size: 199.16931pt x 223.5525pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 113--113
-[][][]\T1/pxr/m/n/9 (+20) Figure taken from and an-i-mated ver-sion at []$\T1/p
-xtt/m/n/9 https : / / towardsdatascience . com /
+Underfull \hbox (badness 10000) in paragraph at lines 117--117
+[][][]\T1/pxr/m/n/9 (+20) Figure taken from []$\T1/pxtt/m/n/9 https : / / pdfs 
+. semanticscholar . org / c354 /
  []
 
-[16 <./images/Annotations_example.png (PNG copy)>] [17 <./images/convolution.pn
-g>] <images/morlet2d.png, id=424, 801.99625pt x 299.1175pt>
+<images/morlet2d.png, id=427, 801.99625pt x 299.1175pt>
 File: images/morlet2d.png Graphic file (type png)
 
 <use images/morlet2d.png>
-Package pdftex.def Info: images/morlet2d.png used on input line 137.
+Package pdftex.def Info: images/morlet2d.png used on input line 124.
 (pdftex.def)             Requested size: 358.50233pt x 133.71161pt.
- [18 <./images/morlet2d.png>]
-<images/filter_bank_vis2.png, id=435, 1496.59125pt x 825.0825pt>
+ [18] [19 <./images/Morlet_wavelet_1D.png> <./images/morlet2d.png>] <images/fil
+ter_bank_vis2.png, id=445, 1496.59125pt x 825.0825pt>
 File: images/filter_bank_vis2.png Graphic file (type png)
 
 <use images/filter_bank_vis2.png>
-Package pdftex.def Info: images/filter_bank_vis2.png used on input line 150.
+Package pdftex.def Info: images/filter_bank_vis2.png used on input line 138.
 (pdftex.def)             Requested size: 398.33864pt x 219.60263pt.
- [19 <./images/filter_bank_vis2.png>]
-<images/scattering_network_overview.png, id=448, 828.09375pt x 601.24625pt>
+ [20 <./images/filter_bank_vis2.png>]
+<images/scattering_network_overview.png, id=458, 931.48pt x 676.5275pt>
 File: images/scattering_network_overview.png Graphic file (type png)
 
 <use images/scattering_network_overview.png>
 Package pdftex.def Info: images/scattering_network_overview.png used on input l
-ine 188.
-(pdftex.def)             Requested size: 298.75397pt x 216.91637pt.
- [20] [21 <./images/scattering_network_overview.png>] <images/0000011_00.jpg, i
-d=467, 128.48pt x 128.48pt>
+ine 176.
+(pdftex.def)             Requested size: 298.75397pt x 216.9784pt.
+ [21] [22 <./images/scattering_network_overview.png>] <images/0000011_00.jpg, i
+d=478, 128.48pt x 128.48pt>
 File: images/0000011_00.jpg Graphic file (type jpg)
 
 <use images/0000011_00.jpg>
-Package pdftex.def Info: images/0000011_00.jpg used on input line 205.
+Package pdftex.def Info: images/0000011_00.jpg used on input line 193.
 (pdftex.def)             Requested size: 128.0374pt x 128.0464pt.
 
-<images/example1_0ord.png, id=468, 462.528pt x 346.896pt>
+<images/example1_0ord.png, id=479, 462.528pt x 346.896pt>
 File: images/example1_0ord.png Graphic file (type png)
 
 <use images/example1_0ord.png>
-Package pdftex.def Info: images/example1_0ord.png used on input line 206.
+Package pdftex.def Info: images/example1_0ord.png used on input line 194.
 (pdftex.def)             Requested size: 199.16928pt x 149.37938pt.
 
-<images/example1_1ord.png, id=470, 462.528pt x 346.896pt>
+<images/example1_1ord.png, id=481, 462.528pt x 346.896pt>
 File: images/example1_1ord.png Graphic file (type png)
 
 <use images/example1_1ord.png>
-Package pdftex.def Info: images/example1_1ord.png used on input line 208.
+Package pdftex.def Info: images/example1_1ord.png used on input line 196.
 (pdftex.def)             Requested size: 199.16928pt x 149.37938pt.
 
-<images/example1_2ord.png, id=471, 462.528pt x 346.896pt>
+<images/example1_2ord.png, id=482, 462.528pt x 346.896pt>
 File: images/example1_2ord.png Graphic file (type png)
 
 <use images/example1_2ord.png>
-Package pdftex.def Info: images/example1_2ord.png used on input line 209.
-(pdftex.def)             Requested size: 199.16928pt x 149.37938pt.
+Package pdftex.def Info: images/example1_2ord.png used on input line 197.
+(pdftex.def)             Requested size: 227.62204pt x 170.71628pt.
 
-Overfull \hbox (23.99992pt too wide) in paragraph at lines 204--211
+Overfull \hbox (52.45268pt too wide) in paragraph at lines 192--199
  [][] 
  []
 
-<images/cat_example.jpg, id=472, 501.875pt x 325.215pt>
+<images/cat_example.jpg, id=483, 501.875pt x 325.215pt>
 File: images/cat_example.jpg Graphic file (type jpg)
 
 <use images/cat_example.jpg>
-Package pdftex.def Info: images/cat_example.jpg used on input line 218.
+Package pdftex.def Info: images/cat_example.jpg used on input line 206.
 (pdftex.def)             Requested size: 128.0374pt x 82.96594pt.
 
-<images/example_cat_0ord.png, id=473, 462.528pt x 346.896pt>
+<images/example_cat_0ord.png, id=484, 462.528pt x 346.896pt>
 File: images/example_cat_0ord.png Graphic file (type png)
 
 <use images/example_cat_0ord.png>
-Package pdftex.def Info: images/example_cat_0ord.png used on input line 219.
+Package pdftex.def Info: images/example_cat_0ord.png used on input line 207.
 (pdftex.def)             Requested size: 199.16928pt x 149.37938pt.
 
-<images/example_cat_1ord.png, id=474, 462.528pt x 346.896pt>
+<images/example_cat_1ord.png, id=485, 462.528pt x 346.896pt>
 File: images/example_cat_1ord.png Graphic file (type png)
 
 <use images/example_cat_1ord.png>
-Package pdftex.def Info: images/example_cat_1ord.png used on input line 221.
+Package pdftex.def Info: images/example_cat_1ord.png used on input line 209.
 (pdftex.def)             Requested size: 199.16928pt x 149.37938pt.
 
-<images/example_cat_2ord.png, id=475, 462.528pt x 346.896pt>
+<images/example_cat_2ord.png, id=486, 462.528pt x 346.896pt>
 File: images/example_cat_2ord.png Graphic file (type png)
 
 <use images/example_cat_2ord.png>
-Package pdftex.def Info: images/example_cat_2ord.png used on input line 222.
-(pdftex.def)             Requested size: 199.16928pt x 149.37938pt.
+Package pdftex.def Info: images/example_cat_2ord.png used on input line 210.
+(pdftex.def)             Requested size: 227.62204pt x 170.71628pt.
 
-Overfull \hbox (23.99992pt too wide) in paragraph at lines 217--224
+Overfull \hbox (52.45268pt too wide) in paragraph at lines 205--212
  [][] 
  []
 
-[22]
+[23]
+Underfull \vbox (badness 2119) has occurred while \output is active []
+
+ [24 <./images/0000011_00.jpg> <./images/example1_0ord.png> <./images/example1_
+1ord.png> <./images/example1_2ord.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [23 <./images/0000011_00.jpg> <./images/example1_0ord.png> <./images/example1_
-1ord.png> <./images/example1_2ord.png>] [24 <./images/cat_example.jpg> <./image
-s/example_cat_0ord.png> <./images/example_cat_1ord.png> <./images/example_cat_2
-ord.png>]
-<images/simple_ssd.png, id=514, 1106.1325pt x 412.54124pt>
+ [25 <./images/cat_example.jpg> <./images/example_cat_0ord.png> <./images/examp
+le_cat_1ord.png> <./images/example_cat_2ord.png>]
+<images/convolution.png, id=529, 434.62375pt x 487.8225pt>
+File: images/convolution.png Graphic file (type png)
+
+<use images/convolution.png>
+Package pdftex.def Info: images/convolution.png used on input line 252.
+(pdftex.def)             Requested size: 199.16931pt x 223.5525pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--257
+[][][]\T1/pxr/m/n/9 (+20) Figure taken from and an-i-mated ver-sion at []$\T1/p
+xtt/m/n/9 https : / / towardsdatascience . com /
+ []
+
+[26] [27 <./images/convolution.png>]
+<images/Annotations_example.png, id=549, 1242.6425pt x 375.4025pt>
+File: images/Annotations_example.png Graphic file (type png)
+
+<use images/Annotations_example.png>
+Package pdftex.def Info: images/Annotations_example.png used on input line 276.
+
+(pdftex.def)             Requested size: 358.50233pt x 108.30257pt.
+ [28 <./images/Annotations_example.png (PNG copy)>] <images/SSD_feature_maps.pn
+g, id=564, 1234.6125pt x 474.77374pt>
+File: images/SSD_feature_maps.png Graphic file (type png)
+
+<use images/SSD_feature_maps.png>
+Package pdftex.def Info: images/SSD_feature_maps.png used on input line 291.
+(pdftex.def)             Requested size: 398.33864pt x 153.18399pt.
+ [29]
+<images/simple_ssd.png, id=581, 1106.1325pt x 412.54124pt>
 File: images/simple_ssd.png Graphic file (type png)
 
 <use images/simple_ssd.png>
-Package pdftex.def Info: images/simple_ssd.png used on input line 255.
+Package pdftex.def Info: images/simple_ssd.png used on input line 301.
 (pdftex.def)             Requested size: 398.33864pt x 148.55879pt.
 
-<images/VGG16.png, id=515, 1115.16624pt x 520.94624pt>
+<images/VGG16.png, id=582, 1115.16624pt x 520.94624pt>
 File: images/VGG16.png Graphic file (type png)
  <use images/VGG16.png>
-Package pdftex.def Info: images/VGG16.png used on input line 256.
+Package pdftex.def Info: images/VGG16.png used on input line 302.
 (pdftex.def)             Requested size: 398.33864pt x 186.07788pt.
 
-Overfull \hbox (14.0pt too wide) in paragraph at lines 254--258
+Overfull \hbox (14.0pt too wide) in paragraph at lines 300--304
  [][] 
  []
 
-[25]
+[30 <./images/SSD_feature_maps.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [26 <./images/simple_ssd.png> <./images/VGG16.png>]
-<images/sequential_scattering_overview.png, id=536, 979.66pt x 417.56pt>
+ [31 <./images/simple_ssd.png> <./images/VGG16.png>]
+<images/sequential_scattering_overview.png, id=606, 979.66pt x 417.56pt>
 File: images/sequential_scattering_overview.png Graphic file (type png)
 
 <use images/sequential_scattering_overview.png>
 Package pdftex.def Info: images/sequential_scattering_overview.png used on inpu
-t line 276.
+t line 324.
 (pdftex.def)             Requested size: 398.33864pt x 169.77986pt.
-
-Underfull \vbox (badness 3219) has occurred while \output is active []
-
- [27 <./images/sequential_scattering_overview.png>]
-<images/parallel_scattering_overview.png, id=545, 1091.07625pt x 553.06625pt>
+ [32 <./images/sequential_scattering_overview.png>]
+<images/parallel_scattering_overview.png, id=615, 1091.07625pt x 553.06625pt>
 File: images/parallel_scattering_overview.png Graphic file (type png)
 
 <use images/parallel_scattering_overview.png>
 Package pdftex.def Info: images/parallel_scattering_overview.png used on input 
-line 288.
+line 337.
 (pdftex.def)             Requested size: 398.33864pt x 201.91391pt.
 ) (./content/experiments.tex
-[28 <./images/parallel_scattering_overview.png>]
-chapter 3.
-<images/VOC_sample_1.jpg, id=554, 501.875pt x 376.40625pt>
-File: images/VOC_sample_1.jpg Graphic file (type jpg)
-
-<use images/VOC_sample_1.jpg>
-Package pdftex.def Info: images/VOC_sample_1.jpg used on input line 17.
-(pdftex.def)             Requested size: 85.35826pt x 64.01692pt.
-
-<images/VOC_sample_2.jpg, id=555, 501.875pt x 376.40625pt>
-File: images/VOC_sample_2.jpg Graphic file (type jpg)
-
-<use images/VOC_sample_2.jpg>
-Package pdftex.def Info: images/VOC_sample_2.jpg used on input line 18.
-(pdftex.def)             Requested size: 85.35826pt x 64.01692pt.
-
-<images/VOC_sample_3.jpg, id=556, 501.875pt x 376.40625pt>
-File: images/VOC_sample_3.jpg Graphic file (type jpg)
-
-<use images/VOC_sample_3.jpg>
-Package pdftex.def Info: images/VOC_sample_3.jpg used on input line 19.
-(pdftex.def)             Requested size: 85.35826pt x 64.01692pt.
- [29
+[33 <./images/parallel_scattering_overview.png>] [34
 
 
 ]
-<images/kitti_sample_1.jpg, id=565, 1246.6575pt x 376.40625pt>
+chapter 3.
+<images/VOC_sample_1.jpg, id=632, 501.875pt x 376.40625pt>
+File: images/VOC_sample_1.jpg Graphic file (type jpg)
+
+<use images/VOC_sample_1.jpg>
+Package pdftex.def Info: images/VOC_sample_1.jpg used on input line 20.
+(pdftex.def)             Requested size: 85.35826pt x 64.01692pt.
+
+<images/VOC_sample_2.jpg, id=633, 501.875pt x 376.40625pt>
+File: images/VOC_sample_2.jpg Graphic file (type jpg)
+
+<use images/VOC_sample_2.jpg>
+Package pdftex.def Info: images/VOC_sample_2.jpg used on input line 21.
+(pdftex.def)             Requested size: 85.35826pt x 64.01692pt.
+
+<images/VOC_sample_3.jpg, id=634, 501.875pt x 376.40625pt>
+File: images/VOC_sample_3.jpg Graphic file (type jpg)
+
+<use images/VOC_sample_3.jpg>
+Package pdftex.def Info: images/VOC_sample_3.jpg used on input line 22.
+(pdftex.def)             Requested size: 85.35826pt x 64.01692pt.
+ [35]
+<images/kitti_sample_1.jpg, id=644, 1246.6575pt x 376.40625pt>
 File: images/kitti_sample_1.jpg Graphic file (type jpg)
 
 <use images/kitti_sample_1.jpg>
-Package pdftex.def Info: images/kitti_sample_1.jpg used on input line 32.
+Package pdftex.def Info: images/kitti_sample_1.jpg used on input line 35.
 (pdftex.def)             Requested size: 199.16928pt x 60.13432pt.
 
-<images/kitti_sample_2.jpg, id=566, 1246.6575pt x 376.40625pt>
+<images/kitti_sample_2.jpg, id=645, 1246.6575pt x 376.40625pt>
 File: images/kitti_sample_2.jpg Graphic file (type jpg)
 
 <use images/kitti_sample_2.jpg>
-Package pdftex.def Info: images/kitti_sample_2.jpg used on input line 33.
+Package pdftex.def Info: images/kitti_sample_2.jpg used on input line 36.
 (pdftex.def)             Requested size: 199.16928pt x 60.13432pt.
 
-<images/kitti_sample_3.jpg, id=567, 1228.59pt x 371.3875pt>
+<images/kitti_sample_3.jpg, id=646, 1228.59pt x 371.3875pt>
 File: images/kitti_sample_3.jpg Graphic file (type jpg)
 
 <use images/kitti_sample_3.jpg>
-Package pdftex.def Info: images/kitti_sample_3.jpg used on input line 34.
+Package pdftex.def Info: images/kitti_sample_3.jpg used on input line 37.
 (pdftex.def)             Requested size: 199.16928pt x 60.20525pt.
 
-<images/kitti_sample_4.jpg, id=568, 1246.6575pt x 376.40625pt>
+<images/kitti_sample_4.jpg, id=647, 1246.6575pt x 376.40625pt>
 File: images/kitti_sample_4.jpg Graphic file (type jpg)
 
 <use images/kitti_sample_4.jpg>
-Package pdftex.def Info: images/kitti_sample_4.jpg used on input line 35.
+Package pdftex.def Info: images/kitti_sample_4.jpg used on input line 38.
 (pdftex.def)             Requested size: 199.16928pt x 60.13432pt.
 
-Overfull \hbox (23.99992pt too wide) in paragraph at lines 31--37
+Overfull \hbox (23.99992pt too wide) in paragraph at lines 34--40
  [][] 
  []
 
-<images/toy_data/0010001.jpg, id=570, 128.48pt x 128.48pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [36 <./images/VOC_sample_1.jpg> <./images/VOC_sample_2.jpg> <./images/VOC_samp
+le_3.jpg> <./images/kitti_sample_1.jpg> <./images/kitti_sample_2.jpg> <./images
+/kitti_sample_3.jpg> <./images/kitti_sample_4.jpg>]
+<images/toy_data/0010001.jpg, id=661, 128.48pt x 128.48pt>
 File: images/toy_data/0010001.jpg Graphic file (type jpg)
 
 <use images/toy_data/0010001.jpg>
-Package pdftex.def Info: images/toy_data/0010001.jpg used on input line 48.
+Package pdftex.def Info: images/toy_data/0010001.jpg used on input line 51.
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
 
-<images/toy_data/0010002.jpg, id=571, 128.48pt x 128.48pt>
+<images/toy_data/0010002.jpg, id=662, 128.48pt x 128.48pt>
 File: images/toy_data/0010002.jpg Graphic file (type jpg)
 
 <use images/toy_data/0010002.jpg>
-Package pdftex.def Info: images/toy_data/0010002.jpg used on input line 49.
+Package pdftex.def Info: images/toy_data/0010002.jpg used on input line 52.
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
 
-<images/toy_data/0010005.jpg, id=572, 128.48pt x 128.48pt>
+<images/toy_data/0010005.jpg, id=663, 128.48pt x 128.48pt>
 File: images/toy_data/0010005.jpg Graphic file (type jpg)
 
 <use images/toy_data/0010005.jpg>
-Package pdftex.def Info: images/toy_data/0010005.jpg used on input line 50.
+Package pdftex.def Info: images/toy_data/0010005.jpg used on input line 53.
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
 
-<images/toy_data/0010006.jpg, id=573, 128.48pt x 128.48pt>
+<images/toy_data/0010006.jpg, id=664, 128.48pt x 128.48pt>
 File: images/toy_data/0010006.jpg Graphic file (type jpg)
 
 <use images/toy_data/0010006.jpg>
-Package pdftex.def Info: images/toy_data/0010006.jpg used on input line 51.
+Package pdftex.def Info: images/toy_data/0010006.jpg used on input line 54.
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
- [30 <./images/VOC_sample_1.jpg> <./images/VOC_sample_2.jpg> <./images/VOC_samp
-le_3.jpg> <./images/kitti_sample_1.jpg> <./images/kitti_sample_2.jpg> <./images
-/kitti_sample_3.jpg> <./images/kitti_sample_4.jpg>] <images/scale_data/0000000_
-00.jpg, id=588, 128.48pt x 128.48pt>
+
+<images/scale_data/0000000_00.jpg, id=666, 128.48pt x 128.48pt>
 File: images/scale_data/0000000_00.jpg Graphic file (type jpg)
 
 <use images/scale_data/0000000_00.jpg>
-Package pdftex.def Info: images/scale_data/0000000_00.jpg used on input line 68
+Package pdftex.def Info: images/scale_data/0000000_00.jpg used on input line 71
 .
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
 
-<images/scale_data/0000000_03.jpg, id=589, 128.48pt x 128.48pt>
+<images/scale_data/0000000_03.jpg, id=667, 128.48pt x 128.48pt>
 File: images/scale_data/0000000_03.jpg Graphic file (type jpg)
 
 <use images/scale_data/0000000_03.jpg>
-Package pdftex.def Info: images/scale_data/0000000_03.jpg used on input line 69
+Package pdftex.def Info: images/scale_data/0000000_03.jpg used on input line 72
 .
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
 
-<images/scale_data/0000000_09.jpg, id=590, 128.48pt x 128.48pt>
+<images/scale_data/0000000_09.jpg, id=668, 128.48pt x 128.48pt>
 File: images/scale_data/0000000_09.jpg Graphic file (type jpg)
 
 <use images/scale_data/0000000_09.jpg>
-Package pdftex.def Info: images/scale_data/0000000_09.jpg used on input line 70
+Package pdftex.def Info: images/scale_data/0000000_09.jpg used on input line 73
 .
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
 
-<images/scale_data/0000000_10.jpg, id=591, 128.48pt x 128.48pt>
+<images/scale_data/0000000_10.jpg, id=669, 128.48pt x 128.48pt>
 File: images/scale_data/0000000_10.jpg Graphic file (type jpg)
 
 <use images/scale_data/0000000_10.jpg>
-Package pdftex.def Info: images/scale_data/0000000_10.jpg used on input line 71
+Package pdftex.def Info: images/scale_data/0000000_10.jpg used on input line 74
 .
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
-
-<images/rotation_data/0000000_00.jpg, id=593, 128.48pt x 128.48pt>
+ [37 <./images/toy_data/0010001.jpg> <./images/toy_data/0010002.jpg> <./images/
+toy_data/0010005.jpg> <./images/toy_data/0010006.jpg>]
+<images/rotation_data/0000000_00.jpg, id=683, 128.48pt x 128.48pt>
 File: images/rotation_data/0000000_00.jpg Graphic file (type jpg)
 
 <use images/rotation_data/0000000_00.jpg>
 Package pdftex.def Info: images/rotation_data/0000000_00.jpg used on input line
- 84.
+ 87.
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
 
-<images/rotation_data/0000000_03.jpg, id=594, 128.48pt x 128.48pt>
+<images/rotation_data/0000000_03.jpg, id=684, 128.48pt x 128.48pt>
 File: images/rotation_data/0000000_03.jpg Graphic file (type jpg)
 
 <use images/rotation_data/0000000_03.jpg>
 Package pdftex.def Info: images/rotation_data/0000000_03.jpg used on input line
- 85.
+ 88.
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
 
-<images/rotation_data/0000000_09.jpg, id=595, 128.48pt x 128.48pt>
+<images/rotation_data/0000000_09.jpg, id=685, 128.48pt x 128.48pt>
 File: images/rotation_data/0000000_09.jpg Graphic file (type jpg)
 
 <use images/rotation_data/0000000_09.jpg>
 Package pdftex.def Info: images/rotation_data/0000000_09.jpg used on input line
- 86.
+ 89.
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
 
-<images/rotation_data/0000000_10.jpg, id=596, 128.48pt x 128.48pt>
+<images/rotation_data/0000000_10.jpg, id=686, 128.48pt x 128.48pt>
 File: images/rotation_data/0000000_10.jpg Graphic file (type jpg)
 
 <use images/rotation_data/0000000_10.jpg>
 Package pdftex.def Info: images/rotation_data/0000000_10.jpg used on input line
- 87.
+ 90.
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
- [31 <./images/toy_data/0010001.jpg> <./images/toy_data/0010002.jpg> <./images/
-toy_data/0010005.jpg> <./images/toy_data/0010006.jpg>]
-<images/deformation_data/0000001_00.jpg, id=612, 128.48pt x 128.48pt>
+
+<images/deformation_data/0000001_00.jpg, id=688, 128.48pt x 128.48pt>
 File: images/deformation_data/0000001_00.jpg Graphic file (type jpg)
 
 <use images/deformation_data/0000001_00.jpg>
 Package pdftex.def Info: images/deformation_data/0000001_00.jpg used on input l
-ine 100.
+ine 103.
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
 
-<images/deformation_data/0000001_03.jpg, id=613, 128.48pt x 128.48pt>
+<images/deformation_data/0000001_03.jpg, id=689, 128.48pt x 128.48pt>
 File: images/deformation_data/0000001_03.jpg Graphic file (type jpg)
 
 <use images/deformation_data/0000001_03.jpg>
 Package pdftex.def Info: images/deformation_data/0000001_03.jpg used on input l
-ine 101.
+ine 104.
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
 
-<images/deformation_data/0000001_09.jpg, id=614, 128.48pt x 128.48pt>
+<images/deformation_data/0000001_09.jpg, id=690, 128.48pt x 128.48pt>
 File: images/deformation_data/0000001_09.jpg Graphic file (type jpg)
 
 <use images/deformation_data/0000001_09.jpg>
 Package pdftex.def Info: images/deformation_data/0000001_09.jpg used on input l
-ine 102.
+ine 105.
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
 
-<images/deformation_data/0000001_10.jpg, id=615, 128.48pt x 128.48pt>
+<images/deformation_data/0000001_10.jpg, id=691, 128.48pt x 128.48pt>
 File: images/deformation_data/0000001_10.jpg Graphic file (type jpg)
 
 <use images/deformation_data/0000001_10.jpg>
 Package pdftex.def Info: images/deformation_data/0000001_10.jpg used on input l
-ine 103.
+ine 106.
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
- [32 <./images/scale_data/0000000_00.jpg> <./images/scale_data/0000000_03.jpg> 
+
+Underfull \vbox (badness 5475) has occurred while \output is active []
+
+ [38 <./images/scale_data/0000000_00.jpg> <./images/scale_data/0000000_03.jpg> 
 <./images/scale_data/0000000_09.jpg> <./images/scale_data/0000000_10.jpg> <./im
 ages/rotation_data/0000000_00.jpg> <./images/rotation_data/0000000_03.jpg> <./i
-mages/rotation_data/0000000_09.jpg> <./images/rotation_data/0000000_10.jpg> <./
-images/deformation_data/0000001_00.jpg> <./images/deformation_data/0000001_03.j
-pg> <./images/deformation_data/0000001_09.jpg> <./images/deformation_data/00000
-01_10.jpg>]
-<images/translation_data/0000017_00.jpg, id=635, 128.48pt x 128.48pt>
+mages/rotation_data/0000000_09.jpg> <./images/rotation_data/0000000_10.jpg>]
+<images/translation_data/0000017_00.jpg, id=709, 128.48pt x 128.48pt>
 File: images/translation_data/0000017_00.jpg Graphic file (type jpg)
 
 <use images/translation_data/0000017_00.jpg>
 Package pdftex.def Info: images/translation_data/0000017_00.jpg used on input l
-ine 116.
+ine 119.
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
 
-<images/translation_data/0000017_03.jpg, id=636, 128.48pt x 128.48pt>
+<images/translation_data/0000017_03.jpg, id=710, 128.48pt x 128.48pt>
 File: images/translation_data/0000017_03.jpg Graphic file (type jpg)
 
 <use images/translation_data/0000017_03.jpg>
 Package pdftex.def Info: images/translation_data/0000017_03.jpg used on input l
-ine 117.
+ine 120.
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
 
-<images/translation_data/0000017_09.jpg, id=637, 128.48pt x 128.48pt>
+<images/translation_data/0000017_09.jpg, id=711, 128.48pt x 128.48pt>
 File: images/translation_data/0000017_09.jpg Graphic file (type jpg)
 
 <use images/translation_data/0000017_09.jpg>
 Package pdftex.def Info: images/translation_data/0000017_09.jpg used on input l
-ine 118.
+ine 121.
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
 
-<images/translation_data/0000017_10.jpg, id=638, 128.48pt x 128.48pt>
+<images/translation_data/0000017_10.jpg, id=712, 128.48pt x 128.48pt>
 File: images/translation_data/0000017_10.jpg Graphic file (type jpg)
 
 <use images/translation_data/0000017_10.jpg>
 Package pdftex.def Info: images/translation_data/0000017_10.jpg used on input l
-ine 119.
+ine 122.
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
 
-<images/toy_data_classification/sample_1.png, id=641, 128.48pt x 128.48pt>
+<images/toy_data_classification/sample_1.png, id=715, 128.48pt x 128.48pt>
 File: images/toy_data_classification/sample_1.png Graphic file (type png)
 
 <use images/toy_data_classification/sample_1.png>
 Package pdftex.def Info: images/toy_data_classification/sample_1.png used on in
-put line 132.
+put line 135.
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
 
-<images/toy_data_classification/sample_2.png, id=642, 128.48pt x 128.48pt>
+<images/toy_data_classification/sample_2.png, id=716, 128.48pt x 128.48pt>
 File: images/toy_data_classification/sample_2.png Graphic file (type png)
 
 <use images/toy_data_classification/sample_2.png>
 Package pdftex.def Info: images/toy_data_classification/sample_2.png used on in
-put line 133.
+put line 136.
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
 
-<images/toy_data_classification/sample_4.png, id=643, 128.48pt x 128.48pt>
+<images/toy_data_classification/sample_4.png, id=717, 128.48pt x 128.48pt>
 File: images/toy_data_classification/sample_4.png Graphic file (type png)
 
 <use images/toy_data_classification/sample_4.png>
 Package pdftex.def Info: images/toy_data_classification/sample_4.png used on in
-put line 134.
+put line 137.
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
 
-<images/toy_data_classification/sample_7.png, id=644, 128.48pt x 128.48pt>
+<images/toy_data_classification/sample_7.png, id=718, 128.48pt x 128.48pt>
 File: images/toy_data_classification/sample_7.png Graphic file (type png)
 
 <use images/toy_data_classification/sample_7.png>
 Package pdftex.def Info: images/toy_data_classification/sample_7.png used on in
-put line 135.
+put line 138.
 (pdftex.def)             Requested size: 79.6678pt x 79.66853pt.
- [33 <./images/translation_data/0000017_00.jpg> <./images/translation_data/0000
-017_03.jpg> <./images/translation_data/0000017_09.jpg> <./images/translation_da
-ta/0000017_10.jpg> <./images/toy_data_classification/sample_1.png (PNG copy)> <
-./images/toy_data_classification/sample_2.png (PNG copy)> <./images/toy_data_cl
-assification/sample_4.png (PNG copy)> <./images/toy_data_classification/sample_
-7.png (PNG copy)>] [34]
-[35] <images/SSD_feature_maps.png, id=680, 1234.6125pt x 474.77374pt>
-File: images/SSD_feature_maps.png Graphic file (type png)
 
-<use images/SSD_feature_maps.png>
-Package pdftex.def Info: images/SSD_feature_maps.png used on input line 201.
-(pdftex.def)             Requested size: 398.33864pt x 153.18399pt.
+Underfull \vbox (badness 5345) has occurred while \output is active []
 
-Underfull \vbox (badness 1902) has occurred while \output is active []
-
- [36 <./images/SSD_feature_maps.png>]
-
-LaTeX Warning: Citation `imagenet_cvpr_09' on page 37 undefined on input line 2
-15.
-
-[37] <images/sequential_scattering_ssd.png, id=699, 1104.125pt x 621.32124pt>
+ [39 <./images/deformation_data/0000001_00.jpg> <./images/deformation_data/0000
+001_03.jpg> <./images/deformation_data/0000001_09.jpg> <./images/deformation_da
+ta/0000001_10.jpg> <./images/translation_data/0000017_00.jpg> <./images/transla
+tion_data/0000017_03.jpg> <./images/translation_data/0000017_09.jpg> <./images/
+translation_data/0000017_10.jpg>] [40 <./images/toy_data_classification/sample_
+1.png (PNG copy)> <./images/toy_data_classification/sample_2.png (PNG copy)> <.
+/images/toy_data_classification/sample_4.png (PNG copy)> <./images/toy_data_cla
+ssification/sample_7.png (PNG copy)>] [41] [42] [43]
+<images/sequential_scattering_ssd.png, id=780, 1104.125pt x 621.32124pt>
 File: images/sequential_scattering_ssd.png Graphic file (type png)
 
 <use images/sequential_scattering_ssd.png>
 Package pdftex.def Info: images/sequential_scattering_ssd.png used on input lin
-e 225.
+e 227.
 (pdftex.def)             Requested size: 398.33864pt x 224.15898pt.
 
-Overfull \hbox (2.0pt too wide) in paragraph at lines 225--226
+Overfull \hbox (2.0pt too wide) in paragraph at lines 227--228
  [][] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [38 <./images/sequential_scattering_ssd.png>]
-<images/parallel_scattering_vgg.png, id=707, 1118.1775pt x 622.325pt>
+[44] <images/parallel_scattering_vgg.png, id=788, 1118.1775pt x 622.325pt>
 File: images/parallel_scattering_vgg.png Graphic file (type png)
 
 <use images/parallel_scattering_vgg.png>
 Package pdftex.def Info: images/parallel_scattering_vgg.png used on input line 
-239.
+240.
 (pdftex.def)             Requested size: 398.33864pt x 221.69133pt.
 
-Overfull \hbox (2.0pt too wide) in paragraph at lines 239--240
+Overfull \hbox (2.0pt too wide) in paragraph at lines 240--241
  [][] 
  []
 
-
-Underfull \vbox (badness 5924) has occurred while \output is active []
-
- [39 <./images/parallel_scattering_vgg.png>]) (./content/results.tex [40]
+[45 <./images/sequential_scattering_ssd.png>]) (./content/results.tex [46 <./im
+ages/parallel_scattering_vgg.png>]
 chapter 4.
-
-Underfull \vbox (badness 1424) has occurred while \output is active []
-
- [41
+[47
 
 
-]
-[42]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+] [48]
 
- [43]
-[44]) (./content/conclusion.tex [45] [46
+LaTeX Warning: Reference `subsec:comparison' on page 49 undefined on input line
+ 93.
 
 
-]
+Underfull \vbox (badness 1024) has occurred while \output is active []
+
+ [49]
+[50] [51] <images/comparison.png, id=848, 1084.05pt x 289.08pt>
+File: images/comparison.png Graphic file (type png)
+
+<use images/comparison.png>
+Package pdftex.def Info: images/comparison.png used on input line 182.
+(pdftex.def)             Requested size: 398.33864pt x 106.22128pt.
+ [52] [53 <./images/comparison.png>])
+(./content/conclusion.tex [54]
 chapter 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 4--5
+LaTeX Warning: Reference `subsec:comparison' on page 55 undefined on input line
+ 6.
 
- []
-
-) (./content/appendix.tex [47] [48
+[55
 
 
-]
+]) (./content/appendix.tex [56]
 chapter 6.
-<images/0000011_03.jpg, id=768, 128.48pt x 128.48pt>
+<images/0000011_03.jpg, id=887, 128.48pt x 128.48pt>
 File: images/0000011_03.jpg Graphic file (type jpg)
 
 <use images/0000011_03.jpg>
-Package pdftex.def Info: images/0000011_03.jpg used on input line 23.
+Package pdftex.def Info: images/0000011_03.jpg used on input line 24.
 (pdftex.def)             Requested size: 128.0374pt x 128.0464pt.
 
-<images/example2_0ord.png, id=769, 462.528pt x 346.896pt>
+<images/example2_0ord.png, id=888, 462.528pt x 346.896pt>
 File: images/example2_0ord.png Graphic file (type png)
 
 <use images/example2_0ord.png>
-Package pdftex.def Info: images/example2_0ord.png used on input line 24.
+Package pdftex.def Info: images/example2_0ord.png used on input line 25.
 (pdftex.def)             Requested size: 199.16928pt x 149.37938pt.
 
-<images/example2_1ord.png, id=770, 462.528pt x 346.896pt>
+<images/example2_1ord.png, id=889, 462.528pt x 346.896pt>
 File: images/example2_1ord.png Graphic file (type png)
 
 <use images/example2_1ord.png>
-Package pdftex.def Info: images/example2_1ord.png used on input line 26.
+Package pdftex.def Info: images/example2_1ord.png used on input line 27.
 (pdftex.def)             Requested size: 199.16928pt x 149.37938pt.
 
-<images/example2_2ord.png, id=771, 462.528pt x 346.896pt>
+<images/example2_2ord.png, id=890, 462.528pt x 346.896pt>
 File: images/example2_2ord.png Graphic file (type png)
 
 <use images/example2_2ord.png>
-Package pdftex.def Info: images/example2_2ord.png used on input line 27.
-(pdftex.def)             Requested size: 199.16928pt x 149.37938pt.
+Package pdftex.def Info: images/example2_2ord.png used on input line 28.
+(pdftex.def)             Requested size: 227.62204pt x 170.71628pt.
 
-Overfull \hbox (23.99992pt too wide) in paragraph at lines 22--29
+Overfull \hbox (52.45268pt too wide) in paragraph at lines 23--30
  [][] 
  []
 
-<images/0000027_09.jpg, id=772, 128.48pt x 128.48pt>
+<images/0000027_09.jpg, id=891, 128.48pt x 128.48pt>
 File: images/0000027_09.jpg Graphic file (type jpg)
 
 <use images/0000027_09.jpg>
-Package pdftex.def Info: images/0000027_09.jpg used on input line 37.
+Package pdftex.def Info: images/0000027_09.jpg used on input line 38.
 (pdftex.def)             Requested size: 128.0374pt x 128.0464pt.
 
-<images/example1e_0ord.png, id=773, 462.528pt x 346.896pt>
+<images/example1e_0ord.png, id=892, 462.528pt x 346.896pt>
 File: images/example1e_0ord.png Graphic file (type png)
 
 <use images/example1e_0ord.png>
-Package pdftex.def Info: images/example1e_0ord.png used on input line 38.
+Package pdftex.def Info: images/example1e_0ord.png used on input line 39.
 (pdftex.def)             Requested size: 199.16928pt x 149.37938pt.
 
-<images/example1e_1ord.png, id=774, 462.528pt x 346.896pt>
+<images/example1e_1ord.png, id=893, 462.528pt x 346.896pt>
 File: images/example1e_1ord.png Graphic file (type png)
 
 <use images/example1e_1ord.png>
-Package pdftex.def Info: images/example1e_1ord.png used on input line 40.
+Package pdftex.def Info: images/example1e_1ord.png used on input line 41.
 (pdftex.def)             Requested size: 199.16928pt x 149.37938pt.
 
-<images/example1e_2ord.png, id=775, 462.528pt x 346.896pt>
+<images/example1e_2ord.png, id=894, 462.528pt x 346.896pt>
 File: images/example1e_2ord.png Graphic file (type png)
 
 <use images/example1e_2ord.png>
-Package pdftex.def Info: images/example1e_2ord.png used on input line 41.
-(pdftex.def)             Requested size: 199.16928pt x 149.37938pt.
+Package pdftex.def Info: images/example1e_2ord.png used on input line 42.
+(pdftex.def)             Requested size: 227.62204pt x 170.71628pt.
 
-Overfull \hbox (23.99992pt too wide) in paragraph at lines 36--43
+Overfull \hbox (52.45268pt too wide) in paragraph at lines 37--44
  [][] 
  []
 
-<images/0000027_10.jpg, id=776, 128.48pt x 128.48pt>
+<images/0000027_10.jpg, id=895, 128.48pt x 128.48pt>
 File: images/0000027_10.jpg Graphic file (type jpg)
 
 <use images/0000027_10.jpg>
-Package pdftex.def Info: images/0000027_10.jpg used on input line 51.
+Package pdftex.def Info: images/0000027_10.jpg used on input line 52.
 (pdftex.def)             Requested size: 128.0374pt x 128.0464pt.
 
-<images/example2e_0ord.png, id=777, 462.528pt x 346.896pt>
+<images/example2e_0ord.png, id=896, 462.528pt x 346.896pt>
 File: images/example2e_0ord.png Graphic file (type png)
 
 <use images/example2e_0ord.png>
-Package pdftex.def Info: images/example2e_0ord.png used on input line 52.
+Package pdftex.def Info: images/example2e_0ord.png used on input line 53.
 (pdftex.def)             Requested size: 199.16928pt x 149.37938pt.
 
-<images/example2e_1ord.png, id=778, 462.528pt x 346.896pt>
+<images/example2e_1ord.png, id=897, 462.528pt x 346.896pt>
 File: images/example2e_1ord.png Graphic file (type png)
 
 <use images/example2e_1ord.png>
-Package pdftex.def Info: images/example2e_1ord.png used on input line 54.
+Package pdftex.def Info: images/example2e_1ord.png used on input line 55.
 (pdftex.def)             Requested size: 199.16928pt x 149.37938pt.
 
-<images/example2e_2ord.png, id=779, 462.528pt x 346.896pt>
+<images/example2e_2ord.png, id=898, 462.528pt x 346.896pt>
 File: images/example2e_2ord.png Graphic file (type png)
 
 <use images/example2e_2ord.png>
-Package pdftex.def Info: images/example2e_2ord.png used on input line 55.
-(pdftex.def)             Requested size: 199.16928pt x 149.37938pt.
+Package pdftex.def Info: images/example2e_2ord.png used on input line 56.
+(pdftex.def)             Requested size: 227.62204pt x 170.71628pt.
 
-Overfull \hbox (23.99992pt too wide) in paragraph at lines 50--57
+Overfull \hbox (52.45268pt too wide) in paragraph at lines 51--58
  [][] 
  []
 
-) (./Scattering_transform_Marius_Hobbhahn.bbl [49] [50 <./images/0000011_03.jpg
-> <./images/example2_0ord.png> <./images/example2_1ord.png> <./images/example2_
-2ord.png>] [51 <./images/0000027_09.jpg> <./images/example1e_0ord.png> <./image
-s/example1e_1ord.png> <./images/example1e_2ord.png>] [52 <./images/0000027_10.j
-pg> <./images/example2e_0ord.png> <./images/example2e_1ord.png> <./images/examp
-le2e_2ord.png>] [53] [54] [55
+) (./Scattering_transform_Marius_Hobbhahn.bbl [57
 
 
-])
+] [58 <./images/0000011_03.jpg> <./images/example2_0ord.png> <./images/example2
+_1ord.png> <./images/example2_2ord.png>] [59 <./images/0000027_09.jpg> <./image
+s/example1e_0ord.png> <./images/example1e_1ord.png> <./images/example1e_2ord.pn
+g>] [60 <./images/0000027_10.jpg> <./images/example2e_0ord.png> <./images/examp
+le2e_1ord.png> <./images/example2e_2ord.png>] [61] [62] [63] [64
+
+
+] [65])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 45.
- [56]
+ [66]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 45.
 
 (./Scattering_transform_Marius_Hobbhahn.aux)
@@ -1714,7 +1760,7 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 45.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 45.
 Package rerunfilecheck Info: File `Scattering_transform_Marius_Hobbhahn.out' ha
 s not changed.
-(rerunfilecheck)             Checksum: 4CFFA22661524BCC001242F3CAAFE6C5;3421.
+(rerunfilecheck)             Checksum: D4D18028C327C8911393DF61B5C1E1A5;3494.
 
 
 LaTeX Warning: There were undefined references.
@@ -1722,13 +1768,13 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 45.
  ) 
 Here is how much of TeX's memory you used:
- 16762 strings out of 493014
- 266807 string characters out of 6135691
- 478723 words of memory out of 5000000
- 19261 multiletter control sequences out of 15000+600000
- 101262 words of font info for 475 fonts, out of 8000000 for 9000
+ 17064 strings out of 493014
+ 271519 string characters out of 6135691
+ 500112 words of memory out of 5000000
+ 19516 multiletter control sequences out of 15000+600000
+ 101817 words of font info for 484 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,16n,66p,8529b,669s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 53i,17n,66p,8529b,682s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/pxfonts/pxex.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/pxfonts/pxsy.pfb></usr/share/texlive/texmf-dist/fonts/type1
@@ -1740,11 +1786,11 @@ texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/
 uplri8a.pfb>
-Output written on Scattering_transform_Marius_Hobbhahn.pdf (56 pages, 3866146 b
+Output written on Scattering_transform_Marius_Hobbhahn.pdf (66 pages, 4027055 b
 ytes).
 PDF statistics:
- 933 PDF objects out of 1000 (max. 8388607)
- 757 compressed objects within 8 object streams
- 233 named destinations out of 1000 (max. 500000)
- 66267 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 1065 PDF objects out of 1200 (max. 8388607)
+ 874 compressed objects within 9 object streams
+ 262 named destinations out of 1000 (max. 500000)
+ 66285 words of extra memory for PDF output out of 74296 (max. 10000000)
 
