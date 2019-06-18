@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export PYTHONPATH=$${PYTHONPATH}:$${HOME}
+python3 ~/SSD/train_scattering_parallel.py --dataset="${dataset}" --config=${format}  --random=${random_aug} --batch_norm=${batch_norm} --pretrained_weights="${pretrained}"

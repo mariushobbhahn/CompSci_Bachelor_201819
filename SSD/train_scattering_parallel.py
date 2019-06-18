@@ -29,7 +29,7 @@ parser = argparse.ArgumentParser(
     description='Single Shot MultiBox Detector Training With Pytorch')
 
 train_set = parser.add_mutually_exclusive_group()
-parser.add_argument('--dataset', default='toy_data', choices=['VOC', 'kitti_voc', 'kitti_voc_small', 'toy_data'],
+parser.add_argument('--dataset', default='VOC_small', choices=['VOC', 'VOC_small', 'toy_data_small', 'kitti_voc', 'kitti_voc_small', 'toy_data', 'deformation_data', 'rotation_data', 'scale_data', 'translation_data'],
                     type=str, help='VOC, kitti_voc, toy_data or kitti_voc_small')
 parser.add_argument('--config', default='300x300', choices=['300x300', '1000x300'],
                     type=str, help='size of the imagescales')
@@ -41,9 +41,11 @@ parser.add_argument('--normalize', default=False, type=str2bool,
                     help='normalize images before training')
 parser.add_argument('--mode', default=1, type=int, help='number of sequential scattering transforms')
 parser.add_argument('--J', default=2, type=int, help='J determines the size of the window scattering transform: height = 2J')
-parser.add_argument('--gen', default='12.8', type=str, help='generation of tests')
-parser.add_argument('--basenet', default='vgg16_reducedfc.pth',
+parser.add_argument('--gen', default='13.3', type=str, help='generation of tests')
+parser.add_argument('--batch_norm' , default=False, type=str2bool, help='use batch norm')
+parser.add_argument('--basenet', default='vgg16_reducedfc_scat_par.pth',
                     help='Pretrained base model')
+parser.add_argument('--basenet_bn', default='vgg16_reduced_bn_scat_par.pth')
 parser.add_argument('--batch_size', default=32, type=int,
                     help='Batch size for training')
 parser.add_argument('--resume', default=None, type=str,
@@ -66,17 +68,20 @@ parser.add_argument('--visdom', default=False, type=str2bool,
                     help='Use visdom for loss visualization')
 parser.add_argument('--save_folder', default='/home/hobbhahn/SSD/weights/',
                     help='Directory for saving checkpoint models')
-parser.add_argument('--pretrained_weights', default=False, help='use pretrained weights for VGG')
+parser.add_argument('--pretrained_weights', default=False, type=str2bool, help='use pretrained weights for VGG')
 args = parser.parse_args()
+print("args: ", args)
 
 WEIGHTS_NAME = str('scattering_parallel_ssd_' +
                     'J{}_'.format(args.J) +
                     '{}_'.format(args.dataset) +
-                    '{}_'.format('pretrained' if args.pretrained_weights else 'no_pretrained') +
                     '{}_'.format('random' if args.random else 'no_random') +
+                    '{}_'.format('batch_norm' if args.batch_norm else 'no_batch_norm') + 
+                    '{}_'.format('pretrained' if args.pretrained_weights else 'no_pretrained') +
                     '{}_'.format(args.gen)
                     )
 
+print('weights name: ', WEIGHTS_NAME)
 
 if torch.cuda.is_available():
     if args.cuda:
@@ -99,33 +104,31 @@ def train(inp_channels, scattering, dataset, config):
         import visdom
         viz = visdom.Visdom()
 
-    ssd_net = build_scattering_parallel_ssd(phase='train', inp_channels=inp_channels, size_x=cfg['dim_x'], size_y=cfg['dim_y'], num_classes=cfg['num_classes'], cfg=cfg, pretrained=args.pretrained_weights)
-
-
-    net = ssd_net
-
-    if args.cuda:
-        net = torch.nn.DataParallel(ssd_net)
-        cudnn.benchmark = True
+    net = build_scattering_parallel_ssd(phase='train', inp_channels=inp_channels, size_x=cfg['dim_x'], size_y=cfg['dim_y'], num_classes=cfg['num_classes'], cfg=cfg, batch_norm=args.batch_norm, pretrained=args.pretrained_weights)
 
     if args.resume:
         print('Resuming training, loading {}...'.format(args.resume))
-        ssd_net.load_weights(args.resume)
+        net.load_weights(args.resume)
     elif args.pretrained_weights:
-        vgg_weights = torch.load(args.save_folder + args.basenet)
-        print('Loading base network from: {}'.format(args.save_folder + args.basenet))
-        ssd_net.vgg.load_state_dict(vgg_weights)
+        if args.batch_norm:
+            vgg_weights = torch.load(args.save_folder + args.basenet_bn)
+            print('Loading base network from: {}'.format(args.save_folder + args.basenet_bn))
+        else:
+            vgg_weights = torch.load(args.save_folder + args.basenet)
+            print('Loading base network from: {}'.format(args.save_folder + args.basenet))
+        net.vgg.load_state_dict(vgg_weights)
     #else do nothing and train from scratch
+    #if not args.resume or 
+    #    print('Initializing weights...')
+        # initialize newly added layers' weights with xavier method
+    #    net.extras.apply(weights_init)
+    #    net.loc.apply(weights_init)
+    #    net.conf.apply(weights_init)
 
     if args.cuda:
-        net = net.cuda()
+        net = torch.nn.DataParallel(net)
+        cudnn.benchmark = True
 
-    if not args.resume:
-        print('Initializing weights...')
-        # initialize newly added layers' weights with xavier method
-        ssd_net.extras.apply(weights_init)
-        ssd_net.loc.apply(weights_init)
-        ssd_net.conf.apply(weights_init)
 
     optimizer = optim.SGD(net.parameters(), lr=cfg['lr'], momentum=args.momentum,           #replaced args.lr
                           weight_decay=args.weight_decay)
@@ -226,7 +229,7 @@ def train(inp_channels, scattering, dataset, config):
 
         if iteration != 0 and iteration % cfg['max_iter'] == 0:
             print('Saving state, iter, file:', iteration, WEIGHTS_NAME)
-            torch.save(ssd_net.state_dict(), 'weights/' + WEIGHTS_NAME +
+            torch.save(net.state_dict(), 'weights/' + WEIGHTS_NAME +
                        repr(iteration) + '.pth')
 
 
@@ -294,6 +297,17 @@ if __name__ == '__main__':
                                                          normalize=args.normalize,
                                                          sub_mean=args.subtract_mean))
 
+    elif args.dataset == 'VOC_small':
+        cfg = voc_small_scat_parallel
+        dataset = VOCDetection(root=VOC_ROOT,
+                               transform=SSDAugmentation(size_x=cfg['dim_x'],
+                                                         size_y=cfg['dim_y'],
+                                                         mean=VOC_MEANS,
+                                                         random=args.random,
+                                                         normalize=args.normalize,
+                                                         sub_mean=args.subtract_mean))
+
+
     elif args.dataset == 'toy_data':
         cfg = toy_data_scat_parallel
         dataset = toydataDetection(root=toy_data_ROOT,
@@ -303,6 +317,58 @@ if __name__ == '__main__':
                                                          random=args.random,
                                                          normalize=args.normalize,
                                                          sub_mean=args.subtract_mean))
+
+    elif args.dataset == 'toy_data_small':
+        cfg = toy_data_small_scat_parallel
+        dataset = toydatasmallDetection(root=toy_data_small_ROOT,
+                               transform=SSDAugmentation(size_x=cfg['dim_x'],
+                                                         size_y=cfg['dim_y'],
+                                                         mean=(0,0,0),
+                                                         random=args.random,
+                                                         normalize=args.normalize,
+                                                         sub_mean=args.subtract_mean))
+
+
+    elif args.dataset == 'rotation_data':
+        cfg = toy_data_scat_parallel
+        dataset = rotationdataDetection(root=rotation_data_ROOT,
+                                   transform=SSDAugmentation(size_x=cfg['dim_x'],
+                                                             size_y=cfg['dim_y'],
+                                                             mean=(0,0,0),
+                                                             random=args.random,
+                                                             normalize=args.normalize,
+                                                             sub_mean=args.subtract_mean))
+
+    elif args.dataset == 'scale_data':
+        cfg = toy_data_scat_parallel
+        dataset = scaledataDetection(root=scale_data_ROOT,
+                                   transform=SSDAugmentation(size_x=cfg['dim_x'],
+                                                             size_y=cfg['dim_y'],
+                                                             mean=(0,0,0),
+                                                             random=args.random,
+                                                             normalize=args.normalize,
+                                                             sub_mean=args.subtract_mean))
+
+    elif args.dataset == 'deformation_data':
+        cfg = toy_data_scat_parallel
+        dataset = deformationdataDetection(root=deformation_data_ROOT,
+                                   transform=SSDAugmentation(size_x=cfg['dim_x'],
+                                                             size_y=cfg['dim_y'],
+                                                             mean=(0,0,0),
+                                                             random=args.random,
+                                                             normalize=args.normalize,
+                                                             sub_mean=args.subtract_mean))
+
+    elif args.dataset == 'translation_data':
+        cfg = toy_data_scat_parallel
+        dataset = translationdataDetection(root=translation_data_ROOT,
+                                   transform=SSDAugmentation(size_x=cfg['dim_x'],
+                                                             size_y=cfg['dim_y'],
+                                                             mean=(0,0,0),
+                                                             random=args.random,
+                                                             normalize=args.normalize,
+                                                             sub_mean=args.subtract_mean))
+
 
 
     elif args.dataset == 'kitti_voc':
@@ -355,10 +421,10 @@ if __name__ == '__main__':
 
     #scattering2: J=2, should be 75 by 75 since image size is reduced again
     J2 = 2
-    scattering2 = Scattering2D(M=cfg['dim_x'], N=cfg['dim_y'], J=J2, pre_pad=False, order2=False)
-    K2 = (1 + J2*8)*3          #for J = 10 and L = 8 per default
+    scattering2 = Scattering2D(M=cfg['dim_x'], N=cfg['dim_y'], J=J2, pre_pad=False, order2=True)
+    #K2 = (1 + J2*8)*3          #for J = 10 and L = 8 per default
+    K2 = (1 + J2*8 + 0.5*J2*(J2-1)*64)*3
 
-    #K = (1 + J1*8 + 0.5*J1*(J1-1)*64)*3
     if use_cuda:
         #scattering0 = scattering0.cuda()
         scattering1 = scattering1.cuda()

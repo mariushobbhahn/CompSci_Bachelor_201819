@@ -79,8 +79,8 @@
 \newlabel{subsec:scattering_networks}{{2.3.3}{21}{Scattering Networks}{subsection.2.3.3}{}}
 \newlabel{eq:order1_num_filters}{{2.9}{21}{Scattering Networks}{equation.2.3.9}{}}
 \newlabel{eq:order2_num_filters}{{2.10}{21}{Scattering Networks}{equation.2.3.10}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces Representation of a scattering network. Each filter is described by its path, e.g. $U[\lambda _1]f$. Every blue arrow describes an output at the particular filter. The $m=0,1,2$ describe the number of iterative applications of the scattering transform. $L=4$ is the branching factor in the network also known as the number of angles for the filter. The filters\relax }}{22}{figure.caption.10}}
-\newlabel{fig:scattering_network}{{2.6}{22}{Representation of a scattering network. Each filter is described by its path, e.g. $U[\lambda _1]f$. Every blue arrow describes an output at the particular filter. The $m=0,1,2$ describe the number of iterative applications of the scattering transform. $L=4$ is the branching factor in the network also known as the number of angles for the filter. The filters\relax }{figure.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces Representation of a scattering network. Each filter is described by its path, e.g. $U[\lambda _1]f$. Every blue arrow describes an output at the particular filter. The $m=0,1,2$ describe the number of iterative applications of the scattering transform. $L=4$ is the branching factor in the network also known as the number of angles for the filter.\relax }}{22}{figure.caption.10}}
+\newlabel{fig:scattering_network}{{2.6}{22}{Representation of a scattering network. Each filter is described by its path, e.g. $U[\lambda _1]f$. Every blue arrow describes an output at the particular filter. The $m=0,1,2$ describe the number of iterative applications of the scattering transform. $L=4$ is the branching factor in the network also known as the number of angles for the filter.\relax }{figure.caption.10}{}}
 \citation{scatteringTransform2012}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.4}Properties of the Scattering Transform}{23}{subsection.2.3.4}}
 \newlabel{subsec:properties}{{2.3.4}{23}{Properties of the Scattering Transform}{subsection.2.3.4}{}}
@@ -93,6 +93,7 @@
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{24}{subfigure.7.3}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{24}{subfigure.7.4}}
 \newlabel{eq:equivariance}{{2.12}{24}{Properties of the Scattering Transform}{equation.2.3.12}{}}
+\citation{RotationScalingDeformationSifre2013}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.8}{\ignorespaces Image taken from the VOC dataset. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }}{25}{figure.caption.12}}
 \newlabel{fig:example_cat_coefficients}{{2.8}{25}{Image taken from the VOC dataset. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }{figure.caption.12}{}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{25}{subfigure.8.1}}
@@ -127,8 +128,8 @@
 \citation{Geiger2013IJRR}
 \citation{FastRCNN}
 \citation{FasterRCNN}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.11}{\ignorespaces A graphical explanation of the feature maps and anchor boxes. The grid shows the feature map. The boxes with dotted contours describe different possible anchor boxes for one entry on the grid. Image from the original SSD paper \cite  {SSD}.\relax }}{30}{figure.caption.16}}
-\newlabel{fig:SSD_feature_maps}{{2.11}{30}{A graphical explanation of the feature maps and anchor boxes. The grid shows the feature map. The boxes with dotted contours describe different possible anchor boxes for one entry on the grid. Image from the original SSD paper \cite {SSD}.\relax }{figure.caption.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.11}{\ignorespaces A graphical explanation of the feature maps and anchor boxes. The grid shows the feature map. The boxes with dotted contours describe different possible anchor boxes for one cell of the grid. Image from the original SSD paper \cite  {SSD}.\relax }}{30}{figure.caption.16}}
+\newlabel{fig:SSD_feature_maps}{{2.11}{30}{A graphical explanation of the feature maps and anchor boxes. The grid shows the feature map. The boxes with dotted contours describe different possible anchor boxes for one cell of the grid. Image from the original SSD paper \cite {SSD}.\relax }{figure.caption.16}{}}
 \citation{ScalingTheScatteringTransform2017}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.12}{\ignorespaces Figure of the SSD network. a) Entire SSD with focus on extra feature layers and Non-Maximum Suppression. b) VGG16 in more detail. Explanations for the figures are in the respective section. The tensors NxNxC stand for the feature map size and number of channels, i.e. conv\_2\_1 has a feature map of 150x150 with 128 parallel channels. The red boxes describe $2x2$ max-pooling operations.\relax }}{31}{figure.caption.17}}
 \newlabel{fig:SSD}{{2.12}{31}{Figure of the SSD network. a) Entire SSD with focus on extra feature layers and Non-Maximum Suppression. b) VGG16 in more detail. Explanations for the figures are in the respective section. The tensors NxNxC stand for the feature map size and number of channels, i.e. conv\_2\_1 has a feature map of 150x150 with 128 parallel channels. The red boxes describe $2x2$ max-pooling operations.\relax }{figure.caption.17}{}}
@@ -221,10 +222,10 @@
 \newlabel{eq:multibox_loss}{{3.1}{41}{Augmentations, Batchnorm, Multibox Loss, Optimizer}{equation.3.2.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Hyperparameters}{41}{subsection.3.2.2}}
 \newlabel{subsec:hyperparameters}{{3.2.2}{41}{Hyperparameters}{subsection.3.2.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Hyperparameters for the SSD. Explanations for some Parameters are given in the accompanying text.\relax }}{41}{table.caption.32}}
-\newlabel{table:hyperparameters}{{3.1}{41}{Hyperparameters for the SSD. Explanations for some Parameters are given in the accompanying text.\relax }{table.caption.32}{}}
 \citation{ScalingTheScatteringTransform2017}
 \citation{ResNet15}
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Hyperparameters for the SSD. Explanations for some parameters are given in the accompanying text. The upper part of the list is concerned with the optimization, the lower part with the setup for the SSD.\relax }}{42}{table.caption.32}}
+\newlabel{table:hyperparameters}{{3.1}{42}{Hyperparameters for the SSD. Explanations for some parameters are given in the accompanying text. The upper part of the list is concerned with the optimization, the lower part with the setup for the SSD.\relax }{table.caption.32}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.3}Classification}{42}{section.3.3}}
 \newlabel{sec:classification_experiments}{{3.3}{42}{Classification}{section.3.3}{}}
 \citation{imagenet_cvpr09}
@@ -258,8 +259,8 @@
 \newlabel{subsec:baseline_SSD_results}{{4.2.1}{48}{Baseline Performance of the SSD}{subsection.4.2.1}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\nonumberline Hyperparameterization and Baselines}{48}{section*.35}}
 \@writefile{toc}{\contentsline {subsubsection}{\nonumberline Invariant toy data}{48}{section*.37}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Results of the baseline experiments. Mean and standard deviation are denoted for every combination of features that were measured. The results show that the combination of Augmentations and Pretrained true and Batchnorm false achieve the highest accuracy in all cases.\relax }}{49}{table.caption.36}}
-\newlabel{table:baseline}{{4.1}{49}{Results of the baseline experiments. Mean and standard deviation are denoted for every combination of features that were measured. The results show that the combination of Augmentations and Pretrained true and Batchnorm false achieve the highest accuracy in all cases.\relax }{table.caption.36}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Results of the baseline experiments. Mean and standard deviation are denoted for every combination of features that were measured. The results show that the combination of \textit  {augmentations} and \textit  {pretrained} true and \textit  {batchnorm} false achieve the highest accuracy in all cases.\relax }}{49}{table.caption.36}}
+\newlabel{table:baseline}{{4.1}{49}{Results of the baseline experiments. Mean and standard deviation are denoted for every combination of features that were measured. The results show that the combination of \textit {augmentations} and \textit {pretrained} true and \textit {batchnorm} false achieve the highest accuracy in all cases.\relax }{table.caption.36}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Results of the invariant toy data experiments. Mean and standard deviation are denoted for every combination of features that were measured. Pretraining on ImageNet decreases the average accuracy slightly.\relax }}{50}{table.caption.38}}
 \newlabel{table:invariant_data}{{4.2}{50}{Results of the invariant toy data experiments. Mean and standard deviation are denoted for every combination of features that were measured. Pretraining on ImageNet decreases the average accuracy slightly.\relax }{table.caption.38}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Sequential Scattering}{50}{subsection.4.2.2}}
@@ -268,70 +269,70 @@
 \newlabel{subsec:parallel_scattering_results}{{4.2.3}{50}{Parallel Scattering}{subsection.4.2.3}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces Results of the sequential scattering experiments. Mean and standard deviation of the accuracy are denoted for every combination of features that were measured. Pretraining on ImageNet does not add any benefit.\relax }}{51}{table.caption.39}}
 \newlabel{table:sequential_scattering_experiments}{{4.3}{51}{Results of the sequential scattering experiments. Mean and standard deviation of the accuracy are denoted for every combination of features that were measured. Pretraining on ImageNet does not add any benefit.\relax }{table.caption.39}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces Results of the parallel scattering experiments. Mean and standard deviation of the accuracy are denoted for every combination of features that were measured. Pretraining on ImageNet does improve accuracy.\relax }}{51}{table.caption.40}}
-\newlabel{table:parallel_scattering_experiments}{{4.4}{51}{Results of the parallel scattering experiments. Mean and standard deviation of the accuracy are denoted for every combination of features that were measured. Pretraining on ImageNet does improve accuracy.\relax }{table.caption.40}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Comparison of the Techniques}{52}{subsection.4.2.4}}
-\newlabel{subsec:comparison_results}{{4.2.4}{52}{Comparison of the Techniques}{subsection.4.2.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Small Data Experiments}{52}{subsection.4.2.5}}
-\newlabel{subsec:small_data_results}{{4.2.5}{52}{Small Data Experiments}{subsection.4.2.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Comparison of the Techniques}{51}{subsection.4.2.4}}
+\newlabel{subsec:comparison_results}{{4.2.4}{51}{Comparison of the Techniques}{subsection.4.2.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces Results of the parallel scattering experiments. Mean and standard deviation of the accuracy are denoted for every combination of features that were measured. \textit  {Pretraining} on ImageNet does improve accuracy.\relax }}{52}{table.caption.40}}
+\newlabel{table:parallel_scattering_experiments}{{4.4}{52}{Results of the parallel scattering experiments. Mean and standard deviation of the accuracy are denoted for every combination of features that were measured. \textit {Pretraining} on ImageNet does improve accuracy.\relax }{table.caption.40}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {4.5}{\ignorespaces Comparison between the standard SSD, sequential scattering and parallel scattering. For each method the best mean accuracy for all datasets is reported and compared. The standard SSD outperforms both others on VOC. The inverse happens in translation data.\relax }}{53}{table.caption.41}}
 \newlabel{table:comparison}{{4.5}{53}{Comparison between the standard SSD, sequential scattering and parallel scattering. For each method the best mean accuracy for all datasets is reported and compared. The standard SSD outperforms both others on VOC. The inverse happens in translation data.\relax }{table.caption.41}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Comparison between the standard SSD, sequential scattering and parallel scattering. For each method the best mean accuracy for all datasets is reported and compared. The standard SSD outperforms both others on VOC. The inverse happens in translation data.\relax }}{53}{figure.caption.42}}
 \newlabel{fig:comparison}{{4.1}{53}{Comparison between the standard SSD, sequential scattering and parallel scattering. For each method the best mean accuracy for all datasets is reported and compared. The standard SSD outperforms both others on VOC. The inverse happens in translation data.\relax }{figure.caption.42}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.6}Timing Evaluation}{53}{subsection.4.2.6}}
-\newlabel{subsec:timing_evaluation_results}{{4.2.6}{53}{Timing Evaluation}{subsection.4.2.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Small Data Experiments}{53}{subsection.4.2.5}}
+\newlabel{subsec:small_data_results}{{4.2.5}{53}{Small Data Experiments}{subsection.4.2.5}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {4.6}{\ignorespaces Results of the small data experiments. Mean and standard deviation of the accuracy are denoted for every combination of features that were measured.\relax }}{54}{table.caption.43}}
 \newlabel{table:small_data_experiments}{{4.6}{54}{Results of the small data experiments. Mean and standard deviation of the accuracy are denoted for every combination of features that were measured.\relax }{table.caption.43}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.7}{\ignorespaces Mean and standard deviation (std.) of 100 runs of the timing evaluation for the normal SSD, the sequential and the parallel scattering SSD are shown. Means are reported in seconds. The sequential scattering is faster than the standard approach. Both are significantly faster than the parallel scattering.\relax }}{54}{table.caption.44}}
-\newlabel{table:timing_evaluation}{{4.7}{54}{Mean and standard deviation (std.) of 100 runs of the timing evaluation for the normal SSD, the sequential and the parallel scattering SSD are shown. Means are reported in seconds. The sequential scattering is faster than the standard approach. Both are significantly faster than the parallel scattering.\relax }{table.caption.44}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.6}Timing Evaluation}{54}{subsection.4.2.6}}
+\newlabel{subsec:timing_evaluation_results}{{4.2.6}{54}{Timing Evaluation}{subsection.4.2.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.7}{\ignorespaces Mean and standard deviation (std.) of 100 runs of the timing evaluation for the normal SSD, the sequential and the parallel scattering SSD are shown. Means are reported in seconds. The sequential scattering is faster than the standard approach. Both are significantly faster than the parallel scattering.\relax }}{55}{table.caption.44}}
+\newlabel{table:timing_evaluation}{{4.7}{55}{Mean and standard deviation (std.) of 100 runs of the timing evaluation for the normal SSD, the sequential and the parallel scattering SSD are shown. Means are reported in seconds. The sequential scattering is faster than the standard approach. Both are significantly faster than the parallel scattering.\relax }{table.caption.44}{}}
 \citation{ScalingTheScatteringTransform2017}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Conclusion}{55}{chapter.5}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Conclusion}{57}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\newlabel{chap:conclusion}{{5}{55}{Conclusion}{chapter.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Future Outlook}{56}{section.5.1}}
+\newlabel{chap:conclusion}{{5}{57}{Conclusion}{chapter.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Future Outlook}{58}{section.5.1}}
 \bibstyle{alpha}
 \bibdata{bibliography}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Appendix}{57}{chapter.6}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Appendix}{59}{chapter.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{loa}{\addvspace {10\p@ }}
-\newlabel{chap:appendix}{{6}{57}{Appendix}{chapter.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Negative Results}{57}{section.6.1}}
-\newlabel{sec:stuff_that_did_not_work}{{6.1}{57}{Negative Results}{section.6.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Explanations of the Scattering Transform}{57}{section.6.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Results}{57}{section.6.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }}{58}{figure.caption.45}}
-\newlabel{fig:example2_coefficients}{{6.1}{58}{Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }{figure.caption.45}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{58}{subfigure.1.1}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{58}{subfigure.1.2}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{58}{subfigure.1.3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{58}{subfigure.1.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }}{59}{figure.caption.46}}
-\newlabel{fig:example1e_coefficients}{{6.2}{59}{Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }{figure.caption.46}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{59}{subfigure.2.1}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{59}{subfigure.2.2}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{59}{subfigure.2.3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{59}{subfigure.2.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }}{60}{figure.caption.47}}
-\newlabel{fig:example2e_coefficients}{{6.3}{60}{Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }{figure.caption.47}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{60}{subfigure.3.1}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{60}{subfigure.3.2}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{60}{subfigure.3.3}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{60}{subfigure.3.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.4}{\ignorespaces GLM for the baseline experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }}{61}{figure.caption.48}}
-\newlabel{fig:GLM_baseline}{{6.4}{61}{GLM for the baseline experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }{figure.caption.48}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.5}{\ignorespaces GLM for the baseline invariant experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }}{61}{figure.caption.49}}
-\newlabel{fig:GLM_invariances}{{6.5}{61}{GLM for the baseline invariant experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }{figure.caption.49}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.6}{\ignorespaces GLM for the sequential scattering experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }}{62}{figure.caption.50}}
-\newlabel{fig:GLM_sequential_scattering}{{6.6}{62}{GLM for the sequential scattering experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }{figure.caption.50}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.7}{\ignorespaces GLM for the parallel scattering experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }}{62}{figure.caption.51}}
-\newlabel{fig:GLM_parallel_scattering}{{6.7}{62}{GLM for the parallel scattering experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }{figure.caption.51}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6.8}{\ignorespaces GLM for the small data experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }}{63}{figure.caption.52}}
-\newlabel{fig:GLM_small_data}{{6.8}{63}{GLM for the small data experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }{figure.caption.52}{}}
+\newlabel{chap:appendix}{{6}{59}{Appendix}{chapter.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Negative Results}{59}{section.6.1}}
+\newlabel{sec:stuff_that_did_not_work}{{6.1}{59}{Negative Results}{section.6.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Explanations of the Scattering Transform}{59}{section.6.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Results}{59}{section.6.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }}{60}{figure.caption.45}}
+\newlabel{fig:example2_coefficients}{{6.1}{60}{Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }{figure.caption.45}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{60}{subfigure.1.1}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{60}{subfigure.1.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{60}{subfigure.1.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{60}{subfigure.1.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.2}{\ignorespaces Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }}{61}{figure.caption.46}}
+\newlabel{fig:example1e_coefficients}{{6.2}{61}{Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }{figure.caption.46}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{61}{subfigure.2.1}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{61}{subfigure.2.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{61}{subfigure.2.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{61}{subfigure.2.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.3}{\ignorespaces Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }}{62}{figure.caption.47}}
+\newlabel{fig:example2e_coefficients}{{6.3}{62}{Image taken from a toy dataset created for this work. a) Original image; b) 0th order scattering coefficients, i.e. a Gaussian low-pass filter; c) First order scattering coefficients; d) Second order scattering coefficients\relax }{figure.caption.47}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {}}}{62}{subfigure.3.1}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {}}}{62}{subfigure.3.2}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {}}}{62}{subfigure.3.3}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {}}}{62}{subfigure.3.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.4}{\ignorespaces GLM for the baseline experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }}{63}{figure.caption.48}}
+\newlabel{fig:GLM_baseline}{{6.4}{63}{GLM for the baseline experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }{figure.caption.48}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.5}{\ignorespaces GLM for the baseline invariant experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }}{63}{figure.caption.49}}
+\newlabel{fig:GLM_invariances}{{6.5}{63}{GLM for the baseline invariant experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }{figure.caption.49}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.6}{\ignorespaces GLM for the sequential scattering experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }}{64}{figure.caption.50}}
+\newlabel{fig:GLM_sequential_scattering}{{6.6}{64}{GLM for the sequential scattering experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }{figure.caption.50}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.7}{\ignorespaces GLM for the parallel scattering experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }}{64}{figure.caption.51}}
+\newlabel{fig:GLM_parallel_scattering}{{6.7}{64}{GLM for the parallel scattering experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }{figure.caption.51}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.8}{\ignorespaces GLM for the small data experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }}{65}{figure.caption.52}}
+\newlabel{fig:GLM_small_data}{{6.8}{65}{GLM for the small data experiments. Positive coefficients imply a better accuracy. P-values below 0.05 are significant.\relax }{figure.caption.52}{}}
 \bibcite{3DScatteringTransformNeuro2017}{ACC{$^{+}$}17}
 \bibcite{scatteringTransform2012}{BM12}
 \bibcite{imagenet_cvpr09}{DDS{$^{+}$}09}

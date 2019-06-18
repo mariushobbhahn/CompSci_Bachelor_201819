@@ -3,8 +3,8 @@ import os
 import sys
 from string import Template
 
-BATCHFILE_TEMPLATE = "batchTemplate.tmp"
-RUNFILE_TEMPLATE = "runTemplate.tmp"
+BATCHFILE_TEMPLATE = "batchTemplate_week.tmp"
+RUNFILE_TEMPLATE = "runTemplate_scattering.tmp"
 FILEDIRECTORY = "BatchFiles/"
 WORKPATH = os.path.dirname(os.path.realpath(sys.argv[0]))[11:]  # 11 to remove /mnt/beegfs
 print("workpath: ", WORKPATH)
@@ -65,7 +65,7 @@ def build_run_parameter_grid(datasets, formats, random_augs, batch_norm, pretrai
             for r in random_augs:
                 for b in batch_norm:
                     for p in pretrained:
-                        experiment_name = str('ssd_' +
+                        experiment_name = str('scattering_ssd_J2_' +
                             str(d) + '_' +
                             str(f) + '_' +
                             '{}'.format('random_' if r else 'no_random_') +
@@ -84,12 +84,13 @@ if __name__ == "__main__":
     define your runs here
     """
 
+    #datasets = ['kitti_voc', 'VOC', 'toy_data', 'deformation_data', 'rotation_data', 'scale_data', 'translation_data']
     #datasets = ['deformation_data', 'rotation_data', 'scale_data', 'translation_data']
-    datasets = ['scale_data']
+    datasets =  ['kitti_voc']
     formats = ['300x300']
     random_augs = [True]
     batch_norms = [True]
-    pretrained = [True, False]
+    pretrained = [True]
     runs = build_run_parameter_grid(datasets=datasets, formats=formats, random_augs=random_augs, batch_norm = batch_norms, pretrained=pretrained)
 
 

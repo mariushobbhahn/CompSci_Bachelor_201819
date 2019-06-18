@@ -2,10 +2,10 @@
 import os
 import sys
 from string import Template
-from sBatcher_train import build_run_parameter_grid, Run
+from sBatcher_train_scattering import build_run_parameter_grid, Run
 
 BATCHFILE_TEMPLATE = "batchTemplate.tmp"
-RUNFILE_TEMPLATE = "runTemplate.tmp"
+RUNFILE_TEMPLATE = "runTemplate_scattering.tmp"
 FILEDIRECTORY = "BatchFiles/"
 WORKPATH = os.path.dirname(os.path.realpath(sys.argv[0]))[11:]  # 11 to remove /mnt/beegfs
 print("workpath: ", WORKPATH)
@@ -32,7 +32,7 @@ if __name__ == "__main__":
     define your runs here
     """
 
-    datasets = ['deformation_data', 'rotation_data', 'scale_data', 'translation_data']
+    datasets = ['VOC', 'kitti_voc', 'toy_data', 'deformation_data', 'rotation_data', 'scale_data', 'translation_data']
     formats = ['300x300']
     random_augs = [True]
     batch_norms = [True]

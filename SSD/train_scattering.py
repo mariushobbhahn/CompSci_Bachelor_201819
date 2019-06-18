@@ -29,7 +29,7 @@ parser = argparse.ArgumentParser(
     description='Single Shot MultiBox Detector Training With Pytorch')
 
 train_set = parser.add_mutually_exclusive_group()
-parser.add_argument('--dataset', default='toy_data', choices=['VOC', 'kitti_voc', 'kitti_voc_small', 'toy_data'],
+parser.add_argument('--dataset', default='VOC_small', choices=['VOC', 'VOC_small', 'kitti_voc', 'kitti_voc_small', 'toy_data', 'scale_data', 'deformation_data', 'translation_data', 'rotation_data', 'toy_data_small'],
                     type=str, help='VOC, kitti_voc, toy_data or kitti_voc_small')
 parser.add_argument('--config', default='300x300', choices=['300x300', '1000x300'],
                     type=str, help='size of the imagescales')
@@ -41,9 +41,12 @@ parser.add_argument('--normalize', default=False, type=str2bool,
                     help='normalize images before training')
 parser.add_argument('--mode', default=1, type=int, help='number of sequential scattering transforms')
 parser.add_argument('--J', default=2, type=int, help='J determines the size of the window scattering transform: height = 2J')
-parser.add_argument('--gen', default='12.8', type=str, help='generation of tests')
+parser.add_argument('--batch_norm', default=True, type=str2bool ,help='using batch norm')
+parser.add_argument('--gen', default='13.2', type=str, help='generation of tests')
 parser.add_argument('--basenet', default='vgg16_pretrained_scat_J2.pth',
                     help='Pretrained base model')
+parser.add_argument('--basenet_bn', default='vgg16_pretrained_scat_J2_bn.pth', 
+                    help='Pretrained base model when using batch norm')
 parser.add_argument('--batch_size', default=32, type=int,
                     help='Batch size for training')
 parser.add_argument('--resume', default=None, type=str,
@@ -66,14 +69,15 @@ parser.add_argument('--visdom', default=False, type=str2bool,
                     help='Use visdom for loss visualization')
 parser.add_argument('--save_folder', default='/home/hobbhahn/SSD/weights/',
                     help='Directory for saving checkpoint models')
-parser.add_argument('--pretrained_weights', default=True, help='use pretrained weights for VGG')
+parser.add_argument('--pretrained_weights', default=False, type=str2bool, help='use pretrained weights for VGG')
 args = parser.parse_args()
 
 WEIGHTS_NAME = str('scattering_ssd_' +
                     'J{}_'.format(args.J) +
                     '{}_'.format(args.dataset) +
-                    '{}_'.format('pretrained' if args.pretrained_weights else 'no_pretrained') + 
                     '{}_'.format('random' if args.random else 'no_random') +
+                    '{}_'.format('batch_norm' if args.batch_norm else 'no_batch_norm') + 
+                    '{}_'.format('pretrained' if args.pretrained_weights else 'no_pretrained') + 
                     '{}_'.format(args.gen)
                     )
 
@@ -99,7 +103,7 @@ def train(inp_channels, scattering, dataset, config):
         import visdom
         viz = visdom.Visdom()
 
-    ssd_net = build_scattering_ssd(phase='train', inp_channels=inp_channels, size_x=cfg['dim_x'], size_y=cfg['dim_y'], num_classes=cfg['num_classes'], cfg=cfg, pretrained=args.pretrained_weights)
+    ssd_net = build_scattering_ssd(phase='train', inp_channels=inp_channels, size_x=cfg['dim_x'], size_y=cfg['dim_y'], num_classes=cfg['num_classes'], cfg=cfg, batch_norm=args.batch_norm ,pretrained=args.pretrained_weights)
 
 
     net = ssd_net
@@ -112,15 +116,18 @@ def train(inp_channels, scattering, dataset, config):
         print('Resuming training, loading {}...'.format(args.resume))
         ssd_net.load_weights(args.resume)
     elif args.pretrained_weights:
-        vgg_weights = torch.load(args.save_folder + args.basenet)
-        print('Loading base network from: {}'.format(args.save_folder + args.basenet))
+        if args.batch_norm:
+            vgg_weights = torch.load(args.save_folder + args.basenet_bn)
+        else:
+            vgg_weights = torch.load(args.save_folder + args.basenet)
+        print('Loading base network ...')
         ssd_net.vgg.load_state_dict(vgg_weights)
     #else do nothing and train from scratch
 
     if args.cuda:
         net = net.cuda()
 
-    if not args.resume:
+    if not args.resume and not args.pretrained_weights:
         print('Initializing weights...')
         # initialize newly added layers' weights with xavier method
         ssd_net.extras.apply(weights_init)
@@ -294,6 +301,17 @@ if __name__ == '__main__':
                                                          normalize=args.normalize,
                                                          sub_mean=args.subtract_mean))
 
+    elif args.dataset == 'VOC_small':
+        cfg = VOC_scat_small
+        dataset = VOCDetection(root=VOC_ROOT,
+                               transform=SSDAugmentation(size_x=cfg['dim_x'],
+                                                         size_y=cfg['dim_y'],
+                                                         mean=VOC_MEANS,
+                                                         random=args.random,
+                                                         normalize=args.normalize,
+                                                         sub_mean=args.subtract_mean))
+
+
     elif args.dataset == 'toy_data':
         cfg = toy_data_scat
         dataset = toydataDetection(root=toy_data_ROOT,
@@ -304,10 +322,62 @@ if __name__ == '__main__':
                                                          normalize=args.normalize,
                                                          sub_mean=args.subtract_mean))
 
+    elif args.dataset == 'toy_data_small':
+        cfg = toy_data_small_scat
+        dataset = toydatasmallDetection(root=toy_data_small_ROOT,
+                               transform=SSDAugmentation(size_x=cfg['dim_x'],
+                                                         size_y=cfg['dim_y'],
+                                                         mean=(0,0,0),
+                                                         random=args.random,
+                                                         normalize=args.normalize,
+                                                         sub_mean=args.subtract_mean))
+
+
+    elif args.dataset == 'rotation_data':
+        cfg = toy_data_scat
+        dataset = rotationdataDetection(root=rotation_data_ROOT,
+                                   transform=SSDAugmentation(size_x=cfg['dim_x'],
+                                                             size_y=cfg['dim_y'],
+                                                             mean=(0,0,0),
+                                                             random=args.random,
+                                                             normalize=args.normalize,
+                                                             sub_mean=args.subtract_mean))
+
+    elif args.dataset == 'scale_data':
+        cfg = toy_data_scat
+        dataset = scaledataDetection(root=scale_data_ROOT,
+                                   transform=SSDAugmentation(size_x=cfg['dim_x'],
+                                                             size_y=cfg['dim_y'],
+                                                             mean=(0,0,0),
+                                                             random=args.random,
+                                                             normalize=args.normalize,
+                                                             sub_mean=args.subtract_mean))
+
+    elif args.dataset == 'deformation_data':
+        cfg = toy_data_scat
+        dataset = deformationdataDetection(root=deformation_data_ROOT,
+                                   transform=SSDAugmentation(size_x=cfg['dim_x'],
+                                                             size_y=cfg['dim_y'],
+                                                             mean=(0,0,0),
+                                                             random=args.random,
+                                                             normalize=args.normalize,
+                                                             sub_mean=args.subtract_mean))
+
+    elif args.dataset == 'translation_data':
+        cfg = toy_data_scat
+        dataset = translationdataDetection(root=translation_data_ROOT,
+                                   transform=SSDAugmentation(size_x=cfg['dim_x'],
+                                                             size_y=cfg['dim_y'],
+                                                             mean=(0,0,0),
+                                                             random=args.random,
+                                                             normalize=args.normalize,
+                                                             sub_mean=args.subtract_mean))
+
+
 
     elif args.dataset == 'kitti_voc':
         if args.config == '300x300':
-            cfg = kitti300x300
+            cfg = kitti300x300_scat
         elif args.config == '1000x300':
             cfg = kitti1000x300
         else:

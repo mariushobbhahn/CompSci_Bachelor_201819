@@ -47,12 +47,12 @@
 \contentsline {subsubsection}{\nonumberline Invariant toy data}{48}{section*.37}
 \contentsline {subsection}{\numberline {4.2.2}Sequential Scattering}{50}{subsection.4.2.2}
 \contentsline {subsection}{\numberline {4.2.3}Parallel Scattering}{50}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}Comparison of the Techniques}{52}{subsection.4.2.4}
-\contentsline {subsection}{\numberline {4.2.5}Small Data Experiments}{52}{subsection.4.2.5}
-\contentsline {subsection}{\numberline {4.2.6}Timing Evaluation}{53}{subsection.4.2.6}
-\contentsline {chapter}{\numberline {5}Conclusion}{55}{chapter.5}
-\contentsline {section}{\numberline {5.1}Future Outlook}{56}{section.5.1}
-\contentsline {chapter}{\numberline {6}Appendix}{57}{chapter.6}
-\contentsline {section}{\numberline {6.1}Negative Results}{57}{section.6.1}
-\contentsline {section}{\numberline {6.2}Explanations of the Scattering Transform}{57}{section.6.2}
-\contentsline {section}{\numberline {6.3}Results}{57}{section.6.3}
+\contentsline {subsection}{\numberline {4.2.4}Comparison of the Techniques}{51}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Small Data Experiments}{53}{subsection.4.2.5}
+\contentsline {subsection}{\numberline {4.2.6}Timing Evaluation}{54}{subsection.4.2.6}
+\contentsline {chapter}{\numberline {5}Conclusion}{57}{chapter.5}
+\contentsline {section}{\numberline {5.1}Future Outlook}{58}{section.5.1}
+\contentsline {chapter}{\numberline {6}Appendix}{59}{chapter.6}
+\contentsline {section}{\numberline {6.1}Negative Results}{59}{section.6.1}
+\contentsline {section}{\numberline {6.2}Explanations of the Scattering Transform}{59}{section.6.2}
+\contentsline {section}{\numberline {6.3}Results}{59}{section.6.3}

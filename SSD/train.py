@@ -29,7 +29,7 @@ parser = argparse.ArgumentParser(
     description='Single Shot MultiBox Detector Training With Pytorch')
 
 train_set = parser.add_mutually_exclusive_group()
-parser.add_argument('--dataset', default='toy_data_small', choices=['VOC', 'kitti_voc', 'kitti_voc_small', 'toy_data', 'scale_data', 'deformation_data', 'rotation_data', 'translation_data, toy_data_small'],
+parser.add_argument('--dataset', default='VOC_small', choices=['VOC', 'VOC_small', 'kitti_voc', 'kitti_voc_small', 'toy_data', 'scale_data', 'deformation_data', 'rotation_data', 'translation_data', 'toy_data_small'],
                     type=str, help='VOC, kitti_voc, kitti_voc_small or toy_data')
 parser.add_argument('--config', default='300x300', choices=['300x300', '1000x300'],
                     type=str, help='size of the imagescales')
@@ -65,7 +65,7 @@ parser.add_argument('--gamma', default=0.1, type=float,
                     help='Gamma update for SGD')
 parser.add_argument('--visdom', default=False, type=str2bool,
                     help='Use visdom for loss visualization')
-parser.add_argument('--pretrained_weights', default=True, type=str2bool, help='initialize weights with pretraining on image net')
+parser.add_argument('--pretrained_weights', default=False, type=str2bool, help='initialize weights with pretraining on image net')
 parser.add_argument('--save_folder', default='/home/hobbhahn/SSD/weights/',
                     help='Directory for saving checkpoint models')
 args = parser.parse_args()
@@ -74,8 +74,6 @@ WEIGHTS_NAME = str('ssd_' +
                     '{}_'.format(args.dataset) +
 		    '{}_'.format(args.config) +
                     '{}'.format('random_' if args.random else 'no_random_') +
-                    #'{}'.format('sub_mean_' if args.subtract_mean else 'no_sub_mean_') +
-                    #'{}'.format('normalize_' if args.normalize else 'no_normalize_') +
                     '{}_'.format('batch_norm' if args.batch_norm else 'no_batch_norm') +
                     '{}_'.format('pretrained' if args.pretrained_weights else 'no_pretrained') +
                     '{}_'.format(args.gen)
@@ -121,6 +119,16 @@ def train():
                                                          normalize=args.normalize,
                                                          sub_mean=args.subtract_mean))
 
+    elif args.dataset == 'VOC_small':
+        cfg = voc_small
+        dataset = VOCDetection(root=VOC_ROOT,
+                               transform=SSDAugmentation(size_x=cfg['dim_x'],
+                                                         size_y=cfg['dim_y'],
+                                                         mean=VOC_MEANS,
+                                                         random=args.random,
+                                                         normalize=args.normalize,
+                                                         sub_mean=args.subtract_mean))
+
     elif args.dataset == 'toy_data':
         cfg = toy_data
         dataset = toydataDetection(root=toy_data_ROOT,
@@ -152,7 +160,7 @@ def train():
                                                              sub_mean=args.subtract_mean))
 
     elif args.dataset == 'deformation_data':
-        cfg = deformation_data
+        cfg = toy_data
         dataset = deformationdataDetection(root=deformation_data_ROOT,
                                    transform=SSDAugmentation(size_x=cfg['dim_x'],
                                                              size_y=cfg['dim_y'],
@@ -162,7 +170,7 @@ def train():
                                                              sub_mean=args.subtract_mean))
 
     elif args.dataset == 'translation_data':
-        cfg = translation_data
+        cfg = toy_data
         dataset = translationdataDetection(root=translation_data_ROOT,
                                    transform=SSDAugmentation(size_x=cfg['dim_x'],
                                                              size_y=cfg['dim_y'],
@@ -171,9 +179,9 @@ def train():
                                                              normalize=args.normalize,
                                                              sub_mean=args.subtract_mean))
 
-    elif args.dataset == 'translation_data':
+    elif args.dataset == 'toy_data_small':
         cfg = toy_data_small
-        dataset = toydataDetection(root=toy_data_ROOT,
+        dataset = toydatasmallDetection(root=toy_data_small_ROOT,
                                    transform=SSDAugmentation(size_x=cfg['dim_x'],
                                                              size_y=cfg['dim_y'],
                                                              mean=(0,0,0),
@@ -220,11 +228,9 @@ def train():
         import visdom
         viz = visdom.Visdom()
 
-    if args.dataset == 'toy_data_small':
-        ssd_net = build_small_ssd('train', cfg['dim_x'], cfg['dim_y'], cfg['num_classes'], cfg, args.batch_norm)
     else:
         ssd_net = build_ssd('train', cfg['dim_x'], cfg['dim_y'], cfg['num_classes'], cfg, args.batch_norm)
-
+    print("ssd_net: ", ssd_net)
     net = ssd_net
 
     if args.cuda:

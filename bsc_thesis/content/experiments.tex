@@ -8,11 +8,11 @@ Section \ref{sec:datasets} gives a general overview of the datasets used in this
 \section{Datasets}
 \label{sec:datasets}
 
-The experiments in this work were conducted on multiple datasets. Two of them are known and openly available datasets for benchmarking purposes, namely VOC and KITTI. The other five datasets used were specifically created for this work to test the geometric properties of the scattering transform for object detection tasks. 
+The experiments in this work were conducted on multiple datasets. Two of them are known and openly available datasets for benchmarking purposes, namely PASCAL VOC and KITTI. The other five datasets used were specifically created for this work to test the geometric properties of the scattering transform for object detection tasks. 
 
 \subsection{PASCAL VOC}
 
-The PASCAL Visual Object Classes dataset is a common benchmark for object detection tasks \cite{VOC}. This work uses a combination of VOC images from 2007 and 2012 totaling 27088 images. They are split in test and training set such that the training set contains around 16k images. There are 20 different classes in the dataset that are frequently seen in a person's daily life ranging from aeroplane over bicycle to TV monitor. Most images are taken such that the object is centered and only one object is seen. In some rare instances two or more objects are seen in the same image, i.e. when a person is riding a horse or two cats are playing. To get a feeling for the dataset figure \ref{fig:VOC_samples} shows three sample images from PASCAL VOC.
+The PASCAL Visual Object Classes dataset is a common benchmark for object detection tasks \cite{VOC}. This work uses a combination of VOC images from 2007 and 2012 totaling 27088 images. They are split in test and training set such that the training set contains around 16k images. There are 20 different classes in the dataset that are frequently seen in a person's daily life ranging from aeroplane over bicycle to TV monitor. Most images are taken such that the object is centered and only one object is seen. In some rare instances two or more objects are seen in the same image, i.e. when a person is riding a horse or two cats are playing together. To get a feeling for the dataset Figure \ref{fig:VOC_samples} shows three sample images from PASCAL VOC.
 
 \begin{figure}[!htb]
 	\centering
@@ -27,7 +27,7 @@ The PASCAL Visual Object Classes dataset is a common benchmark for object detect
 
 \subsection{KITTI}
 
-The KITTI Vision dataset is specifically created for object detection of traffic scenes \cite{Geiger2013IJRR}. It has four classes: cars, cyclists, pedestrians and miscellaneous. The entire dataset has around 8k images and is split in around 6k training and 2k test images for this work. The scenes visible in the KITTI dataset contain multiple objects, i.e. multiple cars, cyclists and pedestrians in the same image and are therefore significantly harder to detect compared to PASCAL VOC. The original images are taken with aspect ratio 3:1. The SSD setup used in this paper uses an input size of 300 by 300 thereby reshaping the image and most objects in it which could pose problems. A SSD with input size of 1000 by 300 was setup but did not yield better results (see \ref{sec:stuff_that_did_not_work} for the description of a negativ result). Four traffic scenes are depicted in \ref{fig:kitti_samples}. 
+The KITTI Vision dataset is specifically created for object detection of traffic scenes \cite{Geiger2013IJRR}. It has four classes: cars, cyclists, pedestrians and miscellaneous. The entire dataset has around 8k images and is split in around 6k training and 2k test images for this work. The scenes visible in the KITTI dataset contain multiple objects, i.e. multiple cars, cyclists and pedestrians in the same image and are therefore significantly harder to detect compared to PASCAL VOC. The original images are taken with aspect ratio 3:1. The SSD setup used in this paper uses an input size of 300 by 300 thereby reshaping the image and most objects in it which could pose problems. A SSD with input size of 1000 by 300 was setup but did not yield better results (see \ref{sec:stuff_that_did_not_work} for the description of a negative result). Four traffic scenes are depicted in Figure \ref{fig:kitti_samples}. 
 
 \begin{figure}[!htb]
 	\centering
@@ -43,7 +43,7 @@ The KITTI Vision dataset is specifically created for object detection of traffic
 
 \subsection{Toy Data}
 
-To test the quality of the networks on easier datasets with simple geometric properties a toy data set was constructed. Every image contains three objects that can also be overlayed. Every object has one of three randomly chosen colors. The objects are either a triangle, a rectangle or an ellipse. In total 6k such images are contained in the training set and 2k in the test set. Four samples can be found in \ref{fig:toy_data_samples}
+To test the quality of the networks on easier datasets with simple geometric properties a toy data set was constructed. Every image contains three objects that can also be overlayed. Every object has one of three randomly chosen colors. The objects are either a triangle, a rectangle or an ellipse. In total 6k such images are contained in the training set and 2k in the test set. Four samples can be found in Figure \ref{fig:toy_data_samples}
 
 \begin{figure}[!htb]
 	\centering
@@ -63,7 +63,7 @@ To test the invariances individually four additional datasets have been created.
 
 \subsubsection{Scale}
 
-A base image is created as explained above. Six further images are created by scaling the object with factors from 0.5 to 1.5 of the original size. The objects are triangles, rectangles and ellipses. Samples can be seen in \ref{fig:scale_samples}.
+A base image is created as explained above. Six further images are created by scaling the object with factors from 0.5 to 1.5 of the original size. The objects are triangles, rectangles and ellipses. Samples can be seen in Figure \ref{fig:scale_samples}.
 
 \begin{figure}[!htb]
 	\centering
@@ -79,7 +79,7 @@ A base image is created as explained above. Six further images are created by sc
 
 \subsubsection{Rotation}
 
-A base image is created as explained above. Ten further images are created by rotating the object around its own center with equal angle sizes. The objects are triangles, rectangles and heptagons. Samples can be seen in \ref{fig:rotation_samples}.
+A base image is created as explained above. Ten further images are created by rotating the object around its own center with equal angle sizes. The objects are triangles, rectangles and heptagons. Samples can be seen in Figure \ref{fig:rotation_samples}.
 
 \begin{figure}[!htb]
 	\centering
@@ -95,7 +95,7 @@ A base image is created as explained above. Ten further images are created by ro
 
 \subsubsection{Deformation}
 
-A base image is created as explained above. Ten further images are created by taking one point of the object and adding noise to it. The noise is uniformly distributed and capped such that it can maximally add or subtract 20\% of the original object size to the point.  The objects are triangles, rectangles and heptagons. Samples can be seen in \ref{fig:deformation_samples}.
+A base image is created as explained above. Ten further images are created by taking one point of the object and adding noise to it. The noise is uniformly distributed and capped such that it can maximally add or subtract 20\% of the original object size to the point.  The objects are triangles, rectangles and heptagons. Samples can be seen in Figure \ref{fig:deformation_samples}.
 
 \begin{figure}[!htb]
 	\centering
@@ -111,7 +111,7 @@ A base image is created as explained above. Ten further images are created by ta
 
 \subsubsection{Translation}
 
-A base image is created as explained above. Ten further images are created by changing the location in the image randomly. The objects are triangles, rectangles and ellipses. Samples can be seen in \ref{fig:translation_samples}.
+A base image is created as explained above. Ten further images are created by changing the location in the image randomly. The objects are triangles, rectangles and ellipses. Samples can be seen in Figure \ref{fig:translation_samples}.
 
 \begin{figure}[!htb]
 	\centering
@@ -127,7 +127,7 @@ A base image is created as explained above. Ten further images are created by ch
 
 \subsection{Classification Toy Data}
 
-To reproduce the results of \cite{ScalingTheScatteringTransform2017} regarding classification a network is trained on a toy dataset created for classification. Every image contains exactly one triangle, ellipse or rectangle in different sizes and colors.The data from the object detection toy data cannot be reused because they contain three objects per image. Samples of the images are shown in figure \ref{fig:toy_data_class_samples}.
+To reproduce the results of \cite{ScalingTheScatteringTransform2017} regarding classification a network is trained on a toy dataset created for classification. Every image contains exactly one triangle, ellipse or rectangle in different sizes and colors.The data from the object detection toy data cannot be reused because they contain three objects per image instead of just one. Samples of the images are shown in Figure \ref{fig:toy_data_class_samples}.
 
 \begin{figure}[!htb]
 	\centering
@@ -157,17 +157,17 @@ To evaluate the quality of the proposals a metric is needed. The SSD works with 
 	\label{eq:multibox_loss}
 	L(x,c,l,g) = \frac{1}{N}(L_{\text{conf}} (x,c) + \alpha L_{\text{loc}} (x,l,g))
 \end{equation}
-where $x^p_{ij}=\{1,0\}$ is an indicator for matching the i-th default box to the j-th ground truth box of category $p$, $c$ are the class confidences, $l$ are the predicted box and $g$ the ground truth box parameters. Overall the multibox loss is a weighted sum of the localization loss $L_{\text{loc}}$ which is a smooth L1-loss between the predicted and ground truth box, and the confidence loss $L_{\text{conf}}$ which is a softmax loss over multiple classes. The technical details can be found in the original paper \cite{SSD}. The multibox loss combines the regression task of finding the correct bounding boxes and classification task of finding the correct objects for those boxes. \\
+where $x^p_{ij}=\{1,0\}$ is an indicator for matching the i-th default box to the j-th ground truth box of category $p$, $c$ are the class confidences, $l$ are the predicted box and $g$ the ground truth box parameters. Overall the multibox loss is a weighted sum of the localization loss $L_{\text{loc}}$ which is a smooth L1-loss between the predicted and ground truth box, and the confidence loss $L_{\text{conf}}$ which is a softmax loss over multiple classes. The technical details can be found in the original SSD paper \cite{SSD}. The multibox loss combines the regression task of finding the correct bounding boxes and classification task of finding the correct objects for those boxes. \\
 The training objective is optimized using Stochastic Gradient Descent (SGD). Other optimizers such as Adam were tried but did not change the result in any way. 
 
 \subsection{Hyperparameters}
 \label{subsec:hyperparameters}
 
-SSD has many hyperparameters over which can be optimized. A full list can be found in table \ref{table:hyperparameters}.
+SSD has many hyperparameters over which can be optimized. A full list can be found in Table \ref{table:hyperparameters}.
 
 \begin{table}[!htb]
 	\centering
-	\caption{Hyperparameters for the SSD. Explanations for some Parameters are given in the accompanying text.}
+	\caption{Hyperparameters for the SSD. Explanations for some parameters are given in the accompanying text. The upper part of the list is concerned with the optimization, the lower part with the setup for the SSD.}
 	\begin{tabularx}{\textwidth}{ X  X}
 		\hline
 		Parameter & respective value(s) \\
@@ -195,8 +195,8 @@ SSD has many hyperparameters over which can be optimized. A full list can be fou
 \end{table}
 For some hyperparameters context and explanation is given in the following. \\
 The first hyperparameters: momentum, weight decay gamma, learning rate, etc. are related to the optimizer itself. Gamma describes the amount by which the learning rate is adapted at every learning rate step. The learning rate is different when the batch norm is used as well, since the standardization allows for higher learning rates due to faster convergence. The learning rate steps describe at which epochs during the training the learning rate should be reduced further. The datasets have different number of iterations due to their complexity. A network just needs more time to find patterns in street scenes than in triangles in front of a white background. The second part describes hyperparameters that are related to the object detection part of the network. 
-The list called feature maps describes the sizes of the feature maps in the extra feature layers of the SSD network. They can also be seen in \ref{fig:SSD}. 
-The feature maps parameter is a list of feature map sizes used for the object detection. The bigger the size of the feature map the smaller the objects that can be detected are. A graphical explanation for the functionality of the feature map and anchor boxes can be found in Figure \ref{fig:SSD_feature_maps} shown in the SSD Subsection.
+The list called feature maps describes the sizes of the feature maps in the extra feature layers of the SSD network. They can also be seen in Figure \ref{fig:SSD}. 
+The feature maps parameter is a list of feature map sizes used for the object detection. The bigger the size of the feature map the smaller are the objects that can be detected. A graphical explanation for the functionality of the feature map and anchor boxes can be found in Figure \ref{fig:SSD_feature_maps} shown in the SSD Subsection.
 The steps parameter is used to determine the center points for the anchors on a given feature map cell. To make sure all cells have an anchor for each detection the following equation is approximately fulfilled for all extra layers: feature\_maps[i] $\cdot$ steps [i] $\approx$ 300. The 300 is chosen because it is the size of an image in x- and y-direction. S\_sizes is a scaling factor for the respective boxes at different stages of the detection forward pass. Aspect ratios describes the relative size in x- and y-direction of a given box, i.e. a box with aspect ratio 0.5 is twice as high as wide. Multibox describes the number of boxes with different aspect ratios per layer. A more detailed explanation can be found in the original SSD paper \cite{SSD}. All values of those parameters are also taken from the original implementation. In the appendix in section \ref{sec:stuff_that_did_not_work} is a list of parameters and other methods that were tried during the making of this work but did not yield positive results such that future related research does not have to be a waste of valuable time. 
 
 
@@ -213,14 +213,14 @@ In the following section the main experiments of the paper are described. Subsec
 \subsection{Baseline Performance of the SSD}
 \label{subsec:baseline_SSD}
 
-In this experiment the Performance of the SSD is tested with different hyperparameters on different datasets. The hyperparameters are: Augmentations, Batchnorm and Pretrained where Pretrained describes a weight initialization of the VGG16 that has been pretrained on ImageNet \cite{imagenet_cvpr09}. The datasets are KITTI, PASCAL VOC and the Toy data set. Mean and standard deviation is reported. There were two main goals of these experiments: a) set a baseline for the three main datasets to which the later experiments can be compared to.  b) Test the influence of the hyperparameters to establish which parametrization of them was useful to reduce the number of networks to train for the later experiments. It must be pointed out that the same experiments but in smaller scale have been conducted for scattering methods to prevent unfair comparisons. Whenever the parametrization differs it is pointed out in the respective Section of the Results chapter. 
+In this experiment the Performance of the SSD is tested with different hyperparameters on different datasets. The hyperparameters are: \textit{augmentations}, \textit{batchnorm} and \textit{pretrained} where \textit{pretrained} describes a weight initialization of the VGG16 that has been pretrained on ImageNet \cite{imagenet_cvpr09}. The datasets are KITTI, PASCAL VOC and the Toy data set. Mean and standard deviation is reported. There were two main goals of these experiments: a) set a baseline for the three main datasets to which the later experiments can be compared to.  b) Test the influence of the hyperparameters to establish which parametrization of them was useful to reduce the number of networks to train for the later experiments. It must be pointed out that the same experiments but in smaller scale have been conducted for scattering methods to prevent unfair comparisons. Whenever the parametrization differs it is pointed out in the respective Section of the Results chapter. 
 To test the effectiveness of different hyperparameters a generalized linear model (GLM) with binomial model family and logit link function was chosen. The model has all hyperparameters as independent variables and accuracy as the dependent variable. The effectiveness of a hyperparameter was evaluated along two metrics: a) whether the coefficient of the GLM describing that particular parameter was positive, i.e. whether the parameter had a positive influence on the accuracy and b) the p-Value of the parameter in the GLM. Even though there are many flaws with p-Values, especially with small numbers of repetitions such as in this case, a p-Value smaller than 0.05 was used to say that a variable has significant positive impact on the accuracy of the model. However the p-Value will merely be reported as an indication for the readers intuition. The parametrization of later experiments was decided according to the sign of the coefficient because of all the problems with p-Values.
 
 \subsection{Sequential Scattering}
 \label{subsec:sequential_scattering_experiment}
 
 The VGG part of the network was adapted by removing the first two filters and max-pooling operations and replacing them by the scattering transform. The second max-pooling operation needed to be removed since the output of the scattering transform is of size 75x75 since $J=2$ was chosen. The adapted VGG can be seen in figure \ref{fig:sequential_scattering_SSD}. All other parts of the network, i.e. the feature layers stay equivalent to the basic SSD. \\
-The experiments consisted of training a sequential scattering networks on all available datasets, i.e. KITTI, PASCAL VOC, Toy data, scale toy data, rotation toy data, deformation toy data and translation toy data with the hyperparametrization given by the baseline experiments. Additionally, \textit{pretrained} was tested for all combinations. The results of \textit{pretrained} might contain interesting information about the way in which the scattering networks process their data in the context of a different representation of the data.
+The experiments consisted of training a sequential scattering networks on all available datasets, i.e. KITTI, PASCAL VOC, Toy data, scale toy data, rotation toy data, deformation toy data and translation toy data with the hyperparametrization given by the baseline experiments. Additionally, \textit{pretrained} was tested for all combinations. The results of \textit{pretrained} might contain interesting information about the way in which the scattering networks process their data in the context of a different representation of the data. If the results of \textit{pretrained} weights outperform the standard initialization that could show that pretraining also learns concepts that are independent of the representation of the data. 
 
 \begin{figure}[!htb]
 	\centering

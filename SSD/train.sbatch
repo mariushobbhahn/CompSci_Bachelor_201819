@@ -4,24 +4,24 @@
 #a) Define slurm job parameters
 ####
 
-#SBATCH --job-name=SSDkitti
+#SBATCH --job-name=SSDsmall
 
 #resources:
 
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=4
 # the job can use and see 4 CPUs (from max 24).
 
-#SBATCH --partition=week
+#SBATCH --partition=day
 # the slurm partition the job is queued to.
 
-#SBATCH --mem-per-cpu=30G
+#SBATCH --mem-per-cpu=60G
 # the job will need 12GB of memory equally distributed on 4 cpus.  (251GB are available in total on one node)
 
 
-#SBATCH --gres=gpu:1080ti:2
+#SBATCH --gres=gpu:1080ti:4
 #the job can use and see 1 GPUs (4 GPUs are available in total on one node)
 
-#SBATCH --time=100:00:00
+#SBATCH --time=23:59:59
 # the maximum time the scripts needs to run
 
 #SBATCH --error=job.%J.err
@@ -48,7 +48,9 @@
 #cnn_minst.py <model save path> <mnist data path>
 ####
 
-singularity exec --nv ~/TCML-scattering_transform.simg  python3 ~/SSD/train.py
+#singularity exec ~/TCML-scattering_transform.simg  python3 ~/SSD/train.py
+singularity exec ~/TCML-scattering_transform_cuda10_1_cudnn7.simg  python3 ~/SSD/train.py
+
 
 echo DONE!
 

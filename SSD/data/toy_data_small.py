@@ -17,13 +17,13 @@ if sys.version_info[0] == 2:
 else:
     import xml.etree.ElementTree as ET
 
-deformation_data_CLASSES = ('rectangle', 'heptagon', 'triangle')
+toy_data_CLASSES = ('rectangle', 'ellipse', 'triangle')
 
 # note: if you used our download scripts, this should be right
-deformation_data_ROOT = osp.join(HOME, "data/deformation_data")
+toy_data_small_ROOT = osp.join(HOME, "data/toy_data_small")
 
 
-class deformationdataVOCAnnotationTransform(object):
+class toydatasmallVOCAnnotationTransform(object):
     """Transforms a VOC annotation into a Tensor of bbox coords and label index
     Initilized with a dictionary lookup of classnames to indexes
 
@@ -38,7 +38,7 @@ class deformationdataVOCAnnotationTransform(object):
 
     def __init__(self, class_to_ind=None, keep_difficult=False):
         self.class_to_ind = class_to_ind or dict(
-            zip(deformation_data_CLASSES, range(len(deformation_data_CLASSES))))
+            zip(toy_data_CLASSES, range(len(toy_data_CLASSES))))
         self.keep_difficult = keep_difficult
 
     def __call__(self, target, width, height):
@@ -72,7 +72,7 @@ class deformationdataVOCAnnotationTransform(object):
         return res  # [[xmin, ymin, xmax, ymax, label_ind], ... ]
 
 
-class deformationdataDetection(data.Dataset):
+class toydatasmallDetection(data.Dataset):
     """VOC Detection Dataset Object
 
     input is image, target is annotation
@@ -91,8 +91,8 @@ class deformationdataDetection(data.Dataset):
 
     def __init__(self, root,
                  image_sets=['train'],
-                 transform=None, target_transform=deformationdataVOCAnnotationTransform(),
-                 dataset_name='deformation_data'):
+                 transform=None, target_transform=toydatasmallVOCAnnotationTransform(),
+                 dataset_name='toy_data'):
         self.root = root
         self.image_set = image_sets
         self.transform = transform
@@ -102,7 +102,7 @@ class deformationdataDetection(data.Dataset):
         self._imgpath = osp.join('%s', 'JPEGImages', '%s.jpg')
         self.ids = list()
         for name in image_sets:
-            rootpath = deformation_data_ROOT
+            rootpath = toy_data_small_ROOT
             for line in open(osp.join(rootpath, 'ImageSets', 'Main', name + '.txt')):
                 self.ids.append((rootpath, line.strip()))
 

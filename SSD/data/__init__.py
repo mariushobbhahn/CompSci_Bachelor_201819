@@ -3,6 +3,7 @@ from .kitti import kittiDetection, kittiVOCAnnotationTransform, kitti_CLASSES, k
 from .kitti_small import kitti_small_Detection, kitti_small_ROOT
 from .coco import COCODetection, COCOAnnotationTransform, COCO_CLASSES, COCO_ROOT, get_label_map
 from .toy_data import toydataDetection, toydataVOCAnnotationTransform, toy_data_CLASSES, toy_data_ROOT
+from .toy_data_small import toydatasmallDetection, toydatasmallVOCAnnotationTransform, toy_data_small_ROOT
 from .rotation_data import rotationdataDetection, rotationdataVOCAnnotationTransform, rotation_data_CLASSES, rotation_data_ROOT
 from .scale_data import scaledataDetection, scaledataVOCAnnotationTransform, scale_data_CLASSES, scale_data_ROOT
 from .deformation_data import deformationdataDetection, deformationdataVOCAnnotationTransform, deformation_data_CLASSES, deformation_data_ROOT
