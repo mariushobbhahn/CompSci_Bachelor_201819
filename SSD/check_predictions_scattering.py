@@ -7,11 +7,11 @@ from data import *
 from utils.augmentations import SSDAugmentation
 import torch.utils.data as data
 import cv2
-from imutils.video import FPS, WebcamVideoStream
+#from imutils.video import FPS, WebcamVideoStream
 #from ssd import build_ssd
 
 import sys
-sys.path.append('/home/hobbhahn/scattering_transform')
+sys.path.append('/home/marius/Desktop/Comp.Sci_Bachelor_2018/scattering_transform')
 from scattering import Scattering2D
 from scattering_ssd import build_scattering_ssd
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -35,7 +35,7 @@ def str2bool(v):
 parser = argparse.ArgumentParser(
     description='Single Shot MultiBox Detector Evaluation')
 parser.add_argument('--trained_model',
-                    default='weights/scattering_ssd_VOC_no_random_sub_mean_no_normalize_12.3_125000.pth', type=str,
+                    default='weights/scattering_ssd_J2_VOC_random_batch_norm_pretrained_13.2_125000.pth', type=str,
                     help='Trained state_dict file path to open')
 parser.add_argument('--config', default='300x300', choices=['300x300', '1000x300'],
                     type=str, help='size of the imagescales')
@@ -49,7 +49,7 @@ parser.add_argument('--subtract_mean', default=True, type=str2bool,
                     help='subtract the color means before training')
 parser.add_argument('--top_k', default=5, type=int,
                     help='Further restrict the number of predictions to parse')
-parser.add_argument('--cuda', default=True, type=str2bool,
+parser.add_argument('--cuda', default=False, type=str2bool,
                     help='Use cuda to train model')
 parser.add_argument('--dataset_root', default=kitti_ROOT,
                     help='Location of VOC root directory')
@@ -233,6 +233,7 @@ def predict(net, dataset, frame_index, original_size=False, original_image=False
     _t = {'im_detect': Timer(), 'misc': Timer()}
     _t['im_detect'].tic()
     x = scattering(x) #added for scattering transform
+    print("x_size: ", x.size())
     detections = net(x).data
     print("detections_size: ", detections.size())
     #print("detections: ", detections)
@@ -273,8 +274,10 @@ def predict(net, dataset, frame_index, original_size=False, original_image=False
 
 if __name__ == '__main__':
     # load net
+    print("cuda availabe: ", torch.cuda.is_available())
+
     if args.dataset == 'VOC':
-        cfg = voc
+        cfg = VOC_scat
 
         dataset = VOCDetection(root = VOC_ROOT,
                                image_sets=[('2007', set_type)],
@@ -329,7 +332,7 @@ if __name__ == '__main__':
 
     print("dim_x, y: ", cfg['dim_x'], cfg['dim_y'])
 
-    J = 1
+    J = 2
     use_cuda = torch.cuda.is_available()
     if args.mode == 1:
         scattering = Scattering2D(M=cfg['dim_x'], N=cfg['dim_y'], J=J, order2=False, pre_pad=False) #pre_pad true such that we can have an integer number of filters
@@ -340,16 +343,18 @@ if __name__ == '__main__':
     if use_cuda:
         scattering = scattering.cuda()
 
+    K = 64 # quickfix
 
-    net = build_scattering_ssd(phase='test', inp_channels=K, size_x=cfg['dim_x'], size_y=cfg['dim_y'], num_classes=cfg['num_classes'], cfg=cfg)
-    net.load_state_dict(torch.load(args.trained_model))
+
+    net = build_scattering_ssd(phase='test', inp_channels=K, size_x=cfg['dim_x'], size_y=cfg['dim_y'], num_classes=cfg['num_classes'], cfg=cfg, batch_norm=True, pretrained=True)
+    net.load_state_dict(torch.load(args.trained_model, map_location='cpu'))
     if args.cuda:
         net = net.cuda()
         cudnn.benchmark = True
 
     #transform = BaseTransform(cfg['dim_x'], cfg['dim_y'], (104/256.0, 117/256.0, 123/256.0))
 
-    pred = predict(net=net.eval(), dataset=dataset, frame_index=6, original_size=True, confidence_threshold=0.60)
+    pred = predict(net=net.eval(), dataset=dataset, frame_index=5, original_size=True, original_image=True, confidence_threshold=0.50)
     cv2.imshow('frame', pred)
     #cv2.imshow("image", imagefile)
     cv2.waitKey(0)

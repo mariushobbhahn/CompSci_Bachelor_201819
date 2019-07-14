@@ -89,11 +89,11 @@ class Scattering2dSSD(nn.Module):
 
         #transform scattering input to correct format:
         #print("self.K: ", self.K)
-        #print("x.size: ", x.size())
+        print("x.size: ", x.size())
         if self.pretrained_weights:
             x = x.view(x.size(0), 51, 75, 75)
             x = self.transform_layer(x)
-            self.K = 64 #this is only a quick fix; refactor pls 
+            self.K = 64 #this is only a quick fix; refactor pls
         else:
             x = x.view(x.size(0), self.K, 75, 75)
 
@@ -243,7 +243,7 @@ def multibox(vgg, extra_layers, cfg, num_classes, batch_norm):
     loc_layers = []
     conf_layers = []
     vgg_source = [15 + 7 if batch_norm else 15, -2]       #corresponds to conv4_3 and conv7
-    
+
     for k, v in enumerate(vgg_source):
         loc_layers += [nn.Conv2d(vgg[v].out_channels,
                                  cfg[k] * 4, kernel_size=3, padding=1)]

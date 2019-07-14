@@ -98,25 +98,25 @@ def prepare_pretrained_for_scattering_bn(list_of_old_names, list_of_new_names, f
 
 def prepare_pretrained_for_parallel_scattering():
 
-    weights_location = 'weights/vgg16_reduced_bn.pth'
+    weights_location = 'weights/vgg16_reducedfc.pth'
     vgg_weights = torch.load(weights_location)
     for name, param in vgg_weights.items():
          print(name, param.size())
 
     weight_tensor1 = torch.Tensor(128, 91, 3, 3)
     weight_tensor1 = nn.init.xavier_normal_(weight_tensor1)
-    weight_tensor2 = torch.Tensor(256, 371, 3, 3)
-    weight_tensor2 = nn.init.xavier_normal_(weight_tensor2)
+    #weight_tensor2 = torch.Tensor(256, 371, 3, 3)
+    #weight_tensor2 = nn.init.xavier_normal_(weight_tensor2)
 
-    vgg_weights['7.weight'] = weight_tensor1
-    vgg_weights['14.weight'] = weight_tensor2
-    #vgg_weights['5.weight'] = weight_tensor1
+    #vgg_weights['7.weight'] = weight_tensor1
+    #vgg_weights['14.weight'] = weight_tensor2
+    vgg_weights['5.weight'] = weight_tensor1
     #vgg_weights['10.weight'] = weight_tensor2
 
     for name, param in vgg_weights.items():
          print(name, param.size())
 
-    filename = 'weights/vgg16_reduced_bn_scat_par.pth'
+    filename = 'weights/vgg16_reduced_scat_par2.pth'
     print("save the weights at: ", filename)
     torch.save(vgg_weights, filename)
 
@@ -134,9 +134,9 @@ def remove_transformation_layer(weights):
 
 
 
-remove_transformation_layer('weights/scattering_parallel_ssd_J2_VOC_random_batch_norm_pretrained_13_125000.pth')
+#remove_transformation_layer('weights/scattering_parallel_ssd_J2_VOC_random_batch_norm_pretrained_13_125000.pth')
 
-#prepare_pretrained_for_parallel_scattering()
+prepare_pretrained_for_parallel_scattering()
 
 #names for the scattering setup with J=2, this means vgg setup is [128, 128, 256, 256, 256, 'C', 512, 512, 512, 'M',  512, 512, 512] #removed 64, 64, 'M' for the scattering implementation, removed 'M' after 128
 

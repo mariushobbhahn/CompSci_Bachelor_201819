@@ -7,7 +7,7 @@ from data import *
 from utils.augmentations import SSDAugmentation
 import torch.utils.data as data
 import cv2
-from imutils.video import FPS, WebcamVideoStream
+#from imutils.video import FPS, WebcamVideoStream
 from ssd import build_ssd
 
 import sys
@@ -32,7 +32,7 @@ def str2bool(v):
 parser = argparse.ArgumentParser(
     description='Single Shot MultiBox Detector Evaluation')
 parser.add_argument('--trained_model',
-                    default='weights/ssd_VOC_no_random_sub_mean_no_normalize_12.3_150000.pth', type=str,
+                    default='weights/ssd_VOC_300x300_random_no_batch_norm_pretrained_13_125000.pth', type=str,
                     help='Trained state_dict file path to open')
 parser.add_argument('--config', default='300x300', choices=['300x300', '1000x300'],
                     type=str, help='size of the imagescales')
@@ -46,13 +46,13 @@ parser.add_argument('--subtract_mean', default=True, type=str2bool,
                     help='subtract the color means before training')
 parser.add_argument('--top_k', default=5, type=int,
                     help='Further restrict the number of predictions to parse')
-parser.add_argument('--cuda', default=True, type=str2bool,
+parser.add_argument('--cuda', default=False, type=str2bool,
                     help='Use cuda to train model')
-parser.add_argument('--dataset_root', default=toy_data_ROOT,
+parser.add_argument('--dataset_root', default=VOC_ROOT,
                     help='Location of VOC root directory')
 parser.add_argument('--cleanup', default=True, type=str2bool,
                     help='Cleanup and remove results files following eval')
-parser.add_argument('--dataset', default='toy_data', choices=['VOC', 'kitti_voc', 'kitti_voc_small', 'toy_data'],
+parser.add_argument('--dataset', default='VOC', choices=['VOC', 'kitti_voc', 'kitti_voc_small', 'toy_data'],
                     type=str, help='VOC, kitti_voc, toy_data or kitti_voc_small')
 
 
@@ -290,7 +290,7 @@ if __name__ == '__main__':
                                                          size_y=cfg['dim_y'],
                                                          sub_mean=args.subtract_mean,
                                                          mean=VOC_MEANS,
-                                                         normalize=args.normalize,
+                                                         normalize=False,
                                                          norm_value=255),
                                target_transform=VOCAnnotationTransform())
 
@@ -345,26 +345,26 @@ if __name__ == '__main__':
 
     #test_image = "/home/marius/data/kitti_voc/JPEGImages/000000001_000468.jpg"
     #test_label = "/home/marius/data/kitti_voc/Annotations/000000001_000468.xml"
-    test_image = "/home/marius/data/kitti_voc/JPEGImages/000000032_007469.jpg"
-    test_label = "/home/marius/data/kitti_voc/Annotations/000000032_007469.xml"
-    test_image_toy_data = "/home/marius/data/toy_data/JPEGImages/0010000.jpg"
-    test_label_toy_data = "/home/marius/data/toy_data/Annotations/0010000.xml"
-    show_label_annotations(test_image_toy_data, test_label_toy_data, save_file=False)
+    #test_image = "/home/marius/data/kitti_voc/JPEGImages/000000032_007469.jpg"
+    #test_label = "/home/marius/data/kitti_voc/Annotations/000000032_007469.xml"
+    #test_image_toy_data = "/home/marius/data/toy_data/JPEGImages/0010000.jpg"
+    #test_label_toy_data = "/home/marius/data/toy_data/Annotations/0010000.xml"
+    #show_label_annotations(test_image_toy_data, test_label_toy_data, save_file=False)
     #cv2.imwrite('Images/test_annotation.png',pred)
 
     print("dim_x, y: ", cfg['dim_x'], cfg['dim_y'])
-    net = build_ssd(phase='test', size_x=cfg['dim_x'], size_y=cfg['dim_y'], num_classes=cfg['num_classes'], cfg=cfg)            # initialize SSD
-    net.load_state_dict(torch.load(args.trained_model))
+    net = build_ssd(phase='test', size_x=cfg['dim_x'], size_y=cfg['dim_y'], num_classes=cfg['num_classes'], cfg=cfg, batch_norm=False)            # initialize SSD
+    net.load_state_dict(torch.load(args.trained_model, map_location='cpu'))
     if args.cuda:
         net = net.cuda()
         cudnn.benchmark = True
 
 
-    #pred = predict(net=net.eval(), dataset=dataset, frame_index=6, original_size=True, confidence_threshold=0.30)
-    #cv2.imshow('frame', pred)
+    pred = predict(net=net.eval(), dataset=dataset, frame_index=6, original_size=True, confidence_threshold=0.30)
+    cv2.imshow('frame', pred)
     #cv2.imshow("image", imagefile)
-    #cv2.waitKey(0)
+    cv2.waitKey(0)
     #cv2.imwrite('Images/test_VOC.png',pred)
-    #cv2.destroyAllWindows()
+    cv2.destroyAllWindows()
 
     #"""

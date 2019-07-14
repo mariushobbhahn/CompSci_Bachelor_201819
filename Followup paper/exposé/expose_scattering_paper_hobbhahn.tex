@@ -1,0 +1,69 @@
+\documentclass[a4paper,12pt]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\begin{document}
+	
+	
+\begin{center}
+	\large{\textbf{Exposé: Object Detection using the Scattering Transform}}
+\end{center}	
+
+\section{Outline}
+
+\begin{enumerate}
+	\item \textbf{What does already exist?} There is a paper introducing the scattering transform \cite{scatteringTransform2012}. There are multiple papers showing that a combination of Deep Learning architectures and the Scattering Transform can yield state of the art (at their point in time) results for classification tasks and could outperform classic Deep Learning methods for small datasets with some deformations \cite{RotationScalingDeformationSifre2013} \cite{ScalingTheScatteringTransform2017} \cite{3DScatteringTransformNeuro2017}.
+	\item \textbf{What is new?} There are two new contributions: a) The Scattering Transform is applied to object detection with the same method used for classification. This has not been done before (which I will call sequential scattering). b) A second technique is introduced which combines the Scattering Transform and Deep Learning methods in a different way (which I will call parallel scattering).
+	\item \textbf{What are the insights/results?} There are two main results:\\
+	a) The sequential scattering is outperformed by conventional methods on some datasets and outperforms conventional methods on others. It also has some theoretical guarantees that conventional methods do not have. It also 25\% faster than the conventional method. Additionally, it needs less samples to generalize on some datasets compared to conventional methods. In my opinion it is reasonable to use the sequential scattering when you want to have specific theoretical guarantees and speed is important. \\
+	b) The parallel scattering gets the best of both worlds. It is as good as the best of conventional methods and sequential scattering in tested cases (Note: this is a result from a follow up experiment and not from the finished bachelors thesis). It also provides the theoretical guarantees that the sequential scattering has. The downside of the parallel approach is that it takes around twice as long to compute a forward pass as the conventional method. In my opinion the parallel approach can be used in cases where a robust model is more important than fast training.
+	\item \textbf{Why are the results relevant?} 
+	\begin{itemize}
+		\item Providing theoretical guarantees for some kind of transformations can be made without loosing much accuracy. This is be very important in some tasks, i.e. handwritten digit recognition.
+		\item Generalizing patterns better than conventional methods from small amounts of samples can be useful for some applications, i.e. medical applications where only few samples are available.
+		\item Making a forward pass 25\% faster can be important for some online applications like autonomous driving where fast computations are a necessary condition for a working system.
+	\end{itemize}
+	\item \textbf{Why do the new methods work better on the benchmarks}
+	%interpretation and discussion in short
+	There are three questions which must be answered to understand the results of this method.
+	\begin{itemize}
+		\item Why are the results of the scattering methods and the conventional network almost equally good on nearly all datasets? Mainly because all the important information for 2D object detection is contained in a representation that focuses on edges. The scattering representation is a sufficient representation for object detection. 
+		\item Why are the results of the scattering methods better on the translation dataset? Because the scattering transform provides the guarantee of local equivariance w.r.t. translations while the conventional SSD has nearly no theoretical guarantees. 
+		\item Why are the results of the sequential scattering worse than the conventional SSD on VOC? Probably because VOC has overlapping objects in some of its pictures. Two objects can therefore not be perfectly reconstructed only through their edge information if they overlap too much. 
+	\end{itemize}
+\end{enumerate}
+
+\section{Questions}
+
+\begin{enumerate}
+	\item Do we need state of the art algorithms? We use a VGG as the object detection network. VGG is a fully convolutional detector and therefore faster than the two-stage detectors like Faster-RCNN. Therefore we cannot show that our methods beat two stage detectors on the benchmark sets. However, I am not sure if that is a necessary condition for the results to be of importance to the scientific community. We show that the small additions to a VGG setup (sequential and parallel scattering) have specific advantages compared to a conventional VGG setup (without the additions). I feel like this already is an important addition to scientific progress and using two stage detectors is only a nice to have but not necessary addition (We also argue why the method is easily extendable to two stage detectors).
+	However, you have significantly more experience so I would like to hear your opinion on this issue.  
+\end{enumerate}
+	
+	
+	
+	
+\bibliographystyle{alpha}
+\bibliography{bibliography}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}
